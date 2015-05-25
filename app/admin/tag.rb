@@ -1,3 +1,3 @@
 ActiveAdmin.register Tag do
-  permit_params :name
+  permit_params :name, :main
 end
