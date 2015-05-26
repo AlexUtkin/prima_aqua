@@ -40,6 +40,7 @@ class NoticeMailer < ActionMailer::Base
 
   def service(options)
     @service = options
-    mail to: EMAILS, subject: 'Заказ обслуживания'
+    emails = EMAILS + ', neilenko@prima-aqua.ru'
+    mail to: emails, subject: 'Заказ обслуживания'
   end
 end
