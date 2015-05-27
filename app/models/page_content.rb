@@ -1,5 +1,5 @@
 class PageContent < ActiveRecord::Base
-  mount_uploader :main_image, ImageUploader
+  mount_uploader :image, ImageUploader
 
   enum relation: [:service, :other]
 end

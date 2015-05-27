@@ -45,7 +45,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     process resize_to_limit: [1000, 1000]
   end
 
-  version :for_page, :if => :is_page? do
+  version :for_page, if: :is_page? do
     process resize_to_limit: [210, 210]
   end
 
