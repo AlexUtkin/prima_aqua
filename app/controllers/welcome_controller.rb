@@ -47,5 +47,6 @@ class WelcomeController < ApplicationController
   end
 
   def service
+    @service_page = PageContent.service
   end
 end

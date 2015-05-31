@@ -1,0 +1,26 @@
+= semantic_form_for [:admin, @page_content]  do |f|
+  = f.semantic_errors *f.object.errors.keys
+
+  = f.inputs 'Relation' do
+    = f.input :relation, as: :select, collection: PageContent.relations.keys, label: false
+
+  = f.inputs 'Main header' do
+    = f.input :main_header, label: false
+
+  = f.inputs 'Main text' do
+    = f.input :main_text, as: :ckeditor, label: false
+
+  = f.inputs 'Image' do
+    = f.input :image, as: :file, hint: image_tag(@page_content.image.url(:small))
+
+  = f.inputs 'Additional header' do
+    = f.input :additional_header, label: false
+
+  = f.inputs 'Additional text' do
+    = f.input :additional_text, as: :ckeditor, label: false
+
+  - [:seo_title, :seo_description, :seo_keywords].each do |param|
+    = f.inputs "#{param.capitalize}" do
+      = f.input param, label: false
+
+  = f.actions

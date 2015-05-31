@@ -1,5 +1,7 @@
 class PageContent < ActiveRecord::Base
+  enum relation: [:service, :other]
+
   mount_uploader :image, ImageUploader
 
-  enum relation: [:service, :other]
+  scope :service, -> { find_by(relation: relations[:service]) }
 end
