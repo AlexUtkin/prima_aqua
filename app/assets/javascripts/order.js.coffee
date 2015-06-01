@@ -166,7 +166,7 @@ class Order
 
   restoreAquas: (aquas)=>
     html = ''
-    products = $('.products')
+    products = $('.js_products')
     products.html('')
     dep = 0
     for aqua in aquas
@@ -186,7 +186,6 @@ class Order
           #product.find('.js-volume-select-tag').val(aqua.volume)
       #@actualizeWaterPrice(product, aqua.aqua, aqua.volume, aqua.amount)
     $('.js_order_deposit').html(dep)
-
 
   restoreAccessories: (products)=>
     html = ''
@@ -226,7 +225,6 @@ class Order
     else
       $('.js_order__products').slick('slickUnfilter')
 
-
   checkAvailableTime: ()->
     $.ajax
       url: "/check_time?data=#{$('.datepicker').val()}"
@@ -250,7 +248,6 @@ class Order
           parent.find('.js_morning').addClass('active')
           parent.find('.js_delivery_time_selector').data('val', 'morning')
 
-
   changeOrderStep: ->
     $('.order_step').toggleClass('hidden_block')
 
@@ -272,7 +269,7 @@ class Order
       nextArrow: '<button type="button" class="slick-next">></button>'
 
   addPosition: (e)->
-    $('.products').append($('.js_aqua_template').html())
+    $('.js_products').append($('.js_aqua_template').html())
     @actualizeDeposit()
 
   removePosition: (e)->
@@ -297,8 +294,7 @@ class Order
 
   insertProduct: (elem)->
     attr = elem.data()
-    $('.products').append(@productHtml(attr.title, attr.amount, attr.price, attr.id))
-
+    $('.js_products').append(@productHtml(attr.title, attr.amount, attr.price, attr.id))
 
   productHtml: (name, amount, price, id, step=false)->
     cost = if step then parseInt(amount)/parseInt(step) * parseFloat(price) else price
@@ -383,7 +379,7 @@ class Order
 
   actualizeDeposit: ->
     sum = 0.0
-    for dep in $('.products').find('.js_deposit')
+    for dep in $('.js_products').find('.js_deposit')
       sum += parseFloat($(dep).html())
     sum
     $('.js_order_deposit').html(sum)
@@ -396,7 +392,6 @@ class Order
     newCost = if isPositive then oldcost+price else oldcost-price
     elem.find('.js_price_value').html(newCost.toFixed(2))
     priceBlock.show()
-
 
   getInfo: ->
     info = {}
@@ -416,8 +411,8 @@ class Order
 
   getProducts: =>
     products = {}
-    water_lines = $('.products').find('.water_template')
-    accessory_lines = $('.products').find('.accessory_template')
+    water_lines = $('.js_products').find('.water_template')
+    accessory_lines = $('.js_products').find('.accessory_template')
     if water_lines.length > 0
       products['aquas'] = @getWaters(water_lines)
     if accessory_lines.length > 0
@@ -466,8 +461,6 @@ $(document).on 'click', '.variant', (e)->
     selector.find('.variant').toggleClass('active')
     selector.data('val', elem.data('val'))
 
-
-
 $ ->
   order = new Order
   $('.datepicker').datepicker(
@@ -484,6 +477,13 @@ $ ->
   $(document).on 'click', '.js_order_button', ->
     window.hideSpinner()
     order.showModal()
+
+  $(document).on 'click', '.js_add_accessory', (e)=>
+    elem = $(e.currentTarget)
+    unless localStorage.getItem("prima_aqua_card")
+      $('.js_products').html('')
+    order.showModal()
+    order.insertProduct(elem)
 
   $(document).on 'closingOrder', ->
     if $('.thanks').hasClass('hidden_block')

@@ -9,4 +9,4 @@
         = pomp.price
         %span P
     .pomps-list-item-button-wrapper
-      = link_to 'Купить', '#', class: 'pomps-list-item-button'
+      = link_to 'Купить', '#', class: 'pomps-list-item-button js_add_accessory', data: { title: pomp.title, amount: 1, price: pomp.price, id: pomp.id }

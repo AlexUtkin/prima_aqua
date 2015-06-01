@@ -9,4 +9,4 @@
         = accessory.price
         %span P
     .accessories-list-item-button-wrapper
-      = link_to 'Купить', '#', class: 'accessories-list-item-button'
+      = link_to 'Купить', '#', class: 'accessories-list-item-button js_add_accessory', data: { title: accessory.title, amount: 1, price: accessory.price, id: accessory.id }
