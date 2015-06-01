@@ -475,6 +475,7 @@ $ ->
       order.checkAvailableTime()
   )
   $(document).on 'click', '.js_order_button', ->
+    $('.js_products').html('')
     window.hideSpinner()
     order.showModal()
 
