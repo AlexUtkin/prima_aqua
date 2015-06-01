@@ -480,8 +480,7 @@ $ ->
 
   $(document).on 'click', '.js_add_accessory', (e)=>
     elem = $(e.currentTarget)
-    unless localStorage.getItem("prima_aqua_card")
-      $('.js_products').html('')
+    $('.js_products').html('')
     order.showModal()
     order.insertProduct(elem)
 
