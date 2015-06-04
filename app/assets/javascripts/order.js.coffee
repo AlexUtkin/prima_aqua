@@ -191,7 +191,7 @@ class Order
     html = ''
     for product in products
       html = html + @productHtml(product.name, product.amount, product.price, product.info, product.step)
-    $('.products').append(html)
+    $('.js_products').append(html)
 
   fillOrderForm: (info)=>
     form = $(".js_#{info.customer_type}")
