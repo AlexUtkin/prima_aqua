@@ -1,0 +1,11 @@
+= semantic_form_for [:admin, @stand]  do |f|
+  = f.semantic_errors *f.object.errors.keys
+  -[:title, :price].each do |attr|
+    = f.inputs attr.to_s.capitalize! do
+      = f.input attr, label: false
+  = f.inputs 'Image' do
+    = f.file_field :image, label: false
+    %br
+    = render 'partials/image', item: @stand
+
+  = f.actions

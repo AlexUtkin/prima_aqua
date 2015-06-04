@@ -1,0 +1,14 @@
+- title 'Продажа стоек для розлива воды в Санкт-Петеребурге и Ленинградской области'
+- meta_description 'У нас Вы можете купить стойки'
+- meta_keywords 'стойки, купить стойку, заказать стойку'
+.pomps
+  = render partial: 'partials/links_for_indexes'
+  .pomps-line
+  .pomps-filters
+    .pomps-filters-left
+    .pomps-filters-right
+      = order
+      = triangle
+  .pomps-list
+    - @stands.each_with_index do |stand, index|
+      = render 'stands/item', stand: stand, index: index

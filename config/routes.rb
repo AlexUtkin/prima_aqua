@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
   end
   resources :pomps, only: :index
+  resources :stands, only: :index
   resources :accessories, only: :index
   resources :phone_calls, only: :create
   resources :services, only: :create

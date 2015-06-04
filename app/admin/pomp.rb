@@ -9,7 +9,7 @@ ActiveAdmin.register Pomp do
         row attr.to_sym
       end
       row :image do
-        image_tag pomp.image.url
+        image_tag pomp.image.url(:small)
       end
     end
     active_admin_comments
