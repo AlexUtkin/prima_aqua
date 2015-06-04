@@ -6,7 +6,7 @@
     = @service_page.try(:main_header)
   .service-body_imgs
     .service-body_imgs-body
-      @service_page.try(:main_text)
+      = @service_page.try(:main_text).try(:html_safe)
     .service-body_imgs-img
       = image_tag @service_page.try(:image_url, :for_page)
       .service-body_img-button
@@ -15,7 +15,7 @@
     .service-body-title
       = @service_page.try(:additional_header)
     .service-body-text
-      = @service_page.try(:additional_text)
+      = @service_page.try(:additional_text).try(:html_safe)
     -#.service-body-img
     -#  = image_tag 'gears.png'
     -#.service-body-text
