@@ -163,6 +163,7 @@ class Order
     if card.items
       @restoreAquas(card.items.aquas) if card.items.aquas
       @restoreAccessories(card.items.accessories) if card.items.accessories
+    @actualizeDeposit()
 
   restoreAquas: (aquas)=>
     html = ''
