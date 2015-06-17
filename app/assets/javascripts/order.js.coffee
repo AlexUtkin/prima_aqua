@@ -273,9 +273,10 @@ class Order
     $('.js_products').append($('.js_aqua_template').html())
     @actualizeDeposit()
 
-  removePosition: (e)->
+  removePosition: (e)=>
     elem = $(e.currentTarget)
     elem.closest('.water_template').remove()
+    @actualizeDeposit()
 
   removeAccessory: (e)->
     elem = $(e.currentTarget)
