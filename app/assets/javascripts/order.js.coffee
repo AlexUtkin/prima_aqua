@@ -141,7 +141,7 @@ class Order
                       <div class='clearfix'></div>
                     </div>"
           list.append(html)
-          if data.deposit
+          if data.deposit && data.deposit != '0'
             deposit = '+ ' + data.deposit + '<span class="rubles"> Р</span>'
             $('.total_deposit').html(deposit)
           $('.js_total_price').text(parseFloat(data.total).toFixed(2))
@@ -226,15 +226,16 @@ class Order
     else
       $('.js_order__products').slick('slickUnfilter')
 
-  checkAvailableTime: ()->
+  checkAvailableTime: (date = $('.datepicker').val() )->
     $.ajax
-      url: "/check_time?data=#{$('.datepicker').val()}"
+      url: "/check_time?data=#{date}"
       type: 'GET'
       dataType: "json"
       success: (msg)=>
         parent = $('.delivery_time')
         disabled = parent.find('.disabled')
         if msg.length > 0
+          parent.find('.variant').addClass('active')
           disabled.addClass('active').removeClass('disabled')
           for i in msg
             if i == 1
@@ -248,6 +249,14 @@ class Order
           parent.find('.active').removeClass('active')
           parent.find('.js_morning').addClass('active')
           parent.find('.js_delivery_time_selector').data('val', 'morning')
+
+  setDefaultTime: ()=>
+    someDate = new Date
+    hours = someDate.getHours()
+    someDate.setDate(someDate.getDate() + 1)
+    time = if hours < 12 then '' else someDate
+    $('.datepicker').datepicker('setDate', if hours < 12 then (new Date) else someDate)
+    @checkAvailableTime(time)
 
   changeOrderStep: ->
     $('.order_step').toggleClass('hidden_block')
@@ -268,6 +277,8 @@ class Order
       slidesToScroll: 3
       prevArrow: '<button type="button" class="slick-prev"><</button>'
       nextArrow: '<button type="button" class="slick-next">></button>'
+    @actualizeDeposit()
+    @setDefaultTime()
 
   addPosition: (e)->
     $('.js_products').append($('.js_aqua_template').html())
@@ -465,17 +476,22 @@ $(document).on 'click', '.variant', (e)->
 
 $ ->
   order = new Order
+  someDate = new Date
+  if someDate.getHours() >= 12
+    someDate.setDate(someDate.getDate() + 1)
   $('.datepicker').datepicker(
     dayNamesMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"]
     dateFormat: "dd-mm-yy"
     firstDay: 1
     nextText: ">"
     prevText: "<"
-    minDate: new Date()
+    minDate: someDate
+    defaultDate: someDate
     monthNames: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
     onSelect: (date) ->
       order.checkAvailableTime()
   )
+
   $(document).on 'click', '.js_order_button', ->
     $('.js_products').html('')
     window.hideSpinner()

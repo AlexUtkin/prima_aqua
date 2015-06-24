@@ -19,4 +19,4 @@
         = cooler.price
         %span Р
     .coolers-list-item-button-wrapper
-      = link_to 'Купить', '#', class: 'coolers-list-item-button js_add_accessory', data: { title: cooler.title, amount: 1, price: cooler.price, id: cooler.id }
+      = link_to 'Купить', '#', class: 'coolers-list-item-button js_add_accessory', data: { title: cooler.title, amount: 1, price: cooler.price, id: "#{cooler.id}-Cooler" }

@@ -14,6 +14,7 @@ class OrderService
     dt = date.present? ? Date.parse(date) : Date.today
     setting = OrderSetting.first
     result = []
+    result << 1 if dt == Date.today
     puts setting.disabled_day?(dt) || setting.disabled_date?(dt)
     puts setting.disabled_morning_day?(dt) || setting.disabled_morning_date?(dt)
     puts setting.disabled_evening_day?(dt) || setting.disabled_evening_date?(dt)
@@ -24,7 +25,7 @@ class OrderService
     elsif setting.disabled_evening_day?(dt) || setting.disabled_evening_date?(dt)
       result << 2
     end
-    result
+    result.uniq
   end
   def self.get_order_json(params)
     ar = []
