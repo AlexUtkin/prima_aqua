@@ -32,47 +32,47 @@
         Технические характеристики
       .coolers-right-params_table
         .coolers-right-params_table-left
-          - if @cooler.type_construction
+          - if @cooler.type_construction.present?
             .coolers-right-params_table-left-item
               Тип конструкции
-          - if @cooler.type_cooling
+          - if @cooler.type_cooling.present?
             .coolers-right-params_table-left-item
               Тип охлаждения
-          - if @cooler.heat
+          - if @cooler.heat.present?
             .coolers-right-params_table-left-item
               Нагрев
-          - if @cooler.power_heat
+          - if @cooler.power_heat.present?
             .coolers-right-params_table-left-item
               Мощность нагрева
-          - if @cooler.cooling
+          - if @cooler.cooling.present?
             .coolers-right-params_table-left-item
               Охлаждение
-          - if @cooler.power_cooling
+          - if @cooler.power_cooling.present?
             .coolers-right-params_table-left-item
               Мощность охлаждения
-          - if @cooler.dimensions
+          - if @cooler.dimensions.present?
             .coolers-right-params_table-left-item
               Габариты (ш*г*в)
         .coolers-right-params_table-right
-          - if @cooler.type_construction
+          - if @cooler.type_construction.present?
             .coolers-right-params_table-right-item
               = @cooler.type_construction
-          - if @cooler.type_cooling
+          - if @cooler.type_cooling.present?
             .coolers-right-params_table-right-item
               = @cooler.type_cooling
-          - if @cooler.heat
+          - if @cooler.heat.present?
             .coolers-right-params_table-right-item
               = @cooler.heat
-          - if @cooler.power_heat
+          - if @cooler.power_heat.present?
             .coolers-right-params_table-right-item
               = @cooler.power_heat
-          - if @cooler.cooling
+          - if @cooler.cooling.present?
             .coolers-right-params_table-right-item
               = @cooler.cooling
-          - if @cooler.power_cooling
+          - if @cooler.power_cooling.present?
             .coolers-right-params_table-right-item
               = @cooler.power_cooling
-          - if @cooler.dimensions
+          - if @cooler.dimensions.present?
             .coolers-right-params_table-right-item
               = @cooler.dimensions
       .coolers-right-service_title
