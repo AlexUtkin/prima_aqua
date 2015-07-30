@@ -49,7 +49,7 @@ ssh_options[:forward_agent] = true
 set :application,     "prima-aqua"
 
 # Сервер размещения проекта.
-set :deploy_server,   "neon.locum.ru"
+set :deploy_server,   "titanium.locum.ru"
 
 # Не включать в поставку разработческие инструменты и пакеты тестирования.
 set :bundle_without,  [:development, :test]
