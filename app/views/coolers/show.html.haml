@@ -32,35 +32,49 @@
         Технические характеристики
       .coolers-right-params_table
         .coolers-right-params_table-left
-          .coolers-right-params_table-left-item
-            Тип конструкции
-          .coolers-right-params_table-left-item
-            Тип охлаждения
-          .coolers-right-params_table-left-item
-            Нагрев
-          .coolers-right-params_table-left-item
-            Мощность нагрева
-          .coolers-right-params_table-left-item
-            Охлаждение
-          .coolers-right-params_table-left-item
-            Мощность охлаждения
-          .coolers-right-params_table-left-item
-            Габариты (ш*г*в)
+          - if @cooler.type_construction
+            .coolers-right-params_table-left-item
+              Тип конструкции
+          - if @cooler.type_cooling
+            .coolers-right-params_table-left-item
+              Тип охлаждения
+          - if @cooler.heat
+            .coolers-right-params_table-left-item
+              Нагрев
+          - if @cooler.power_heat
+            .coolers-right-params_table-left-item
+              Мощность нагрева
+          - if @cooler.cooling
+            .coolers-right-params_table-left-item
+              Охлаждение
+          - if @cooler.power_cooling
+            .coolers-right-params_table-left-item
+              Мощность охлаждения
+          - if @cooler.dimensions
+            .coolers-right-params_table-left-item
+              Габариты (ш*г*в)
         .coolers-right-params_table-right
-          .coolers-right-params_table-right-item
-            = @cooler.type_construction
-          .coolers-right-params_table-right-item
-            = @cooler.type_cooling
-          .coolers-right-params_table-right-item
-            = @cooler.heat
-          .coolers-right-params_table-right-item
-            = @cooler.power_heat
-          .coolers-right-params_table-right-item
-            = @cooler.cooling
-          .coolers-right-params_table-right-item
-            = @cooler.power_cooling
-          .coolers-right-params_table-right-item
-            = @cooler.dimensions
+          - if @cooler.type_construction
+            .coolers-right-params_table-right-item
+              = @cooler.type_construction
+          - if @cooler.type_cooling
+            .coolers-right-params_table-right-item
+              = @cooler.type_cooling
+          - if @cooler.heat
+            .coolers-right-params_table-right-item
+              = @cooler.heat
+          - if @cooler.power_heat
+            .coolers-right-params_table-right-item
+              = @cooler.power_heat
+          - if @cooler.cooling
+            .coolers-right-params_table-right-item
+              = @cooler.cooling
+          - if @cooler.power_cooling
+            .coolers-right-params_table-right-item
+              = @cooler.power_cooling
+          - if @cooler.dimensions
+            .coolers-right-params_table-right-item
+              = @cooler.dimensions
       .coolers-right-service_title
         Обслуживание
       .coolers-right-service_desc
