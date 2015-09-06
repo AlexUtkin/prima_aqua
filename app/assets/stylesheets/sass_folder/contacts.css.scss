@@ -15,17 +15,28 @@
   margin: 0 auto;
 }
 .contacts-body-blocks{
-  height: 200px;
   display: inline-block;
-  margin: 20px auto 80px;
+  margin: 20px auto 40px;
 }
 .contacts-body-blocks-item{
-  float: left;
+  display: inline-block;
   margin: 0 10px;
   border-radius: 3px;
   background-color:  #f7f7f7;
   width: 400px;
   height: 200px;
+}
+.contacts-body-blocks-wide-item{
+  clear: both;
+  margin: 20px auto;
+  border-radius: 3px;
+  background-color:  #f7f7f7;
+  min-width: 400px;
+  width: 80%;
+  height: 200px;
+  .contacts-body-blocks-item-title-text{
+    padding: 17px 35px 0;
+  }
 }
 
 .contacts-body-blocks-item-title{}
