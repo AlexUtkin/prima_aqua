@@ -25,3 +25,5 @@ gem "paperclip", "~> 4.2"
 gem 'unicorn'
 
 gem 'capistrano', '2.15.5'
+
+gem 'pry'

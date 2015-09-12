@@ -1,5 +1,5 @@
 ActiveAdmin.register District do
-  permit_params :name, :popup, :str
+  permit_params :name, :popup, :str, :lat, :lon
   form do |f|
     f.semantic_errors
     [:name, :str, :lat, :lon].each do |param|
