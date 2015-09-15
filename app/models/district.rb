@@ -4,7 +4,7 @@ class District < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('lower(name) LIKE ?', "%#{search.downcase}%")
+      where('lower(name) LIKE lower(?)', "%#{search.downcase}%")
     else
       all
     end
