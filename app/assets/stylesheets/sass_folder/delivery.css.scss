@@ -92,6 +92,12 @@
   -webkit-column-count: 3;
   -moz-column-count: 3;
   column-count: 3;
+  a{
+    color: #0080bb;
+    &:hover{
+      color: #d1d1d1;
+    }
+  }
 }
 
 
@@ -148,8 +154,8 @@
 }
 
 .close-modal{
-  position: relative;
-  top: -121px;
+  position: absolute;
+  top: 7px;
   left: 297px;
   cursor: pointer;
 }
