@@ -21,6 +21,18 @@
         %span Доставка в пригороды
         %br
         Выберите свой город, чтобы узнать по каким дня происходит доставка
+      .delivery-body-text-delivery-district
+        %span Стоимость доставки
+        %br
+        Доставка осуществляется бесплатно при следующих условиях:
+        %br
+        1) заказ воды на сумму от 450 руб.
+        %br
+        2) заказ воды на сумму от 450 руб. и любого количества сопутствующих товаров
+        %br
+        3) заказ только сопутствующих товаров на сумму от 1000 руб.
+        %br
+        В остальных случаях стоимость доставки составляет 150 руб.
     .delivery-body-text-delivery-info
       .delivery-body-text-delivery-info-text
         %big Вы можете оформить заказ по телефону
@@ -62,10 +74,10 @@
 
   ymaps.ready(init);
   function init() {
-      var myMap = new ymaps.Map('delivery-body-map', {
-        center: [59.980488, 30.02889],
-        zoom: 7.7
-      });
+    var myMap = new ymaps.Map('delivery-body-map', {
+      center: [59.980488, 30.02889],
+      zoom: 7.7
+    });
     $.each(gon.district, function(index, value) {
       myMap.geoObjects.add(new ymaps.Placemark([value.lat, value.lon], {
         hintContent: ''
