@@ -19,7 +19,7 @@
             = @cooler.price
             %span Р
         .cooler-right-button-wrapper
-          = link_to 'Купить', '#', class: 'cooler-right-button'
+          = link_to 'Купить', '#', class: 'cooler-right-button js_add_accessory', data: { title: @cooler.title, amount: 1, price: @cooler.price, id: "#{@cooler.id}-Cooler" }
       .coolers-right-options
         .coolers-right-options-tag
           - if @cooler.tags.any?   
