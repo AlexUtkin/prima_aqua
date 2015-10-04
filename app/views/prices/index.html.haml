@@ -3,6 +3,9 @@
   .prices__title
     %h1 Цены
 
+  .prices__hint
+    = image_tag image_url('select_volume.png')
+
   .prices__filters
     - if @grouped_volumes[:big]
       .price_filter.filter__big.selected_filter{ class: ('js_filter' if @brands[:big].present?), data: { filter: 'big' }}
