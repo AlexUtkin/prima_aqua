@@ -1,14 +1,22 @@
 = include_gon
 = semantic_form_for [:admin, @cooler]  do |f|
   = f.semantic_errors *f.object.errors.keys
-  -[:title, :description, :price, :type_construction, :type_cooling, :heat, :power_heat, :cooling,
-  :power_cooling, :dimensions, :service, :seo_title, :seo_description, :seo_keywords].each do |attr|
+
+  = f.inputs 'Title' do
+    = f.input :title, label: false
+  = f.inputs 'Description' do
+    = f.input :description, as: :ckeditor, label: false
+
+  -[:price, :type_construction, :type_cooling, :heat, :power_heat, :cooling,
+  :power_cooling, :dimensions, :seo_title, :seo_description, :seo_keywords].each do |attr|
     = f.inputs attr.to_s.capitalize! do
       = f.input attr, label: false
   //= f.inputs 'Image' do
   //  = f.file_field :image, label: false
   //  %br
   //  = render 'partials/image', item: @cooler
+  = f.inputs 'Service' do
+    = f.input :service, as: :ckeditor, label: false
 
   = f.inputs 'Images' do
     = f.fields_for :image do |image|
