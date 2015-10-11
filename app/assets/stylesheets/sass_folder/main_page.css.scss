@@ -4,13 +4,14 @@
     max-width: 1600px;
     margin: 1px auto 0;
     .water__block__main_image{
+      position: relative;
       color: white;
       img{
         width: 100%;
       }
       .infografika{
         position: absolute;
-        top: 44%;
+        bottom: 58px;
         right: 5%;
       }
       .infograf_bottles{
