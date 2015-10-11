@@ -7,7 +7,7 @@
 .main_page
   .water__block
     .water__block__main_image
-      =image_tag image_url('back_with_bottle.jpg')
+      =image_tag image_url('back_without_bottle.jpg')
       .water__block__main_image__text
         .main_image__text
           .main_image__text__header
@@ -22,26 +22,29 @@
             привезут в школы, дома и в офисы Северной столицы.
           %a.main_page__button{ href: '/aquas/1' }
             Чем же так хороша Прима Аква
-      .infogr
-        .infogr_price
-          %span
-            От
-          225
-          %span.rubles
-            Р
-        .infogr_line
-        .infogr_volume
-          .infogr_volume_count
-            %span 19
-            литров
-      .infogr_base.infogr_19
-        = image_tag image_url('19.png')
-      .infogr_base.infogr_8
-        = image_tag image_url('8.png')
-      .infogr_base.infogr_6
-        = image_tag image_url('6.png')
-      .infogr_base.infogr_1
-        = image_tag image_url('1.png')
+      .infografika
+        .infograf_bottles
+          = image_tag image_url('main_bottles.png')
+        .infogr
+          .infogr_price
+            %span
+              От
+            225
+            %span.rubles
+              Р
+          .infogr_line
+          .infogr_volume
+            .infogr_volume_count
+              %span 19
+              литров
+        .infogr_base.infogr_19
+          = image_tag image_url('19.png')
+        .infogr_base.infogr_8
+          = image_tag image_url('8.png')
+        .infogr_base.infogr_6
+          = image_tag image_url('6.png')
+        .infogr_base.infogr_1
+          = image_tag image_url('1.png')
     .little_images
       .water__block__arhyz_image.block_to_inline
         %a{ href: '/aquas/3' }
@@ -145,11 +148,10 @@
     default_hover();  
     function default_hover(){
       $('.infogr_19').children('img').css('right', '37px');
+      $('.infograf_bottles img').removeClass().addClass('l19');
       $('.infogr').css('display', 'block');
-      var volume = '';
-      var price = '<span>От</span>'
-      price += gon.price_19+'<span class="rubles">Р</span>'
-      volume = '<span>19</span> литров'
+      var volume = '<span>19</span> литров';
+      var price = '<span>От</span>' + gon.price_19 + '<span class="rubles">Р</span>';
       $('.infogr_volume_count').html(volume);
       $('.infogr_price').html(price);
     }
@@ -161,20 +163,22 @@
           $(this).children('img').css('right', px);
           $('.infogr').css('display', 'block');
           var volume = '';
-          var price = '<span>От</span>'
-          if (elem.split('_')[1] == '19'){
-            price += gon.price_19+'<span class="rubles">Р</span>'
-            volume = '<span>19</span> литров'
-          } else if (elem.split('_')[1] == '8'){
-            price += gon.price_8+'<span class="rubles">Р</span>'
-            volume = '<span>8</span> литров'
-          } else if (elem.split('_')[1] == '6'){
-            price += gon.price_6+'<span class="rubles">Р</span>'
-            volume = '<span>6</span> литров'
-          } else if (elem.split('_')[1] == '1'){
-            price += gon.price_1+'<span class="rubles">Р</span>'
-            volume = '<span>0,6</span> литра'
+          var price = '<span>От</span>';
+          var vol = elem.split('_')[1];
+          if (vol == '19'){
+            price += gon.price_19+'<span class="rubles">Р</span>';
+            volume = '<span>19</span> литров';
+          } else if (vol == '8'){
+            price += gon.price_8+'<span class="rubles">Р</span>';
+            volume = '<span>8</span> литров';
+          } else if (vol == '6'){
+            price += gon.price_6+'<span class="rubles">Р</span>';
+            volume = '<span>6</span> литров';
+          } else if (vol == '1'){
+            price += gon.price_1+'<span class="rubles">Р</span>';
+            volume = '<span>0,6</span> литра';
           }
+          $('.infograf_bottles img').removeClass().addClass('l'+vol);
           $('.infogr_volume_count').html(volume);
           $('.infogr_price').html(price);
         },

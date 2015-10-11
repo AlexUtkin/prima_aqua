@@ -27,7 +27,7 @@
         .coolers-right-options-item
           = @cooler.type_cooling
       .coolers-right-desc
-        = @cooler.description
+        = raw @cooler.description
       .coolers-right-params_title
         Технические характеристики
       .coolers-right-params_table
@@ -78,7 +78,7 @@
       .coolers-right-service_title
         Обслуживание
       .coolers-right-service_desc
-        = @cooler.service
+        = raw @cooler.service
 
 :javascript
   $("[id^='image_']").click(function(){

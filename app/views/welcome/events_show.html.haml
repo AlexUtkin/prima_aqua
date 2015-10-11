@@ -9,6 +9,6 @@
   .event_body-image
     = image_tag @event.image.url
   .event_body-text
-    = @event.description
+    = raw @event.description
   .event_body-date
     = Russian::strftime(@event.created_at, '%e %B %Y')
