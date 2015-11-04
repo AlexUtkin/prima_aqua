@@ -7,7 +7,7 @@
 .main_page
   .water__block
     .water__block__main_image
-      =image_tag image_url('back_without_bottle.jpg')
+      -#=image_tag image_url('back_without_bottle.jpg')
       .water__block__main_image__text
         .main_image__text
           .main_image__text__header
@@ -15,10 +15,10 @@
           .main_image__text__title
             Природная вода из Карельского перешейка
           .main_image__text__text
-            В экологически чистом районе Карельского перешейка 
-            находится артезианская скважина №156, дающая 
-            чистую природную воду гдовского водоносного 
-            горизонта, которую уже через несколько часов 
+            В экологически чистом районе Карельского перешейка
+            находится артезианская скважина №156, дающая
+            чистую природную воду гдовского водоносного
+            горизонта, которую уже через несколько часов
             привезут в школы, дома и в офисы Северной столицы.
           %a.main_page__button{ href: '/aquas/1' }
             Чем же так хороша Прима Аква
@@ -74,7 +74,7 @@
 
   .about_company__block
     .about_company__block_image
-      =image_tag image_url('about.jpg')
+      -#=image_tag image_url('about.jpg')
       .about_company__text
         .about_company__text__header
           О компании
@@ -84,11 +84,11 @@
           питьевой водой, доставляя в офисы и квартиры бутилированную воду
         .about_company__text__quote_author
         .about_company__text__text
-          На сегодня мы имеем современное производство по розливу воды, 
-          расположенное в удаленном от городской черты экологически чистом 
-          районе Карельского перешейка. Размещение производства 
-          непосредственно у скважины соответствует международным 
-          требованиям Всемирной Организации Здравоохранения, 
+          На сегодня мы имеем современное производство по розливу воды,
+          расположенное в удаленном от городской черты экологически чистом
+          районе Карельского перешейка. Размещение производства
+          непосредственно у скважины соответствует международным
+          требованиям Всемирной Организации Здравоохранения,
           запрещающим транспортировку воды к месту бутилирования.
           %br
           %br
@@ -102,7 +102,7 @@
 
   .equipment__block
     .equipment__block_image
-      =image_tag image_url('equipment.jpg')
+      -#=image_tag image_url('equipment.jpg')
       .equipment__block__text
         .equipment__block__text__header
           Оборудование
@@ -120,7 +120,7 @@
 
   .delivery__block
     .delivery__block_map
-      =image_tag image_url('map.jpg')
+      -#=image_tag image_url('map.jpg')
       .delivery__block_map__text
         .delivery__block_map__text__header
           Доставка воды
@@ -145,7 +145,15 @@
 
 :javascript
   $(document).ready(function(){
-    default_hover();  
+    //$('.main_page').fullpage({
+    //  scrollBar: true,
+    //  normalScrollElements: '.footer, .main_header'
+    //});
+    $('.little_images img')[0].onload = function() {
+        $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
+    };
+
+    default_hover();
     function default_hover(){
       $('.infogr_19').children('img').css('right', '37px');
       $('.infograf_bottles img').removeClass().addClass('l19');
@@ -193,5 +201,113 @@
     custom_hover('.infogr_8', '37px');
     custom_hover('.infogr_6', '37px');
     custom_hover('.infogr_1', '35px');
-  })
 
+    water = $('.water__block').offset().top - 20;
+    about = $('.about_company__block').offset().top - 100;
+    equip = $('.equipment__block').offset().top - 100;
+    deliv = $('.delivery__block').offset().top - 100;
+
+    enableScroll = true;
+    flag = false;
+    direction = 0;
+
+    $( window ).on('mousewheel', function(e) {
+      //console.log(e.originalEvent);
+      //console.log(water + ' ; ' + about + ' ; ' + equip + ' ; ' + deliv + ' = ' + $( "body" ).scrollTop()+ ' , ' + e.originalEvent.wheelDelta);
+      if (!enableScroll){
+        e.stopPropagation();
+        e.preventDefault();
+        if (flag){
+          flag = false;
+          setTimeout(function(){enableScroll = true;}, 500);
+        }
+        return;
+      } else {
+        tmp = $( "body" ).scrollTop();
+        direction = e.originalEvent.wheelDelta;
+        //console.log(direction + ' , ' + tmp);
+        //console.log(water + ' ; ' + about + ' ; ' + equip + ' ; ' + deliv + ' = ' + tmp + ' , ' + direction);
+
+        if (tmp >= 0 && tmp <= water - 1 && direction < 0){
+          direction = 0;
+          e.stopPropagation();
+          e.preventDefault();
+          enableScroll = false;
+          flag = true;
+          $("html, body").animate({ scrollTop: water + "px" });
+        }
+
+        //if (tmp >= equip + 1 && tmp <= equip + 500) {
+        if (tmp >= equip - 100 && tmp <= equip + 500 && direction < 0) {
+          //console.log('to deliv' + equip + ' ; ' + deliv);
+          direction = 0;
+          e.stopPropagation();
+          e.preventDefault();
+          enableScroll = false;
+          flag = true;
+          $("html, body").animate({ scrollTop: deliv + "px" });
+          //$( "body" ).scrollTop(deliv);
+        }
+
+        //if (tmp >= about + 1 && tmp <= about + 500) {
+        if (tmp >= about - 100 && tmp <= about + 500 && direction < 0) {
+          //console.log('to equip' + about + ' ; ' + equip);
+          direction = 0;
+          e.stopPropagation();
+          e.preventDefault();
+          enableScroll = false;
+          flag = true;
+          $("html, body").animate({ scrollTop: equip + "px" });
+          //$( "body" ).scrollTop(equip);
+        }
+
+        //if (tmp >= water + 1 && tmp <= water + 500) {
+        if (tmp >= water - 20 && tmp <= water + 500 && direction < 0) {
+          //console.log('to about' + water + ' ; ' + about);
+          direction = 0;
+          e.stopPropagation();
+          e.preventDefault();
+          enableScroll = false;
+          flag = true;
+          $("html, body").animate({ scrollTop: about + "px" });
+          //$( "body" ).scrollTop(about);
+        }
+
+        //if (tmp >= deliv - 500 && tmp <= deliv - 1) {
+        if (tmp >= deliv - 500 && tmp <= deliv + 100 && direction > 0) {
+          //console.log('to equip' + deliv + ' ; ' + equip);
+          direction = 0;
+          e.stopPropagation();
+          e.preventDefault();
+          enableScroll = false;
+          flag = true;
+          $("html, body").animate({ scrollTop: equip + "px" });
+          //$( "body" ).scrollTop(equip);
+        }
+
+        //if (tmp >= equip - 500 && tmp <= equip - 1) {
+        if (tmp >= equip - 500 && tmp <= equip + 100 && direction > 0) {
+          //console.log('to about' + equip + ' ; ' + about);
+          direction = 0;
+          e.stopPropagation();
+          e.preventDefault();
+          enableScroll = false;
+          flag = true;
+          $("html, body").animate({ scrollTop: about + "px" });
+          //$( "body" ).scrollTop(about);
+        }
+
+        //if (tmp >= about - 500 && tmp <= about - 1) {
+        if (tmp >= about - 500 && tmp <= about + 100 && direction > 0) {
+          //console.log('to water' + about + ' ; ' + water);
+          direction = 0;
+          e.stopPropagation();
+          e.preventDefault();
+          enableScroll = false;
+          flag = true;
+          $("html, body").animate({ scrollTop: water + "px" });
+          //$( "body" ).scrollTop(water);
+        }
+      }
+    });
+  })
