@@ -149,9 +149,9 @@
     //  scrollBar: true,
     //  normalScrollElements: '.footer, .main_header'
     //});
-    $('.little_images img')[0].onload = function() {
+    $('.little_images img').load(function() {
         $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
-    };
+    });
 
     default_hover();
     function default_hover(){
