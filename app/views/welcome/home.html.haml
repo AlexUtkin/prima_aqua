@@ -147,10 +147,6 @@
   var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel";
   var correcting=(/Firefox/i.test(navigator.userAgent))? -1 : 1;
   $(document).ready(function(){
-    //$('.main_page').fullpage({
-    //  scrollBar: true,
-    //  normalScrollElements: '.footer, .main_header'
-    //});
     $('.little_images img').load(function() {
       $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
       var myVar = setInterval(function(){
@@ -327,4 +323,29 @@
         }
       }
     };
+
+    // if ($('.infografika').css('bottom') == "58px"){
+    //   $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
+    // };
+
+    // setTimeout(function() {
+    //   if ($('.infografika').css('bottom') == "58px"){
+    //     $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
+    //   };
+    // }, 1500);
+
+    var myInterval = setInterval(function(){
+      console.log("interval");
+      try{
+        if( $('.little_images img')[0].clientHeight > 60 && $('.infografika').css('bottom') == "58px") {
+          $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
+        }
+        if ($('.infografika').css('bottom') != "58px") {
+          clearInterval(myInterval);
+        }
+      }
+      finally {
+        clearInterval(myInterval);
+      }
+    }, 500);
   })
