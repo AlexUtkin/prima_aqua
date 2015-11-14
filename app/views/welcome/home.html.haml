@@ -144,13 +144,21 @@
           Подробнее о доставке
 
 :javascript
+  var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel";
+  var correcting=(/Firefox/i.test(navigator.userAgent))? -1 : 1;
   $(document).ready(function(){
     //$('.main_page').fullpage({
     //  scrollBar: true,
     //  normalScrollElements: '.footer, .main_header'
     //});
     $('.little_images img').load(function() {
-        $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
+      $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
+      var myVar = setInterval(function(){
+        if( $('.little_images img')[2].complete ) {
+          clearInterval(myVar);
+          $('.infografika').css('bottom', $('.little_images img')[2].clientHeight + 75);
+        }
+      }, 500);
     });
 
     default_hover();
@@ -211,27 +219,42 @@
     flag = false;
     direction = 0;
 
-    $( window ).on('mousewheel', function(e) {
-      //console.log(e.originalEvent);
-      //console.log(water + ' ; ' + about + ' ; ' + equip + ' ; ' + deliv + ' = ' + $( "body" ).scrollTop()+ ' , ' + e.originalEvent.wheelDelta);
+    el = $(window)[0];
+    if (el.addEventListener) {
+      if ('onwheel' in document) {
+        // IE9+, FF17+, Ch31+
+        el.addEventListener("wheel", onWheel);
+      } else if ('onmousewheel' in document) {
+        // устаревший вариант события
+        el.addEventListener("mousewheel", onWheel);
+      } else {
+        // Firefox < 17
+        el.addEventListener("MozMousePixelScroll", onWheel);
+      }
+    } else { // IE8-
+      el.attachEvent("onmousewheel", onWheel);
+    };
+
+    function onWheel(e) {
+      e = e || window.event;
       if (!enableScroll){
-        e.stopPropagation();
-        e.preventDefault();
+        e.preventDefault ? e.preventDefault() : (e.returnValue = false);
         if (flag){
           flag = false;
           setTimeout(function(){enableScroll = true;}, 500);
         }
         return;
       } else {
-        tmp = $( "body" ).scrollTop();
-        direction = e.originalEvent.wheelDelta;
-        //console.log(direction + ' , ' + tmp);
-        //console.log(water + ' ; ' + about + ' ; ' + equip + ' ; ' + deliv + ' = ' + tmp + ' , ' + direction);
+        tmp = $( window ).scrollTop();
+        delta = e.deltaY || e.detail || e.wheelDelta;
+        //direction = delta * correcting;
+        direction = delta * -1;
+        // console.log(direction + ' , ' + tmp);
+        // console.log(water + ' ; ' + about + ' ; ' + equip + ' ; ' + deliv + ' = ' + tmp + ' , ' + direction);
 
         if (tmp >= 0 && tmp <= water - 1 && direction < 0){
           direction = 0;
-          e.stopPropagation();
-          e.preventDefault();
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: water + "px" });
@@ -241,8 +264,7 @@
         if (tmp >= equip - 100 && tmp <= equip + 500 && direction < 0) {
           //console.log('to deliv' + equip + ' ; ' + deliv);
           direction = 0;
-          e.stopPropagation();
-          e.preventDefault();
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: deliv + "px" });
@@ -253,8 +275,7 @@
         if (tmp >= about - 100 && tmp <= about + 500 && direction < 0) {
           //console.log('to equip' + about + ' ; ' + equip);
           direction = 0;
-          e.stopPropagation();
-          e.preventDefault();
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: equip + "px" });
@@ -265,8 +286,7 @@
         if (tmp >= water - 20 && tmp <= water + 500 && direction < 0) {
           //console.log('to about' + water + ' ; ' + about);
           direction = 0;
-          e.stopPropagation();
-          e.preventDefault();
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: about + "px" });
@@ -277,8 +297,7 @@
         if (tmp >= deliv - 500 && tmp <= deliv + 100 && direction > 0) {
           //console.log('to equip' + deliv + ' ; ' + equip);
           direction = 0;
-          e.stopPropagation();
-          e.preventDefault();
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: equip + "px" });
@@ -289,8 +308,7 @@
         if (tmp >= equip - 500 && tmp <= equip + 100 && direction > 0) {
           //console.log('to about' + equip + ' ; ' + about);
           direction = 0;
-          e.stopPropagation();
-          e.preventDefault();
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: about + "px" });
@@ -301,13 +319,12 @@
         if (tmp >= about - 500 && tmp <= about + 100 && direction > 0) {
           //console.log('to water' + about + ' ; ' + water);
           direction = 0;
-          e.stopPropagation();
-          e.preventDefault();
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: water + "px" });
           //$( "body" ).scrollTop(water);
         }
       }
-    });
+    };
   })

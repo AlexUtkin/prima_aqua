@@ -23,4 +23,5 @@ capybara-*.html
 /public/assets/*
 /public/uploads/*
 /.idea
+/log
 
