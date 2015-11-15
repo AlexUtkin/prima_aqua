@@ -61,12 +61,93 @@
       aqua_prices.removeClass('middle');
     };
     aqua_prices.height($('.aqua_posts').height()/#{@posts.size} - 10);
-  }
+  };
+
+  function enable_scrolling(){
+    // scrolling
+    enableScroll = true;
+    flag = false;
+    direction = 0;
+
+    el = $(window)[0];
+    if (el.addEventListener) {
+      if ('onwheel' in document) {
+        // IE9+, FF17+, Ch31+
+        el.addEventListener("wheel", onWheel);
+      } else if ('onmousewheel' in document) {
+        // устаревший вариант события
+        el.addEventListener("mousewheel", onWheel);
+      } else {
+        // Firefox < 17
+        el.addEventListener("MozMousePixelScroll", onWheel);
+      }
+    } else { // IE8-
+      el.attachEvent("onmousewheel", onWheel);
+    };
+
+    posts = $('.aqua_posts .post')
+    posts_count = posts.length;
+
+    offsets = []
+    posts.each(function( index ) {
+      offsets[index] = $( this ).offset().top - (index == 0 ? 20 : 100);
+    });
+
+    function onWheel(e) {
+      e = e || window.event;
+      if (!enableScroll){
+        e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+        if (flag){
+          flag = false;
+          setTimeout(function(){enableScroll = true;}, 500);
+        }
+        return;
+      } else {
+        tmp = $( window ).scrollTop();
+        delta = e.deltaY || e.detail || e.wheelDelta;
+        direction = delta * -1;
+
+        // from header to first slide
+        first_offset = offsets[0];
+        if (tmp >= 0 && tmp <= first_offset - 1 && direction < 0){
+          direction = 0;
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+          enableScroll = false;
+          flag = true;
+          $("html, body").animate({ scrollTop: first_offset + "px" });
+        }
+
+        for (var i = 0; i < posts_count; i++) {
+          if (tmp >= offsets[i] - 100 && tmp <= offsets[i] + 500 && direction < 0 && i < posts_count - 1) {
+            e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+            direction = 0;
+            enableScroll = false;
+            flag = true;
+            $("html, body").animate({ scrollTop: offsets[i+1] + "px" });
+          }
+          if (tmp >= offsets[i] - 500 && tmp <= offsets[i] + 100 && direction > 0 && i > 0) {
+            e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+            direction = 0;
+            enableScroll = false;
+            flag = true;
+            $("html, body").animate({ scrollTop: offsets[i-1] + "px" });
+          }
+        }
+      }
+    }; // end function onWheel
+  };
+
   $(document).ready(function(){
     setTimeout("setClassToPrices();", 100);
   });
+
   $(function() {
     $(window).on('scroll', function() {
       setClassToPrices();
     });
   });
+  $(window).bind("load", function() {
+    enable_scrolling();
+  });
+
+

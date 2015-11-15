@@ -334,18 +334,17 @@
     //   };
     // }, 1500);
 
+    // HACKS for infografika position
     var myInterval = setInterval(function(){
-      console.log("interval");
-      try{
-        if( $('.little_images img')[0].clientHeight > 60 && $('.infografika').css('bottom') == "58px") {
-          $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
-        }
-        if ($('.infografika').css('bottom') != "58px") {
-          clearInterval(myInterval);
-        }
+      if( $('.little_images img')[0].clientHeight > 60 && $('.infografika').css('bottom') == "58px") {
+        $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
       }
-      finally {
+      if ($('.infografika').css('bottom') != "58px") {
         clearInterval(myInterval);
       }
     }, 500);
+
+    setTimeout(function() {
+      clearInterval(myInterval);
+    }, 10000);
   })
