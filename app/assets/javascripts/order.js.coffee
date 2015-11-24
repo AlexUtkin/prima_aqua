@@ -157,7 +157,10 @@ class Order
     $('.order_error_messages').html(html + '</ol>')
 
   restoreCard: =>
-    card = JSON.parse(localStorage.getItem('prima_aqua_card'))
+    card = JSON.parse(localStorage.getItem('prima_aqua_card')) || {}
+    if !card.ttl || (new Date - card.ttl) > 36000000
+      localStorage.removeItem('prima_aqua_card')
+      card = {}
     if card.info
       @fillOrderForm(card.info)
     if card.items
@@ -171,22 +174,25 @@ class Order
     products.html('')
     dep = 0
     for aqua in aquas
+      dep += parseFloat(aqua.deposit)
       products.append($('.js_aqua_template').html())
       product = products.find('.water_template').last()
-      product.find('.js_amount_input').val(aqua.amount)
-      product.find('.js_deposit').val(aqua.deposit)
-      dep += parseFloat(aqua.deposit)
-      product.find('.js-aqua-select-tag').val(aqua.aqua)
-      $.ajax
-        url: "/aquas/#{aqua.aqua}/volumes"
-        type: 'GET'
-        dataType: "json"
-        success: (data)=>
-          @refreshWaterSelectTag(product.find('.js-volume-select-tag'), data.volumes, aqua.volume)
-          product.find('.js_price_value').text(aqua.price.toFixed(2))
-          #product.find('.js-volume-select-tag').val(aqua.volume)
-      #@actualizeWaterPrice(product, aqua.aqua, aqua.volume, aqua.amount)
+      @restoreAqua(aqua, product)
     $('.js_order_deposit').html(dep)
+
+  restoreAqua: (aqua, product)=>
+    product.find('.js_amount_input').val(aqua.amount)
+    product.find('.js_deposit').html(aqua.deposit)
+    product.find('.js-aqua-select-tag').val(aqua.aqua)
+    $.ajax
+      url: "/aquas/#{aqua.aqua}/volumes"
+      type: 'GET'
+      dataType: "json"
+      success: (data)=>
+        @refreshWaterSelectTag(product.find('.js-volume-select-tag'), data.volumes, aqua.volume)
+        product.find('.js_price_value').text(aqua.price.toFixed(2))
+        #product.find('.js-volume-select-tag').val(aqua.volume)
+    #@actualizeWaterPrice(product, aqua.aqua, aqua.volume, aqua.amount)
 
   restoreAccessories: (products)=>
     html = ''
@@ -461,7 +467,7 @@ class Order
   getOrderInfo: =>
     orderItems = @getProducts()
     info = @getInfo()
-    { items: orderItems, info: info }
+    { items: orderItems, info: info, ttl: (new Date()).getTime() }
 
   cacheData: =>
     $storage("prima_aqua_card").set(@getOrderInfo())

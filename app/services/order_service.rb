@@ -11,15 +11,16 @@ class OrderService
   end
 
   def self.check_date(date)
-    dt = date.present? ? Date.parse(date) : Date.today
+    dt = date.present? ? Date.parse(date) : Time.zone.today
     setting = OrderSetting.first
     result = []
-    result << 1 if dt == Date.today
-    puts setting.disabled_day?(dt) || setting.disabled_date?(dt)
-    puts setting.disabled_morning_day?(dt) || setting.disabled_morning_date?(dt)
-    puts setting.disabled_evening_day?(dt) || setting.disabled_evening_date?(dt)
+    result << 1 if dt == Time.zone.today
+    return result unless setting
+    # puts setting.disabled_day?(dt) || setting.disabled_date?(dt)
+    # puts setting.disabled_morning_day?(dt) || setting.disabled_morning_date?(dt)
+    # puts setting.disabled_evening_day?(dt) || setting.disabled_evening_date?(dt)
     if setting.disabled_day?(dt) || setting.disabled_date?(dt)
-      result = [1,2]
+      result = [1, 2]
     elsif setting.disabled_morning_day?(dt) || setting.disabled_morning_date?(dt)
       result << 1
     elsif setting.disabled_evening_day?(dt) || setting.disabled_evening_date?(dt)
@@ -27,6 +28,7 @@ class OrderService
     end
     result.uniq
   end
+
   def self.get_order_json(params)
     ar = []
     cost = 0.0

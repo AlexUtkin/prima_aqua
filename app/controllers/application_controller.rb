@@ -7,15 +7,14 @@ class ApplicationController < ActionController::Base
 
   def prepare_data
     @all_delivery_pages ||= ::DeliveryPage.all
-    @all_aquas ||= ::Aqua.includes(:volumes).select(:id, :name, :id).order(:id).all
-    aqua = @all_aquas.first
-    volume = aqua.volumes.first
-    @aqua_price = ::OrderService.get_price(aqua.id, volume.id, 2)
-    @deposit = volume.deposit.to_i * 2
+    @all_aquas ||= ::Aqua.includes(:volumes).select(:id, :name, :id).order(:id)
+    f_aqua = @all_aquas.first
+    @volumes = f_aqua.volumes.sort_by(&:title_value)
+    @aqua_price = ::OrderService.get_price(f_aqua.id, @volumes.first.id, 2)
+    @deposit = @volumes.first.deposit.to_i * 2
     @items = ::Cooler.includes(:images).select(:id, :title, :price).first(10)
     @items += ::Accessory.select(:id, :title, :price, :image).first(10)
     @items += ::Product.select(:id, :title, :price, :image).first(10)
     @actions = ::Article.where(type: 'promotion').all
   end
-
 end

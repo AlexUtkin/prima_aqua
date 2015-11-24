@@ -9,7 +9,7 @@ ActiveAdmin.register Price do
     column :aqua
     column :value
     column :volume do |price|
-      price.volume.value
+      price.volume.title_value
     end
     column :start_count
     column :end_count
