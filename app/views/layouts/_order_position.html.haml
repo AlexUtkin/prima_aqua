@@ -4,7 +4,7 @@
     = select_tag( :auqa, water_options, { class: 'js-aqua-select-tag'})
   - if @all_aquas.present?
     .volume_select.js_volume_select.select_volume
-      - volume_options = options_for_select(@volumes.map{ |v| [v.title_value, "#{v.id}-#{v.title_value}"]})
+      - volume_options = options_for_select(@a_volumes.map{ |v| [v.title_value, "#{v.id}-#{v.title_value}"]})
       = select_tag( :volume, volume_options, {class: 'js-volume-select-tag'})
   .amount.js_amount
     %button.js_increment.button_minus{data: { step: -1, product: 'aqua' }}

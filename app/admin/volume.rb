@@ -1,5 +1,4 @@
 ActiveAdmin.register Volume do
-
   permit_params :value, :aqua_id, :image, :deposit, :soda, :pet
 
   form partial: 'admin/volumes/form'
@@ -29,5 +28,4 @@ ActiveAdmin.register Volume do
     end
     active_admin_comments
   end
-
 end
