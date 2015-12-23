@@ -67,6 +67,7 @@ class Order
 
     $(document).on 'click', '.js_order_back', =>
       @createOrder()
+      yaCounter14311645.reachGoal('submitorder')
 
     $(document).on 'change', '.js_order_register_flag', ->
       $('.js_order__register_form').toggleClass('hidden_block')
@@ -502,6 +503,7 @@ $ ->
     $('.js_products').html('')
     window.hideSpinner()
     order.showModal()
+    yaCounter14311645.reachGoal('order');
 
   $(document).on 'click', '.js_add_accessory', (e)=>
     elem = $(e.currentTarget)
