@@ -1,2 +1,27 @@
 $('.delivery-body-text-list').html("<%= escape_javascript render(:partial => 'list_district', locals: { district: @district }) %>");
 $('#delivery-body-map').empty();
+
+ymaps.ready(init);
+function init() {
+  var myMap = new ymaps.Map('delivery-body-map', {
+    center: [59.980488, 30.02889],
+    zoom: 7.7
+  });
+  $.each(<%= raw @district_ajax.to_json %>, function(index, value) {
+    myMap.geoObjects.add(new ymaps.Placemark([value.lat, value.lon], {
+      hintContent: ''
+    }, {
+      // Опции.
+      // Необходимо указать данный тип макета.
+      iconLayout: 'default#image',
+      // Своё изображение иконки метки.
+      iconImageHref: '/assets/office.png',
+      // Размеры метки.
+      iconImageSize: [30, 42],
+      // Смещение левого верхнего угла иконки относительно
+      // её "ножки" (точки привязки).
+      iconImageOffset: [-3, -42]
+    }));
+  });
+  myMap.controls.add("zoomControl");
+}
