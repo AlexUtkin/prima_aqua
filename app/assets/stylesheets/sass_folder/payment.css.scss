@@ -4,16 +4,20 @@
   text-align: left;
   color:  #333333;
   .payment_page__header{
-    font-family: 'MuseoSansCyrl-700';
-    font-size: 36px;
-    line-height: 30px;
-    text-align: center;
+    h1{
+      font-family: 'MuseoSansCyrl-700';
+      font-size: 36px;
+      line-height: 30px;
+      text-align: center;
+    }
   }
   .payment_page__title{
-    font-family: 'MuseoSansCyrl-700';
-    font-size: 24px;
-    line-height: 30px;
-    margin: 20px 0 15px;
+    h2 {
+      font-family: 'MuseoSansCyrl-700';
+      font-size: 24px;
+      line-height: 30px;
+      margin: 20px 0 15px;
+    }
   }
   .payment_page__text{
     font-family: 'MuseoSansCyrl-300';
