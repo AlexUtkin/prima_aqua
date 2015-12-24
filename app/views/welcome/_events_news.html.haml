@@ -8,6 +8,5 @@
       = image_tag news.image_url(:medium)
   .news-desc
     = news.grow_descript
-  - if news.type == 'article'
-    .news-link_show
-      = link_to 'Подробнее', events_show_path(news.id)
+  .news-link_show
+    = link_to 'Подробнее', events_show_path(news.id)

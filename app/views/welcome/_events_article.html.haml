@@ -7,3 +7,5 @@
       = article.title
     .article-body-desc
       = article.grow_descript
+  .article-link_show
+    = link_to 'Подробнее', events_show_path(article.id)
