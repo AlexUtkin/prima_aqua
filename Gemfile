@@ -27,3 +27,6 @@ gem 'unicorn'
 gem 'capistrano', '2.15.5'
 
 gem 'pry'
+gem 'sitemap_generator'
+gem 'sidekiq'
+gem 'sinatra', require: nil
