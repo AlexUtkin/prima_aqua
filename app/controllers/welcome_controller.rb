@@ -30,6 +30,7 @@ class WelcomeController < ApplicationController
   def delivery
     @district = District.search(params[:name])
     gon.district = @district.select(:lon, :lat)
+    @district_ajax = @district.select(:lon, :lat) if request.xhr?
     @district = @district.order(:name).group_by{|u| u.name[0]}
   end
 
