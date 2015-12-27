@@ -1,7 +1,6 @@
 ActiveAdmin.register Aqua do
   form partial: 'admin/aquas/form'
 
-
   index do
     selectable_column
     column :id
@@ -25,6 +24,7 @@ ActiveAdmin.register Aqua do
         end
       end
     end
+    column :position
     column :seo_title
     column :seo_description
     column :seo_keywords
@@ -44,6 +44,7 @@ ActiveAdmin.register Aqua do
         end
       end
       row :short_description
+      row :position
       row :doc do
         ul do
           aqua.docs.each do |doc|
@@ -65,7 +66,8 @@ ActiveAdmin.register Aqua do
 
   controller do
     def aqua_params
-      params.require(:aqua).permit(:short_description, :seo_title, :seo_description, :seo_keywordsm, :name, :docs)
+      params.require(:aqua).permit(:short_description, :seo_title, :seo_description, :seo_keywordsm,
+                                   :name, :docs, :position)
     end
 
     def create
