@@ -176,5 +176,5 @@ $ ->
     prevArrow: '<button type="button" class="slick-prev"><img alt="prev" src="/assets/left.png"></button>'
     nextArrow: '<button type="button" class="slick-next"><img alt="prev" src="/assets/right.png"></button>'
   });
-  $("input[class*='phone']").mask("9 999 999 99 99");
-  $("input[id*='phone']").mask("9 999 999 99 99");
+  $("input[class*='phone']").mask("+7 999 999 99 99");
+  $("input[id*='phone']").mask("+7 999 999 99 99");
