@@ -436,6 +436,12 @@ a.with_blue_button{
     display: none;
   }
   .modal__view{
+    position: absolute;
+    top: 10%;
+    z-index: 7;
+    width: 100%;
+  }
+  .modal__view__phone{
     z-index: 7;
     width: 100%;
     position: fixed;
