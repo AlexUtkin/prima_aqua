@@ -1,0 +1,9 @@
+= semantic_form_for [:admin, @polygon] do |f|
+  = f.semantic_errors *f.object.errors.keys
+  = f.inputs 'Coordinates' do
+    = f.input :coordinates, label: false
+  = f.inputs 'Hint' do
+    = f.input :hint, label: false
+  = f.inputs 'Color' do
+    = f.input :color, label: false
+  = f.actions
