@@ -359,9 +359,6 @@
     });
 
     gon.polygons.forEach(function(polygon, i, arr) {
-        console.log(polygon);
-        console.log(polygon.color);
-        console.log(polygon.hint);
         var myPolygon = new ymaps.Polygon(
           [gon.polygons_coords[i]],
           { hintContent: polygon.hint },
@@ -372,5 +369,4 @@
         );
         myMap.geoObjects.add(myPolygon);
     });
-    console.log(myMap.geoObjects);
   }
