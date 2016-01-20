@@ -1,0 +1,6 @@
+:logfile: log/sidekiq.log
+:pidfile: tmp/pids/sidekiq.pid
+:concurrency: 10
+:retry: true
+:queues:
+  - default

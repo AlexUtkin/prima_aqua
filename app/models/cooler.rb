@@ -1,4 +1,6 @@
 class Cooler < ActiveRecord::Base
+  include Sitemapable
+
   has_and_belongs_to_many :tags
   has_many :images, as: :imageable, dependent: :destroy
 
