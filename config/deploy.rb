@@ -102,6 +102,12 @@ task :create_custome_symlink do
   run "ln -nfs #{shared_path}/uploads                    #{release_path}/public/uploads"
 end
 
+after "deploy:update_code", :create_ckeditor_symlink
+desc 'Create symlink for ckeditor assets'
+task :create_ckeditor_symlink, roles => :app do
+  run "ln -nfs #{shared_path}/ckeditor_assets #{release_path}/public/ckeditor_assets"
+end
+
 
 # - for unicorn - #
 namespace :deploy do
