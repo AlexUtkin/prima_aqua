@@ -1,0 +1,10 @@
+= semantic_form_for [:admin, @polygon] do |f|
+  = f.semantic_errors *f.object.errors.keys
+  = f.inputs 'Coordinates' do
+    = f.input :coordinates, label: false,
+    hint: 'Формат ввода координат вершин многоугольника: "широта, долгота; широта, долгота; широта, долгота;" и т.д. Пример: 59.926209, 29.753148; 59.583221, 29.592237; 59.479983, 30.255536;'
+  = f.inputs 'Hint' do
+    = f.input :hint, label: false
+  = f.inputs 'Color' do
+    = f.input :color, label: false
+  = f.actions

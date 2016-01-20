@@ -1,3 +1,4 @@
+= javascript_include_tag 'http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU'
 - title 'Доставка воды на дом и в офис в Санкт-Петербурге и Ленинградской области. Питьевая артезианская вода - Прима Аква'
 - meta_description 'Prima aqua - доставка воды Санкт-Петербург и Ленинградская область.'
 - meta_keywords 'доставка воды, заказ воды, стаканчики, мешалки, помпы, купить'
@@ -119,6 +120,7 @@
           Каталог оборудования
 
   .delivery__block
+    #delivery__block_map
     .delivery__block_map
       -#=image_tag image_url('map.jpg')
       .delivery__block_map__text
@@ -348,3 +350,23 @@
       clearInterval(myInterval);
     }, 10000);
   })
+
+  ymaps.ready(init);
+  function init() {
+    var myMap = new ymaps.Map('delivery__block_map', {
+      center: [59.980488, 30.02889],
+      zoom: 7.7
+    });
+
+    gon.polygons.forEach(function(polygon, i, arr) {
+        var myPolygon = new ymaps.Polygon(
+          [gon.polygons_coords[i]],
+          { hintContent: polygon.hint },
+          { fillColor: polygon.color,
+            strokeWidth: 1,
+            opacity: 0.5
+          }
+        );
+        myMap.geoObjects.add(myPolygon);
+    });
+  }
