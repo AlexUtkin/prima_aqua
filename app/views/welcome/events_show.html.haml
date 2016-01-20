@@ -7,7 +7,7 @@
     = @event.title
   .event_body-line
   .event_body-image
-    = image_tag @event.image.url
+    = image_tag @event.image.url(:medium)
   .event_body-text
     = raw @event.description
   .event_body-date
