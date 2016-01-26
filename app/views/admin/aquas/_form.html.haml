@@ -4,6 +4,8 @@
     = f.input :name, label: false
   = f.inputs 'Short Description' do
     = f.input :short_description, label: false
+  = f.inputs 'Position' do
+    = f.input :position, label: false
   = f.inputs 'Docs' do
     = f.fields_for :doc do |doc|
       = doc.file_field :name, multiple: :true, name: 'doc[name][]', label: false

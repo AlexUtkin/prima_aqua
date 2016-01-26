@@ -5,6 +5,11 @@ class WelcomeController < ApplicationController
     gon.price_8 = aqua.prices.where(volume_id: aqua.volumes.where(value: 8).first).pluck(:value).min
     gon.price_6 = aqua.prices.where(volume_id: aqua.volumes.where(value: 6).first).pluck(:value).min
     gon.price_1 = aqua.prices.where(volume_id: aqua.volumes.where(value: 0.6).first).pluck(:value).min
+    @polygons = Polygon.all
+    @polygons_coords = []
+    @polygons_coords << @polygons.map{|p| p.coordinates.split(';').map{|c| c.split(',')}.map{|a| a.map{|c| c.to_f}}}
+    gon.polygons_coords = @polygons_coords[0]
+    gon.polygons = @polygons
   end
 
   def contacts; end

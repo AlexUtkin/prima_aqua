@@ -17,7 +17,8 @@ capybara-*.html
 .rspec
 /vendor/bundle
 /tmp/*
-/config/*.yml
+/config/database.yml
+/config/secrets.yml
 /db/schema.rb
 /public/system/*
 /public/assets/*

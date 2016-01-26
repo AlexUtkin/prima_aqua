@@ -1,4 +1,6 @@
 class Aqua < ActiveRecord::Base
+  include Sitemapable
+
   has_many :aqua_posts
   has_many :docs
   has_many :prices
