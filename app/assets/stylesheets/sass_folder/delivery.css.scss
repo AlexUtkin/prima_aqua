@@ -125,15 +125,18 @@
   background-color:  #f7f7f7;
   width: 320px;
   height: 125px;
-}
-
-.dialog-text{
-  padding: 15px 52px 0px 27px;
   font-family: 'MuseoSansCyrl';
   color:  #333333;
   font-size: 16px;
   line-height: 24px;
   text-align: left;
+}
+
+.dialog-text{
+  padding: 15px 52px 0 27px;
+}
+.dialog-text-link{
+  padding: 6px 0 0 27px;
 }
 
 #tailShadow {
