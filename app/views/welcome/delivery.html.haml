@@ -40,6 +40,7 @@
 
 #dialog
   .dialog-text
+    .dialog-text-link
   .close-modal
     = image_tag 'close_modal.png'
   #tail1
@@ -55,8 +56,7 @@
   $('.delivery-body-text-list > a').click(function(e) {
       e.preventDefault();
       $('#dialog').show();
-      //console.log($(this).children('.popup').text());
-      $('.dialog-text').html($(this).attr('popup'));
+      $('.dialog-text').html($($(this).attr('popup')).text());
       $('#dialog').css('left', $(this).position().left + $(this).width() + 10);
       $('#dialog').css('top', $(this).position().top - 7);
   });
