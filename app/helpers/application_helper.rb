@@ -66,4 +66,8 @@ module ApplicationHelper
   def triangle
     (params[:direction] == 'desc' ? '&#9660;' : '&#9650;').html_safe if params[:direction].present?
   end
+
+  def link_with_tab(name = nil, options = {}, html_options = nil, &block)
+    link_to(name, {target: '_blank'}.merge(options), html_options, &block)
+  end
 end
