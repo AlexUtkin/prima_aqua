@@ -2,6 +2,7 @@
 - meta_description 'Адреса доставок. Карта'
 - meta_keywords 'пункты доставок, доставка, адрес, карты доставки'
 = javascript_include_tag 'http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU'
+= javascript_include_tag 'delivery'
 = include_gon
 .delivery-body
   .delivery-body-title
@@ -45,43 +46,3 @@
     = image_tag 'close_modal.png'
   #tail1
   #tail2
-
-:javascript
-  $('.delivery-body-text-search').bind('keyup', function() {
-    $('.delivery-body-text form').delay(200).submit();
-  });
-  $('.close-modal > img').click(function(){
-    $('#dialog').hide();
-  });
-  $('.delivery-body-text-list > a').click(function(e) {
-      e.preventDefault();
-      $('#dialog').show();
-      $('.dialog-text').html($($(this).attr('popup')).text());
-      $('#dialog').css('left', $(this).position().left + $(this).width() + 10);
-      $('#dialog').css('top', $(this).position().top - 7);
-  });
-
-  ymaps.ready(init);
-  function init() {
-    var myMap = new ymaps.Map('delivery-body-map', {
-      center: [59.980488, 30.02889],
-      zoom: 7.7
-    });
-    $.each(gon.district, function(index, value) {
-      myMap.geoObjects.add(new ymaps.Placemark([value.lat, value.lon], {
-        hintContent: ''
-      }, {
-        // Опции.
-        // Необходимо указать данный тип макета.
-        iconLayout: 'default#image',
-        // Своё изображение иконки метки.
-        iconImageHref: '/assets/office.png',
-        // Размеры метки.
-        iconImageSize: [30, 42],
-        // Смещение левого верхнего угла иконки относительно
-        // её "ножки" (точки привязки).
-        iconImageOffset: [-3, -42]
-      }));
-    });
-    myMap.controls.add("zoomControl");
-  }
