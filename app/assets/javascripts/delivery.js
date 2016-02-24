@@ -1,15 +1,17 @@
-$('.delivery-body-text-search').bind('keyup', function() {
-  $('.delivery-body-text form').delay(200).submit();
-});
-$('.close-modal > img').click(function(){
-  $('#dialog').hide();
-});
-$('.delivery-body-text-list > a').click(function(e) {
-  e.preventDefault();
-  $('#dialog').show();
-  $('.dialog-text').html($($(this).attr('popup')).text());
-  $('#dialog').css('left', $(this).position().left + $(this).width() + 10);
-  $('#dialog').css('top', $(this).position().top - 7);
+$(document).ready(function(){
+  $('.delivery-body-text-search').bind('keyup', function() {
+    $('.delivery-body-text form').delay(200).submit();
+  });
+  $('.close-modal > img').click(function(){
+    $('#dialog').hide();
+  });
+  $('.delivery-body-text-list > a').click(function(e) {
+    e.preventDefault();
+    $('#dialog').show();
+    $('.dialog-text').html($($(this).attr('popup')).text());
+    $('#dialog').css('left', $(this).position().left + $(this).width() + 10);
+    $('#dialog').css('top', $(this).position().top - 7);
+  });
 });
 
 ymaps.ready(init);
