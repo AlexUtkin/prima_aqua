@@ -1,1 +1,2 @@
-= @district.name
+.district
+  = @district.description.try(:html_safe) || @district.name

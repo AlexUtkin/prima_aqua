@@ -9,6 +9,8 @@ $(document).ready(function(){
     e.preventDefault();
     $('#dialog').show();
     $('.dialog-text').html($($(this).attr('popup')).text());
+    var linkToDistrict = "/districts/"+$(this).attr('district_id');
+    $('.dialog-text').append($("<div><a href="+linkToDistrict+">Подробнее</a></div>"));
     $('#dialog').css('left', $(this).position().left + $(this).width() + 10);
     $('#dialog').css('top', $(this).position().top - 7);
   });
