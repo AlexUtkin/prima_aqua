@@ -1,0 +1,11 @@
+.post
+  %a{ name: 'certificates' }
+  .certificates
+    .certificates__content
+      .certificates__title
+        Сертификаты и документы
+      %br
+      .certificates__files
+        - @aqua.docs.each do |doc|
+          %br
+          = link_to doc_name(doc), doc.name_url, target: '_blank'

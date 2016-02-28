@@ -70,4 +70,9 @@ module ApplicationHelper
   def link_with_tab(name = nil, options = {}, html_options = nil, &block)
     link_to(name, {target: '_blank'}.merge(options), html_options, &block)
   end
+
+  def doc_name(doc)
+    name = doc.name.file.filename.gsub(/.pdf/, '').gsub(/.doc/, '').gsub(/.docx/, '').gsub(/_/, ' ').capitalize
+    "- #{Translit.convert(name)}"
+  end
 end

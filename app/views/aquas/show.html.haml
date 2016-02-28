@@ -3,8 +3,11 @@
 
 
 .aqua_posts
-  - @posts.each do |post|
-    = render 'aquas/post', post: post
+  - @posts.each_with_index do |post, index|
+    - if index + 1 == @posts.count && @aqua.docs.present?
+      = render 'aquas/certificates', post: post
+    - else
+      = render 'aquas/post', post: post
   .clearfix
   .aqua_prices{ style: "height: calc(100%/#{@posts.size} - 10px);" }
     .aqua_prices_content
@@ -28,19 +31,6 @@
       .aqua_prices__delivery_link
         = link_to 'Условия доставки', delivery_path
       %a.red_button.js_order_button{href: '#'} Заказать
-
-- if @aqua.docs.present?
-  %a{ name: 'certificates' }
-  .certificates
-    .certificates__content
-      .certificates__title
-        Сертификаты и документы
-      %br
-      .certificates__files
-        - @aqua.docs.each do |doc|
-          %br
-          = link_to "- #{doc.name.file.filename}", doc.name_url, target: '_blank'
-    .clearfix
 
 :javascript
   function setClassToPrices(){
@@ -139,6 +129,10 @@
 
   $(document).ready(function(){
     setTimeout("setClassToPrices();", 100);
+    if ($('.post:last').has('.certificates').length > 0) {
+      var height = $(document).height();
+      $('.post:last').css('height', height+'px')
+    }
   });
 
   $(function() {

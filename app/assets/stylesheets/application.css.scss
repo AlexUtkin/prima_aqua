@@ -578,11 +578,16 @@ a.with_blue_button{
   .help_links{
     width: 82%;
     margin: 15px auto;
+    font-family: 'MuseoSansCyrl';
+    color: #0080bb;
+    line-height: 30px;
     .left_floated_link{
       float: left;
+      text-decoration: none;
     }
     .right_floated_link{
       float: right;
+      text-decoration: none;
     }
   }
   .modal__button{
