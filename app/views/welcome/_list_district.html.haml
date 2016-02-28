@@ -2,6 +2,6 @@
   .delivery-list-group
     - items.each do |item|
       .delivery-list-group-item
-        = link_to item.name, '#', popup: item.popup
+        = link_to item.name, '#', popup: item.popup, district_id: item.id
         - if item.str
           = image_tag 'star.png'
