@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   resources :services, only: :create
   resources :orders, only: :create
   resources :products, only: :index
+  resources :districts, only: :show
   get 'profile' => 'welcome#profile'
   get 'profile/orders' => 'welcome#orders'
   get 'contacts' => 'welcome#contacts'

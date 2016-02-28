@@ -1,0 +1,6 @@
+.district
+  .district-title
+    %h2
+      = @district.name
+  .district-description
+    = @district.description.try(:html_safe) || 'Описание готовится'
