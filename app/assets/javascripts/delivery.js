@@ -5,7 +5,7 @@ $(document).ready(function(){
   $('.close-modal > img').click(function(){
     $('#dialog').hide();
   });
-  $('.delivery-body-text-list > a').click(function(e) {
+  $('.delivery-list-group-item > a').click(function(e) {
     e.preventDefault();
     $('#dialog').show();
     $('.dialog-text').html($($(this).attr('popup')).text());
