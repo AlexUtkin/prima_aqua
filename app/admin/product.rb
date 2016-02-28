@@ -19,6 +19,7 @@ ActiveAdmin.register Product do
       row :title
       row :price
       row :position
+      row :orderable
       row :seo_title
       row :seo_description
       row :seo_keywords
@@ -29,5 +30,5 @@ ActiveAdmin.register Product do
     end
     active_admin_comments
   end
-  permit_params :title, :image, :price, :seo_title, :seo_description, :seo_keywords, :category_id, :position
+  permit_params :title, :image, :price, :seo_title, :seo_description, :seo_keywords, :category_id, :position, :orderable
 end

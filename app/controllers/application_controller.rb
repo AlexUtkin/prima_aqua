@@ -12,9 +12,10 @@ class ApplicationController < ActionController::Base
     @a_volumes = f_aqua.volumes.sort_by { |v| v.value == 19 && !v.pet && !v.soda ? -20 : -1 * v.value.to_i }
     @aqua_price = ::OrderService.get_price(f_aqua.id, @a_volumes.first.id, 2)
     @deposit = @a_volumes.first.deposit.to_i * 2
-    @items = ::Cooler.includes(:images).select(:id, :title, :price).first(10)
-    @items += ::Accessory.select(:id, :title, :price, :image).first(10)
-    @items += ::Product.select(:id, :title, :price, :image).first(10)
-    @actions = ::Article.where(type: 'promotion').all
+    @items = ::Cooler.includes(:images).select(:id, :title, :price).where(orderable: true).to_a
+    [::Accessory, ::Product, ::Pomp ].each do |klass|
+      @items.concat(klass.select(:id, :title, :price, :image).where(orderable: true).to_a)
+    end
+    @actions = ::Article.where(type: "promotion").all
   end
 end

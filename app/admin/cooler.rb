@@ -1,8 +1,8 @@
 ActiveAdmin.register Cooler do
 
-  permit_params  :image, :title, :description, :price, :type_construction, :type_cooling, :heat, :power_heat, :cooling,
-                 :power_cooling, :dimensions, :service, :seo_title, :seo_description, :seo_keywords, :tags
-  form partial: 'admin/coolers/form.html.haml'
+  permit_params :image, :title, :description, :price, :type_construction, :type_cooling, :heat, :power_heat, :cooling,
+                :power_cooling, :dimensions, :service, :seo_title, :seo_description, :seo_keywords, :tags, :orderable
+  form partial: "admin/coolers/form.html.haml"
 
   index do
     selectable_column
@@ -18,6 +18,7 @@ ActiveAdmin.register Cooler do
     column :power_cooling
     column :dimensions
     column :service
+    column :orderable
     column :seo_title
     column :seo_description
     column :seo_keywords
@@ -50,6 +51,7 @@ ActiveAdmin.register Cooler do
       row :power_cooling
       row :dimensions
       row :service
+      row :orderable
       row :seo_title
       row :seo_description
       row :seo_keywords

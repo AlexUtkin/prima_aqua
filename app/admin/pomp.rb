@@ -1,11 +1,11 @@
 ActiveAdmin.register Pomp do
-  permit_params :title, :description, :image, :price, :seo_title, :seo_description, :seo_keywords
+  permit_params :title, :description, :image, :price, :seo_title, :seo_description, :seo_keywords, :orderable
 
-  form partial: 'admin/pomps/form.html.haml'
+  form partial: "admin/pomps/form.html.haml"
 
   show do |pomp|
     attributes_table do
-      [:title, :description, :price, :seo_title, :seo_description, :seo_keywords].each do |attr|
+      [:title, :description, :price, :seo_title, :seo_description, :seo_keywords, :orderable].each do |attr|
         row attr.to_sym
       end
       row :image do

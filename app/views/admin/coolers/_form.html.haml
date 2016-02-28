@@ -7,8 +7,11 @@
   = f.inputs 'Description' do
     = f.input :description, as: :ckeditor, label: false
 
+  = f.inputs 'Быстрый заказ' do
+    = f.input :orderable, label: false
+
   -[:price, :type_construction, :type_cooling, :heat, :power_heat, :cooling,
-  :power_cooling, :dimensions, :seo_title, :seo_description, :seo_keywords].each do |attr|
+    :power_cooling, :dimensions, :seo_title, :seo_description, :seo_keywords].each do |attr|
     = f.inputs attr.to_s.capitalize! do
       = f.input attr, label: false
   //= f.inputs 'Image' do

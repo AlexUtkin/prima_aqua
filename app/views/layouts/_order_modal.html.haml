@@ -45,21 +45,11 @@
       .card_additional
         .additional__title
           Может пригодиться
-        .additional__filters
-          .filter.js_all.filter_active
-            Все
-          .filter.js_cooler
-            Кулеры
-          .filter.js_accessory
-            Аксессуары
-          .filter.js_product
-            Сопут. тов.
         .clearfix
 
         .js_order__products
           - @items.shuffle.each do |cooler|
             = render 'partials/product', product: cooler
-
 
   .order.order_step.hidden_block
     .prima_state_order

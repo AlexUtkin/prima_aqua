@@ -3,6 +3,8 @@
   -[:title, :description, :price].each do |attr|
     = f.inputs attr.to_s.capitalize! do
       = f.input attr, label: false
+  = f.inputs 'Быстрый заказ' do
+    = f.input :orderable, label: false
   = f.inputs 'Image' do
     = f.file_field :image, label: false
     %br
