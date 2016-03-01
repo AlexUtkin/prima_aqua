@@ -3,13 +3,22 @@
 
 
 .aqua_posts
-  - @posts.each_with_index do |post, index|
-    - if index + 1 == @posts.count && @aqua.docs.present?
-      = render 'aquas/certificates', post: post
-    - else
-      = render 'aquas/post', post: post
+  - @posts.each do |post|
+    = render 'aquas/post', post: post
+  - if @aqua.docs.present?
+    .post
+      %a{ name: 'certificates' }
+      .certificates
+        .certificates__content
+          .certificates__title
+            Сертификаты и документы
+          .certificates__files
+            - @aqua.docs.each do |doc|
+              .certificates__files__name
+                = link_to doc_name(doc), doc.name_url, target: '_blank'
+
   .clearfix
-  .aqua_prices{ style: "height: calc(100%/#{@posts.size} - 10px);" }
+  .aqua_prices{ style: "height: calc(100%/#{@screens_size} - 10px);" }
     .aqua_prices_content
       .aqua_prices__title
         = @aqua.name
@@ -50,7 +59,7 @@
       aqua_prices.removeClass('start');
       aqua_prices.removeClass('middle');
     };
-    aqua_prices.height($('.aqua_posts').height()/#{@posts.size} - 10);
+    aqua_prices.height($('.aqua_posts').height()/#{@screens_size} - 10);
   };
 
   function enable_scrolling(){
@@ -130,7 +139,7 @@
   $(document).ready(function(){
     setTimeout("setClassToPrices();", 100);
     if ($('.post:last').has('.certificates').length > 0) {
-      var height = $(document).height();
+      var height = $(window).height();
       $('.post:last').css('height', height+'px')
     }
   });
