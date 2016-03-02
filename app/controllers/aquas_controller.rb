@@ -3,6 +3,8 @@ class AquasController < ApplicationController
   def show
     @aqua = Aqua.includes(:aqua_posts, volumes: :prices).find(params[:id])
     @posts = @aqua.aqua_posts
+    @screens_size = @aqua.aqua_posts.size
+    @screens_size += 1 if @aqua.docs.any?
     @prices = @aqua.volumes.map{ |v| [v.title_value, v.prices.map(&:value).compact.min] }
   end
 
