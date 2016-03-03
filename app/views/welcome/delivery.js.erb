@@ -1,6 +1,22 @@
 $('.delivery-body-text-list').html("<%= escape_javascript render(:partial => 'list_district', locals: { district: @district }) %>");
 $('#delivery-body-map').empty();
 
+$('.delivery-body-text-search').bind('keyup', function() {
+    $('.delivery-body-text form').delay(200).submit();
+});
+$('.close-modal > img').click(function(){
+    $('#dialog').hide();
+});
+$('.delivery-list-group-item > a').click(function(e) {
+    e.preventDefault();
+    $('#dialog').show();
+    $('.dialog-text').html($($(this).attr('popup')).text());
+    var linkToDistrict = "/districts/"+$(this).attr('district_id');
+    $('.dialog-text').append($("<div><a href="+linkToDistrict+">Подробнее</a></div>"));
+    $('#dialog').css('left', $(this).position().left + $(this).width() + 10);
+    $('#dialog').css('top', $(this).position().top - 7);
+});
+
 ymaps.ready(init);
 function init() {
   var myMap = new ymaps.Map('delivery-body-map', {
