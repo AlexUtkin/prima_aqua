@@ -1,7 +1,7 @@
 class CoolersController < ApplicationController
   def index
     @coolers = Cooler.all
-    @coolers = @coolers.join(:tags).where(tags: {name: params[:tag]}) if params[:tag].present?
+    @coolers = @coolers.joins(:tags).where(tags: {name: params[:tag]}) if params[:tag].present?
     @coolers = @coolers.where(type_cooling: params[:type_cooling]) if params[:type_cooling].present?
 
     (s = params[:type_construction].presence) && @coolers = @coolers.where('type_construction LIKE ?', "%#{s[2..4]}%")
