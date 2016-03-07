@@ -169,12 +169,15 @@ $(document).on 'click', '.js_service_submit', ->
 
 $ ->
   $('.carousel').slick({
+    dots: true,
     infinite: true,
     speed: 300,
     slidesToShow: 1,
     adaptiveHeight: true
-    prevArrow: '<button type="button" class="slick-prev"><img alt="prev" src="/assets/left.png"></button>'
-    nextArrow: '<button type="button" class="slick-next"><img alt="prev" src="/assets/right.png"></button>'
+    autoplay: true,
+    autoplaySpeed: 4000,
+    arrows: false
   });
+
   $("input[class*='phone']").inputmask("+7 999 999 99 99");
   $("input[id*='phone']").inputmask("+7 999 999 99 99 ");

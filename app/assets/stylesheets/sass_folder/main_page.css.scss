@@ -19,7 +19,7 @@
       }
       .infografika{
         position: absolute;
-        bottom: 58px;
+        bottom: 173px;
         right: 5%;
         text-align: center;
       }
@@ -90,10 +90,44 @@
       }
     }
     .little_images{
+      background-color: white;
       text-align: justify;
       position: absolute;
-      bottom: 0;
+      bottom: 20px;
       width: 100%;
+      height: 120px;
+      .carousel{
+        width: calc(50% - 2px);
+        margin: 2px auto;
+        height: 114px;
+        margin: 2px auto;
+        display: inline-block;
+        background-color: #0eb6f5;
+        color: white;
+        .slick-dots{
+          width: 98%;
+          text-align: right;
+          bottom: -5px;
+          button:before{
+            color: white;
+          }
+        }
+        .action__line{
+          padding-top: 20px;
+          text-align: center;
+          font-size: 30px;
+          height: 80px;
+          span{
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 30px;
+          }
+          a{
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
       .stretch {
         width: 100%;
         display: inline-block;
@@ -103,34 +137,6 @@
       & > div{
         position: relative;
       }
-      .little_images__text{
-        position: absolute;
-        bottom: 9%;
-        left: 6%;
-        color: white;
-        width: 286px;
-        text-align: left;
-      }
-      .little_images__text__title{
-        font-family: 'MuseoSansCyrl-700';
-        font-size: 28px;
-        line-height: 24px;
-        text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
-      }
-      .little_images__text__body{
-        margin-top: 5px;
-        font-family: 'MuseoSansCyrl';
-        font-size: 14px;
-        line-height: 20px;
-        text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
-      }
-    }
-    .water__block__arhyz_image{
-    }
-    .water__block__legend_image{
-      margin-left: 1px;
-    }
-    .water__block__yodis_image{
     }
     .block_to_inline{
       img{
@@ -189,6 +195,59 @@
     opacity: 0.8;
     &:hover{
       opacity: 1;
+    }
+  }
+  .aquas__block{
+    position: relative;
+    //max-width: 1600px;
+    margin: -21px auto 0;
+    background: white no-repeat center top fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    text-align: justify;
+    .aquas__block__background{
+      height: 100%;
+    }
+    .aqua_block{
+      position: relative;
+      display: inline-block;
+      width: 33%;
+      height: 100%;
+      text-align: center;
+      text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+      .aqua_block__info{
+        position: absolute;
+        bottom: 17%;
+        width: 100%;
+      }
+      .aqua_block__title{
+        font-family: MuseoSansCyrl;
+        color:  #ffffff;
+        font-size: 48px;
+      }
+      .aqua_block__text{
+        margin: 23px auto;
+        width: 80%;
+        font-family: MuseoSansCyrl;
+        color:  #ffffff;
+        font-size: 14px;
+      }
+    }
+    .aquas__block__legend{
+      background: image_url('legend_main.jpg') no-repeat left center fixed;
+      background-size: 34%
+    }
+    .aquas__block__yodis{
+      background: image_url('yodis_main.jpg') no-repeat center center fixed;
+      background-size: 34%
+    }
+    .aquas__block__arhyz{
+      background: image_url('arhyz_main.jpg') no-repeat right center fixed;
+      background-size: 34%
     }
   }
   .about_company__block{

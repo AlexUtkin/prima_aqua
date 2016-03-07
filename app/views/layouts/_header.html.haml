@@ -36,20 +36,11 @@
           %a.with_underline{href: "/events?type=promotion"} Акции
         %li
           %a.red_button.js_order_button{href: '#'} Заказать
-.header__actions
-  .carousel
-    - @actions.each do |action|
-      .action__line
-        %span.action_label
-          АКЦИЯ
-        =link_to action.title, '/events?type=promotion'
-
-
 
 :javascript
   $(function() {
     $(window).on('scroll', function() {
-      if ($(document).scrollTop() > 100){
+      if ($(document).scrollTop() > 80){
         $('.fixed_header').fadeIn();
       }
       else{

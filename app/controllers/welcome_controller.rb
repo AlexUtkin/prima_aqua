@@ -10,6 +10,11 @@ class WelcomeController < ApplicationController
     @polygons_coords << @polygons.map{|p| p.coordinates.split(';').map{|c| c.split(',')}.map{|a| a.map{|c| c.to_f}}}
     gon.polygons_coords = @polygons_coords[0]
     gon.polygons = @polygons
+    @odd_actions = []
+    @even_actions = []
+    ::Article.where(type: "promotion").each_with_index do |art, i|
+      (i.odd? ? @odd_actions : @even_actions) << art
+    end
   end
 
   def contacts; end
