@@ -30,4 +30,3 @@ gem 'pry'
 gem 'sitemap_generator'
 gem 'sidekiq'
 gem 'sinatra', require: nil
-gem 'translit'

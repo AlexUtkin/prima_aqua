@@ -72,7 +72,6 @@ module ApplicationHelper
   end
 
   def doc_name(doc)
-    name = doc.name.file.filename.gsub(/.pdf/, '').gsub(/.doc/, '').gsub(/.docx/, '').gsub(/_/, ' ').capitalize
-    "- #{Translit.convert(name)}"
+    doc.name.file.basename.gsub(/_/, ' ')
   end
 end
