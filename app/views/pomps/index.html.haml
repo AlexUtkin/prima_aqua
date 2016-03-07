@@ -13,7 +13,7 @@
     //.pomps-filters-left-item{class: ('active' if link_active?('настольные'))}
     //  = link_to 'Настольные', pomps_path(type_construction: 'настольные')
     .pomps-filters-right
-      = order
+      = order_link
       = triangle
   .pomps-list
     - @pomps.each_with_index do |pomp, index|
