@@ -16,6 +16,5 @@ class ApplicationController < ActionController::Base
     [::Accessory, ::Product, ::Pomp ].each do |klass|
       @items.concat(klass.select(:id, :title, :price, :image).where(orderable: true).to_a)
     end
-    @actions = ::Article.where(type: "promotion").all
   end
 end

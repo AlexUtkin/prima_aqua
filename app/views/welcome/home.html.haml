@@ -47,31 +47,41 @@
         .infogr_base.infogr_1
           = image_tag image_url('1.png')
     .little_images
-      .water__block__arhyz_image.block_to_inline
-        %a{ href: '/aquas/3' }
-          =image_tag image_url('arhyz.jpg')
-          .little_images__text
-            .little_images__text__title
-              Архыз
-            .little_images__text__body
-              Добывается из горных ледников на высоте 1507 метров над уровнем моря
-      .water__block__legend_image.block_to_inline
-        %a{ href: '/aquas/2' }
-          =image_tag image_url('legend.jpg')
-          .little_images__text
-            .little_images__text__title
-              Легенда Гор
-            .little_images__text__body
-              Стимулирует природный механизм самовосстановления организма
-      .water__block__yodis_image.block_to_inline
-        %a{ href: '/aquas/4' }
-          =image_tag image_url('yodis.jpg')
-          .little_images__text
-            .little_images__text__title
-              Йодис
-            .little_images__text__body
-              Укрепляет иммунитет и помогает энергично осваивать новые знания
+      .carousel
+        - @even_actions.each do |action|
+          .action__line
+            %span.action_label
+              =link_to action.title, '/events?type=promotion'
+      .carousel
+        - @odd_actions.each do |action|
+          .action__line
+            %span.action_label
+              =link_to action.title, '/events?type=promotion'
       %span.stretch
+
+  .aquas__block
+    .aquas__block__background
+      %a{ href: '/aquas/2' }
+        .aqua_block.aquas__block__legend
+          .aqua_block__info
+            .aqua_block__title
+              Легенда гор
+            .aqua_block__text
+              Стимулирует природный механизм самовосстановления организма
+      %a{ href: '/aquas/4' }
+        .aqua_block.aquas__block__yodis
+          .aqua_block__info
+            .aqua_block__title
+              Йодис
+            .aqua_block__text
+              Укрепляя иммунитет и помогая энергично осваивать новые знания
+      %a{ href: '/aquas/3' }
+        .aqua_block.aquas__block__arhyz
+          .aqua_block__info
+            .aqua_block__title
+              Архыз
+            .aqua_block__text
+              Добывается из горных ледников на высоте 1507 метров над уровнем моря
 
   .about_company__block
     .about_company__block_image
@@ -149,15 +159,6 @@
   var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel";
   var correcting=(/Firefox/i.test(navigator.userAgent))? -1 : 1;
   $(document).ready(function(){
-    $('.little_images img').load(function() {
-      $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
-      var myVar = setInterval(function(){
-        if( $('.little_images img')[2].complete ) {
-          clearInterval(myVar);
-          $('.infografika').css('bottom', $('.little_images img')[2].clientHeight + 75);
-        }
-      }, 500);
-    });
 
     default_hover();
     function default_hover(){
@@ -209,6 +210,7 @@
     custom_hover('.infogr_1', '35px');
 
     water = $('.water__block').offset().top - 20;
+    aquas = $('.aquas__block').offset().top - 100;
     about = $('.about_company__block').offset().top - 100;
     equip = $('.equipment__block').offset().top - 100;
     deliv = $('.delivery__block').offset().top - 100;
@@ -287,6 +289,17 @@
           e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           enableScroll = false;
           flag = true;
+          $("html, body").animate({ scrollTop: aquas + "px" });
+          //$( "body" ).scrollTop(about);
+        }
+
+        //if (tmp >= water + 1 && tmp <= water + 500) {
+        if (tmp >= aquas - 100 && tmp <= aquas + 500 && direction < 0) {
+          //console.log('to about' + water + ' ; ' + about);
+          direction = 0;
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+          enableScroll = false;
+          flag = true;
           $("html, body").animate({ scrollTop: about + "px" });
           //$( "body" ).scrollTop(about);
         }
@@ -313,42 +326,23 @@
           //$( "body" ).scrollTop(about);
         }
 
-        //if (tmp >= about - 500 && tmp <= about - 1) {
         if (tmp >= about - 500 && tmp <= about + 100 && direction > 0) {
-          //console.log('to water' + about + ' ; ' + water);
+          direction = 0;
+          e.preventDefault ? e.preventDefault() : (e.returnValue = false);
+          enableScroll = false;
+          flag = true;
+          $("html, body").animate({ scrollTop: aquas + "px" });
+        }
+
+        if (tmp >= aquas - 500 && tmp <= aquas + 100 && direction > 0) {
           direction = 0;
           e.preventDefault ? e.preventDefault() : (e.returnValue = false);
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: water + "px" });
-          //$( "body" ).scrollTop(water);
         }
       }
     };
-
-    // if ($('.infografika').css('bottom') == "58px"){
-    //   $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
-    // };
-
-    // setTimeout(function() {
-    //   if ($('.infografika').css('bottom') == "58px"){
-    //     $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
-    //   };
-    // }, 1500);
-
-    // HACKS for infografika position
-    var myInterval = setInterval(function(){
-      if( $('.little_images img')[0].clientHeight > 60 && $('.infografika').css('bottom') == "58px") {
-        $('.infografika').css('bottom', $('.little_images img')[0].clientHeight + 75);
-      }
-      if ($('.infografika').css('bottom') != "58px") {
-        clearInterval(myInterval);
-      }
-    }, 500);
-
-    setTimeout(function() {
-      clearInterval(myInterval);
-    }, 10000);
   })
 
   ymaps.ready(init);
