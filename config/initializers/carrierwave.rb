@@ -9,3 +9,4 @@ module CarrierWave
     end
   end
 end
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
