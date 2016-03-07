@@ -16,9 +16,9 @@ class Volume < ActiveRecord::Base
   end
 
   def title_value
-    str = value.to_s + ' л.'
-    str << ' ПЭТ' if pet?
-    str << ' газ.' if soda?
+    str = value.to_s + " л."
+    str << " ПЭТ" if pet?
+    str << " газ." if soda?
     str
   end
 end

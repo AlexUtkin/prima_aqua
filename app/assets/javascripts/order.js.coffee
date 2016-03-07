@@ -291,6 +291,14 @@ class Order
     $('.js_products').append($('.js_aqua_template').html())
     @actualizeDeposit()
 
+  addAqua: (elem)->
+    aqua = elem.data()
+    products = $('.js_products')
+    products.append($('.js_aqua_template').html())
+    el = products.find('.water_template').last()
+    @restoreAqua(aqua, el)
+    @actualizeWaterPrice(el, aqua.aqua, aqua.volume, aqua.amount)
+
   removePosition: (e)=>
     elem = $(e.currentTarget)
     elem.closest('.water_template').remove()
@@ -417,7 +425,6 @@ class Order
     info = {}
     info['customer_type'] = $('.js_customer_type_selector').data('val')
     form = $(".js_#{info['customer_type']}")
-    console.log form.find('#name').val()
     info['name'] = form.find('#name').val()
     info['phone'] = form.find('#phone').val()
     info['address'] = form.find('#address').val()
@@ -499,10 +506,12 @@ $ ->
       order.checkAvailableTime()
   )
 
-  $(document).on 'click', '.js_order_button', ->
+  $(document).on 'click', '.js_order_button', (e)->
+    elem = $(e.currentTarget)
     $('.js_products').html('')
     window.hideSpinner()
     order.showModal()
+    order.addAqua(elem) if elem.data().aqua
     yaCounter14311645.reachGoal('order');
 
   $(document).on 'click', '.js_add_accessory', (e)=>

@@ -39,7 +39,13 @@
         = link_to 'Скидки при заказе нескольких бутылок', prices_path
       .aqua_prices__delivery_link
         = link_to 'Условия доставки', delivery_path
-      %a.red_button.js_order_button{href: '#'} Заказать
+      - price = @aqua.prices.first
+      = link_to "Заказ", "#", class: "red_button js_order_button", |
+        data: { aqua: "#{@aqua.id}-#{@aqua.name}", |
+                amount: "#{price.try(:start_count)}", |
+                price: price.try(:value), |
+                volume: "#{price.volume_id}-#{price.volume.title_value}", |
+                deposit: price.volume.deposit }
 
 :javascript
   function setClassToPrices(){

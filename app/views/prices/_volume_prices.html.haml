@@ -9,7 +9,13 @@
     .aqua__info_text
       =volume.aqua.short_description
     .aqua__info_order
-      %a.red_button.js_order_button{href: '#'} Заказ
+      - price = volume.prices.first
+      = link_to "Заказ", "#", class: "red_button js_order_button", |
+        data: { aqua: "#{volume.aqua_id}-#{volume.aqua.name}", |
+                amount: "#{price.try(:start_count)}", |
+                price: price.try(:value), |
+                volume: "#{volume.id}-#{volume.title_value}", |
+                deposit: volume.deposit }
 
   .aqua__prices
     %table
