@@ -68,6 +68,7 @@ a{cursor: pointer}
     text-align: left;
     width: 79px;
     height: 10px;
+    text-decoration: none;
     &:hover{
       color: #0080bb;
     }
@@ -101,12 +102,11 @@ a{cursor: pointer}
   /*Задаём параметры блока, содержащего основное меню*/
   #menu {
     display:block;
-
   }
 
   /*Задаём стили для разделов нашего меню*/
   #menu > li {
-    margin: 0 2%;
+    margin: 0 1%;
     display:inline-block;
     height:20px;
     position:relative;

@@ -16,12 +16,12 @@
         = link_to 'Профиль', '/profile'
         = link_to 'Выход', destroy_user_session_path, method: :delete
       - else
-        = link_to 'Вход', '#', class: 'js_sign_in'
+        = link_to '→ Вход', '#', class: 'js_sign_in'
   .header__main_line
     .header__main_line__menu
       %ul#menu
         %li
-          %a.with_underline О воде
+          %a.with_underline О воде  ▾
           %ul
             - @all_aquas.each do |aqua|
               %li
@@ -32,6 +32,8 @@
           %a.with_underline{href: products_path(type: 'cup')} Сопутствующие товары
         %li
           %a.with_underline{href: prices_path} Цены
+        %li
+          %a.with_underline{href: "/events?type=promotion"} Акции
         %li
           %a.red_button.js_order_button{href: '#'} Заказать
 .header__actions
