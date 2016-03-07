@@ -1,18 +1,11 @@
 class CoolersController < ApplicationController
   def index
-    @coolers = if params[:type_construction].present?
-                 if params[:type_construction] == 'напольные'
-                   Cooler.where('type_construction LIKE ?', '%пол%')
-                 elsif params[:type_construction] == 'настольные'
-                   Cooler.where('type_construction LIKE ?', '%стол%')
-                 end
-               elsif params[:tag].present?
-                 Tag.where(name: params[:tag]).first.coolers
-               elsif params[:type_cooling].present?
-                 Cooler.where(type_cooling: params[:type_cooling])
-               else
-                 Cooler.all
-               end
+    @coolers = Cooler.all
+    @coolers = @coolers.join(:tags).where(tags: {name: params[:tag]}) if params[:tag].present?
+    @coolers = @coolers.where(type_cooling: params[:type_cooling]) if params[:type_cooling].present?
+
+    (s = params[:type_construction].presence) && @coolers = @coolers.where('type_construction LIKE ?', "%#{s[2..4]}%")
+
     @coolers = if params[:direction].present?
                  @coolers.order(price: params[:direction].to_sym)
                else

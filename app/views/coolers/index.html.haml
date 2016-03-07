@@ -7,13 +7,13 @@
   .coolers-filters
     .coolers-filters-left
       .coolers-filters-left-item{class: ('active' if link_active?)}
-        = link_to 'Все', coolers_path
+        = link_to 'Все', coolers_path(params.except(:type_construction))
       .coolers-filters-left-item{class: ('active' if link_active?('напольные'))}
-        = link_to 'Напольные', coolers_path(type_construction: 'напольные')
+        = link_to 'Напольные', coolers_path(params.merge(type_construction: 'напольные'))
       .coolers-filters-left-item{class: ('active' if link_active?('настольные'))}
-        = link_to 'Настольные', coolers_path(type_construction: 'настольные')
+        = link_to 'Настольные', coolers_path(params.merge(type_construction: 'настольные'))
     .coolers-filters-right
-      = order
+      = order_link
       = triangle
   .coolers-list
     - @coolers.each_with_index do |cooler, index|
