@@ -4,12 +4,7 @@ class CoolersController < ApplicationController
     @coolers = @coolers.join(:tags).where(tags: {name: params[:tag]}) if params[:tag].present?
     @coolers = @coolers.where(type_cooling: params[:type_cooling]) if params[:type_cooling].present?
 
-    @coolers = case params[:type_construction]
-      when 'напольные'
-        @coolers.where('type_construction LIKE ?', '%пол%')
-      when 'настольные'
-        @coolers.where('type_construction LIKE ?', '%стол%')
-    end if params[:type_construction].present?
+    (s = params[:type_construction].presence) && @coolers = @coolers.where('type_construction LIKE ?', "%#{s[2..4]}%")
 
     @coolers = if params[:direction].present?
                  @coolers.order(price: params[:direction].to_sym)

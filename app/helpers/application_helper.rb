@@ -53,14 +53,14 @@ module ApplicationHelper
   end
 
   def order_link
-    direction = if params[:direction] == 'desc'
-                  'asc'
-                elsif params[:direction] == 'asc'
-                  ''
-                else
-                  'desc'
-                end
-    link_to 'Сортировать по цене', params.merge(direction: direction)
+    params[:direction] = if params[:direction] == 'desc'
+                           'asc'
+                         elsif params[:direction] == 'asc'
+                           ''
+                         else
+                           'desc'
+                         end
+    link_to 'Сортировать по цене', params
   end
 
   def triangle
