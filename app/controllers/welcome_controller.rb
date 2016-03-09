@@ -19,8 +19,6 @@ class WelcomeController < ApplicationController
 
   def contacts; end
 
-  def payment; end
-
   def profile
     redirect_to root_path unless current_user
   end
@@ -55,9 +53,5 @@ class WelcomeController < ApplicationController
 
   def check_time
     render json: OrderService.check_date(params[:data])
-  end
-
-  def service
-    @service_page = PageContent.service
   end
 end

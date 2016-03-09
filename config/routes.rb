@@ -26,16 +26,15 @@ Rails.application.routes.draw do
   resources :orders, only: :create
   resources :products, only: :index
   resources :districts, only: :show
+  resources :page_contents, only: :show, path: ''
   get 'profile' => 'welcome#profile'
   get 'profile/orders' => 'welcome#orders'
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
   get 'check_time' => 'welcome#check_time'
-  get 'payment' => 'welcome#payment'
   get 'about' => 'welcome#about'
   get 'events' => 'welcome#events'
   get 'events/show/:id' => 'welcome#events_show', as: 'events/show'
-  get 'service' => 'welcome#service'
 
   # 301 redirects
   get '/country',              to: redirect(URI.encode('/delivery_pages/4-Доставка%20питьевой%20воды%20в%20Ленобласти'), status: 301)

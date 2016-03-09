@@ -31,6 +31,6 @@ SitemapGenerator::Sitemap.create do
 
   add about_path, lastmod: DateTime.now
   add contacts_path, lastmod: DateTime.now
-  add payment_path, lastmod: DateTime.now
+  add page_content_path('payment'), lastmod: DateTime.now
   add delivery_path, lastmod: DateTime.now
 end

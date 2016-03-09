@@ -1,0 +1,19 @@
+- title @page.seo_title
+- meta_description @page.seo_description
+- meta_keywords @page.seo_description
+- begin
+  = render partial: "#{params[:id]}"
+- rescue ActionView::MissingTemplate
+  .page_content
+    .page_content-title
+      = @page.try(:main_header)
+    .page_content-body_imgs
+      .page_content-body_imgs-body
+        = @page.try(:main_text).try(:html_safe)
+      .page_content-body_imgs-img
+        = image_tag @page.try(:image_url, :for_page)
+    .page_content-body
+      .page_content-body-title
+        = @page.try(:additional_header)
+      .page_content-body-text
+        = @page.try(:additional_text).try(:html_safe)

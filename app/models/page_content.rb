@@ -1,7 +1,11 @@
 class PageContent < ActiveRecord::Base
-  enum relation: [:service, :other]
+  NAMES = [:service, :partners, :collaboration, :payment, :delivery]
 
   mount_uploader :image, ImageUploader
 
-  scope :service, -> { find_by(relation: relations[:service]) }
+  NAMES.each do |relation|
+    define_singleton_method(relation) do
+      find_by(relation: relation)
+    end
+  end
 end
