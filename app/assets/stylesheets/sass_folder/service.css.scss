@@ -5,10 +5,12 @@
   color:  #333333;
 }
 .service-title{
-  font-size: 36px;
   line-height: 30px;
   text-align: center;
   margin: 43px 0 31px;
+  h1{
+    font-size: 36px;
+  }
 }
 .service-body_imgs{
   overflow: hidden;

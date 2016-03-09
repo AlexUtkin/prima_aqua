@@ -26,7 +26,6 @@ Rails.application.routes.draw do
   resources :orders, only: :create
   resources :products, only: :index
   resources :districts, only: :show
-  resources :page_contents, only: :show, path: ''
   get 'profile' => 'welcome#profile'
   get 'profile/orders' => 'welcome#orders'
   get 'contacts' => 'welcome#contacts'
@@ -61,4 +60,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   get '*path' => redirect('/')  unless Rails.env.development?
+  resources :page_contents, only: :show, path: '',
+            constraints: proc { |req| PageContent::NAMES.include?(req.params[:id].to_sym) }
 end

@@ -12,14 +12,14 @@
       .links_column
         = link_to 'Кулеры и помпы', coolers_path
         = link_to 'Сопутствующие товары', products_path(type: 'cup')
-        = link_to 'Обслуживание', page_content_path('service')
+        = link_to 'Обслуживание', page_content_path(:service)
         -#= link_to 'Вопросы и ответы', '#'
       .links_column
         -@all_delivery_pages.each do |page|
           = link_to page.title, page
       .links_column
-        = link_to 'Партнеры', page_content_path('partners')
-        = link_to 'Сотрудничество', page_content_path('collaboration')
+        = link_to 'Партнеры', page_content_path(:partners)
+        = link_to 'Сотрудничество', page_content_path(:collaboration)
         = link_to 'О компании', about_path
         = link_to 'Контакты', '/contacts'
         -#= link_to 'Партнеры', '#'
