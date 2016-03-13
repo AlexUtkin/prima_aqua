@@ -1,0 +1,2 @@
+- if item.persisted?
+  = image_tag(item.preview_image_url((:small if item.preview_image.version_exists?(:small))))
