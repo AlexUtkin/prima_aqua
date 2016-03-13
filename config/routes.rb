@@ -59,7 +59,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get '*path' => redirect('/')  unless Rails.env.development?
   resources :page_contents, only: :show, path: '',
             constraints: proc { |req| PageContent::NAMES.include?(req.params[:id].to_sym) }
+  get '*path' => redirect('/') unless Rails.env.development?
 end
