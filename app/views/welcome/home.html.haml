@@ -48,15 +48,11 @@
           = image_tag image_url('1.png')
     .little_images
       .carousel
-        - @even_actions.each do |action|
+        - @actions.each do |action|
           .action__line
-            %span.action_label
-              =link_to action.title, '/events?type=promotion'
-      .carousel
-        - @odd_actions.each do |action|
-          .action__line
-            %span.action_label
-              =link_to action.title, '/events?type=promotion'
+            .action_banner{ style: ("background-image:url(..#{action.preview_image_url(:medium)})" if action.preview_image.present?) }
+              %span.action_label
+                =link_to action.title, events_show_path(action)
       %span.stretch
 
   .aquas__block
