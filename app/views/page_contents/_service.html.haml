@@ -1,0 +1,15 @@
+.service
+  .service-title
+    %h1= @page.main_header
+  .service-body_imgs
+    .service-body_imgs-body
+      = @page.main_text.try(:html_safe)
+    .service-body_imgs-img
+      = image_tag @page.try(:image_url, :for_page)
+      .service-body_img-button
+        = link_to 'Заказать обработку кулера', '#'
+  .service-body
+    .service-body-title
+      = @page.additional_header
+    .service-body-text
+      = @page.additional_text.try(:html_safe)

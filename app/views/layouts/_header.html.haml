@@ -10,7 +10,7 @@
       = link_to 'О компании', '/about'
       = link_to 'События', '/events'
       = link_to 'Контакты', '/contacts'
-      = link_to 'Оплата', payment_path
+      = link_to 'Оплата', page_content_path(:payment)
       = link_to 'Доставка', '/delivery'
       - if current_user
         = link_to 'Профиль', '/profile'

@@ -2,7 +2,7 @@
   = f.semantic_errors *f.object.errors.keys
 
   = f.inputs 'Relation' do
-    = f.input :relation, as: :select, collection: PageContent.relations.keys, label: false
+    = f.input :relation, as: :select, collection: PageContent::NAMES, label: false
 
   = f.inputs 'Main header' do
     = f.input :main_header, label: false

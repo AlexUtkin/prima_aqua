@@ -31,11 +31,9 @@ Rails.application.routes.draw do
   get 'contacts' => 'welcome#contacts'
   get 'delivery' => 'welcome#delivery'
   get 'check_time' => 'welcome#check_time'
-  get 'payment' => 'welcome#payment'
   get 'about' => 'welcome#about'
   get 'events' => 'welcome#events'
   get 'events/show/:id' => 'welcome#events_show', as: 'events/show'
-  get 'service' => 'welcome#service'
 
   # 301 redirects
   get '/country',              to: redirect(URI.encode('/delivery_pages/4-Доставка%20питьевой%20воды%20в%20Ленобласти'), status: 301)
@@ -61,5 +59,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  get '*path' => redirect('/')  unless Rails.env.development?
+  resources :page_contents, only: :show, path: '',
+            constraints: proc { |req| PageContent::NAMES.include?(req.params[:id].to_sym) }
+  get '*path' => redirect('/') unless Rails.env.development?
 end
