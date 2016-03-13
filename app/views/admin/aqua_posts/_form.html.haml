@@ -13,6 +13,10 @@
   = f.inputs 'Button' do
     = f.input :button_name, label: 'name'
     = f.input :hint, label: 'hint'
+    = f.input :button_image, label: 'image'
+    %br
+    - if @aqua_post.persisted? && @aqua_post.button_image.present?
+      = image_tag(@aqua_post.button_image_url((:button_image_square if @aqua_post.image.version_exists?(:button_image_square))))
   = f.inputs 'Link' do
     = f.input :link_name, label: 'name'
     = f.input :link_url, label: 'url'

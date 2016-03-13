@@ -8,6 +8,8 @@
         = post.body.html_safe
       - if post.hint.present? && post.button_name.present?
         %a.post_text__button.js_to_show_hint
+          .post_text__button_image
+            = image_tag post.button_image_url(:button_image_square)
           = post.button_name
         .hint.js_hint.hidden_block
           = post.hint.html_safe
