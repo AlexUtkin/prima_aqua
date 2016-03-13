@@ -39,19 +39,20 @@
     }
     a.post_text__button{
       border-radius: 3px;
-      border: 1px solid #333;
       text-decoration: none;
       background-color:  #ffffff;
       font-family: 'MuseoSansCyrl';
       color:  #333333;
       font-size: 14px;
-      line-height: 24px;
-      opacity: 0.8;
+      line-height: 27px;
       padding: 5px 15px;
       display: inline-block;
       margin: 15px 0;
-      &:hover{
-        opacity: 1;
+      .post_text__button__image{
+        float: left;
+        margin-right: 15px;
+        height: 24px;
+        width: 24px;
       }
     }
     a.post_text__link{
