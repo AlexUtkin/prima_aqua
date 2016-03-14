@@ -10,7 +10,7 @@ class WelcomeController < ApplicationController
     @polygons_coords << @polygons.map{|p| p.coordinates.split(';').map{|c| c.split(',')}.map{|a| a.map{|c| c.to_f}}}
     gon.polygons_coords = @polygons_coords[0]
     gon.polygons = @polygons
-    @actions = ::Article.where(type: "promotion")
+    @actions = ::Article.where(type: "promotion").order(id: :desc)
   end
 
   def contacts; end
