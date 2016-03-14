@@ -171,11 +171,11 @@ $ ->
   $('.carousel').slick({
     dots: true,
     infinite: true,
-    speed: 300,
+    speed: 600,
     slidesToShow: 2,
     adaptiveHeight: true
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 6000,
     arrows: false
   });
 
