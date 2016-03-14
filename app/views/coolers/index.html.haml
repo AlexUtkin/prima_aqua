@@ -39,5 +39,5 @@
           .coolers-list-item-service-text
             Рекомендуем регулярно проводить санитарную обработку кулеров
           .coolers-list-item-service-link-wrapper
-            = link_to 'Подробнее', service_path, class: 'coolers-list-item-service-link'
+            = link_to 'Подробнее', page_content_path(:service), class: 'coolers-list-item-service-link'
       = render 'coolers/item', cooler: cooler, index: index
