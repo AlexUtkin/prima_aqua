@@ -79,6 +79,11 @@ a{cursor: pointer}
   text-align: center;
 }
 .header__main_line__menu{
+  .current{
+    background: image_url('underline1.png') repeat-x 100% 100%;
+    padding-bottom: 4px;
+    white-space: nowrap;
+  }
   a.with_underline{
     line-height: 50px;
     font-family: 'MuseoSansCyrl-700';
@@ -249,11 +254,8 @@ a.with_blue_button{
     text-align: center;
   }
   .header__logo{
-    margin-top: 15px;
+    margin-top: 5px;
     float: left;
-    img{
-      height: 50px;
-    }
   }
   .header__main_line{
     margin-top: 15px;
@@ -537,10 +539,16 @@ a.with_blue_button{
   }
   .help_links{
     width: 82%;
-    margin: 15px auto;
+    margin: 35px auto 15px;
     font-family: 'MuseoSansCyrl';
     color: #0080bb;
     line-height: 30px;
+    padding-top: 10px;
+    border-top: 1px solid lightgray;
+    a{
+      font-family: 'MuseoSansCyrl';
+      color: #0080bb;
+    }
     .left_floated_link{
       float: left;
       text-decoration: none;
