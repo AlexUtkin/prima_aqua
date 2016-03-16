@@ -14,7 +14,7 @@ class OrderService
     dt = date.present? ? Date.parse(date) : Time.zone.today
     setting = OrderSetting.first
     result = []
-    result << 1 if dt == Time.zone.today
+    result << 1 if dt == Time.zone.today || dt == Time.zone.tomorrow && Time.zone.now.localtime.hour >= 16
     return result unless setting
     # puts setting.disabled_day?(dt) || setting.disabled_date?(dt)
     # puts setting.disabled_morning_day?(dt) || setting.disabled_morning_date?(dt)

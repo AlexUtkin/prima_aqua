@@ -21,19 +21,19 @@
     .header__main_line__menu
       %ul#menu
         %li
-          %a.with_underline О воде  ▾
+          %a.with_underline{class: "#{'current' if params[:controller] == 'aquas'}"} О воде  ▾
           %ul
             - @all_aquas.each do |aqua|
               %li
-                = link_to aqua.name, aqua, class: 'with_underline'
+                = link_to aqua.name, aqua, class: "with_underline"
         %li
-          %a.with_underline{href: coolers_path} Кулеры и помпы
+          %a.with_underline{href: coolers_path, class: "#{'current' if current_page?(coolers_path)}"} Кулеры и помпы
         %li
-          %a.with_underline{href: products_path(type: 'cup')} Сопутствующие товары
+          %a.with_underline{href: products_path(type: 'cup'), class: "#{'current' if current_page?(products_path(type: 'cup'))}"} Сопутствующие товары
         %li
-          %a.with_underline{href: prices_path} Цены
+          %a.with_underline{href: prices_path, class: "#{'current' if current_page?(prices_path)}"} Цены
         %li
-          %a.with_underline{href: "/events?type=promotion"} Акции
+          %a.with_underline{href: "/events?type=promotion", class: "#{'current' if current_page?('/events?type=promotion')}"} Акции
         %li
           %a.red_button.js_order_button{href: '#'} Заказать
 
