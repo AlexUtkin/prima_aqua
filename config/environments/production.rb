@@ -94,5 +94,6 @@ Rails.application.configure do
       enable_starttls_auto: false
   }
 
-  config.action_dispatch.default_headers = { "X-Frame-Options" => "ALLOW-FROM webvisor.com" }
+  # should be uncommented when we want to see webvisor for yandex metriks
+  # config.action_dispatch.default_headers = { "X-Frame-Options" => "ALLOW-FROM webvisor.com" }
 end
