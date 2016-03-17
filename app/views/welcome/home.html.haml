@@ -151,6 +151,20 @@
         %a.main_page__button{ href: '/delivery' }
           Подробнее о доставке
 
+
+.slides_circles
+  .circle
+    .circle__block.js_water_block__circle.active__circle
+  .circle
+    .circle__block.js_aquas_block__circle
+  .circle
+    .circle__block.js_about_block__circle
+  .circle
+    .circle__block.js_equipment_block__circle
+  .circle
+    .circle__block.js_delivery_block__circle
+
+
 :javascript
   var mousewheelevt=(/Firefox/i.test(navigator.userAgent))? "DOMMouseScroll" : "mousewheel";
   var correcting=(/Firefox/i.test(navigator.userAgent))? -1 : 1;
@@ -205,6 +219,12 @@
     custom_hover('.infogr_6', '37px');
     custom_hover('.infogr_1', '35px');
 
+
+    function activate_circle(name) {
+      $('.circle__block').removeClass('active__circle');
+      $('.js_'+ name + '_block__circle').addClass('active__circle');
+    };
+
     water = $('.water__block').offset().top - 20;
     aquas = $('.aquas__block').offset().top - 100;
     about = $('.about_company__block').offset().top - 100;
@@ -254,6 +274,7 @@
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: water + "px" });
+          activate_circle('water');
         }
 
         //if (tmp >= equip + 1 && tmp <= equip + 500) {
@@ -265,6 +286,7 @@
           flag = true;
           $("html, body").animate({ scrollTop: deliv + "px" });
           //$( "body" ).scrollTop(deliv);
+          activate_circle('delivery');
         }
 
         //if (tmp >= about + 1 && tmp <= about + 500) {
@@ -276,6 +298,7 @@
           flag = true;
           $("html, body").animate({ scrollTop: equip + "px" });
           //$( "body" ).scrollTop(equip);
+          activate_circle('equipment');
         }
 
         //if (tmp >= water + 1 && tmp <= water + 500) {
@@ -287,6 +310,7 @@
           flag = true;
           $("html, body").animate({ scrollTop: aquas + "px" });
           //$( "body" ).scrollTop(about);
+          activate_circle('aquas');
         }
 
         //if (tmp >= water + 1 && tmp <= water + 500) {
@@ -298,6 +322,7 @@
           flag = true;
           $("html, body").animate({ scrollTop: about + "px" });
           //$( "body" ).scrollTop(about);
+          activate_circle('about');
         }
 
         //if (tmp >= deliv - 500 && tmp <= deliv - 1) {
@@ -309,6 +334,7 @@
           flag = true;
           $("html, body").animate({ scrollTop: equip + "px" });
           //$( "body" ).scrollTop(equip);
+          activate_circle('equipment');
         }
 
         //if (tmp >= equip - 500 && tmp <= equip - 1) {
@@ -320,6 +346,7 @@
           flag = true;
           $("html, body").animate({ scrollTop: about + "px" });
           //$( "body" ).scrollTop(about);
+          activate_circle('about');
         }
 
         if (tmp >= about - 500 && tmp <= about + 100 && direction > 0) {
@@ -328,6 +355,7 @@
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: aquas + "px" });
+          activate_circle('aquas');
         }
 
         if (tmp >= aquas - 500 && tmp <= aquas + 100 && direction > 0) {
@@ -336,6 +364,7 @@
           enableScroll = false;
           flag = true;
           $("html, body").animate({ scrollTop: water + "px" });
+          activate_circle('water');
         }
       }
     };

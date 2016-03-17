@@ -47,6 +47,14 @@
                 volume: "#{price.volume_id}-#{price.volume.title_value}", |
                 deposit: price.volume.deposit }
 
+.slides_circles.aqua_posts__circles
+  - @posts.size.times do |i|
+    .circle
+      .circle__block{ class: "js_#{i}_block__circle"}
+  - if @aqua.docs.present?
+    .circle
+      .circle__block{ class: "js_#{@posts.size}_block__circle"}
+
 :javascript
   function setClassToPrices(){
     var aqua_prices = $('.aqua_prices');
@@ -98,6 +106,12 @@
       offsets[index] = $( this ).offset().top - (index == 0 ? 20 : 100);
     });
 
+
+    function activate_circle(name) {
+      $('.circle__block').removeClass('active__circle');
+      $('.js_'+ name + '_block__circle').addClass('active__circle');
+    };
+
     function onWheel(e) {
       e = e || window.event;
       if (!enableScroll){
@@ -129,6 +143,7 @@
             enableScroll = false;
             flag = true;
             $("html, body").animate({ scrollTop: offsets[i+1] + "px" });
+            activate_circle(i+1);
           }
           if (tmp >= offsets[i] - 500 && tmp <= offsets[i] + 100 && direction > 0 && i > 0) {
             e.preventDefault ? e.preventDefault() : (e.returnValue = false);
@@ -136,6 +151,7 @@
             enableScroll = false;
             flag = true;
             $("html, body").animate({ scrollTop: offsets[i-1] + "px" });
+            activate_circle(i-1);
           }
         }
       }
@@ -156,6 +172,7 @@
     });
   });
   $(window).bind("load", function() {
+    $('.circle__block').first().addClass('active__circle');
     enable_scrolling();
   });
 
