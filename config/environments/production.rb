@@ -93,4 +93,6 @@ Rails.application.configure do
       password: Rails.application.secrets.mail_password,
       enable_starttls_auto: false
   }
+
+  config.action_dispatch.default_headers = { "X-Frame-Options" => "ALLOW-FROM webvisor.com" }
 end
