@@ -106,6 +106,10 @@ class Order
       msg.push('Выберите время доставки')
       form.find('.js_delivery_time_selector').addClass('error_field')
 
+    if $('.js_delivery_time_selector .disabled').length > 1
+      msg.push('Выберите другой день доставки')
+      form.find('.js_delivery_time_selector').addClass('error_field')
+
     flag = msg.length < 1
     { isValid: flag, errors: msg }
 
