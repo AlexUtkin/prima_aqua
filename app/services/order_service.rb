@@ -11,10 +11,12 @@ class OrderService
   end
 
   def self.check_date(date)
-    dt = date.present? ? Date.parse(date) : Time.zone.today
+    today = Time.zone.today
+    dt = date.present? ? Date.parse(date) : today
     setting = OrderSetting.first
     result = []
-    result << 1 if dt == Time.zone.today || dt == Time.zone.tomorrow && Time.zone.now.localtime.hour >= 16
+    result << 1 if dt == today || dt == Time.zone.tomorrow && Time.zone.now.localtime.hour >= 16
+    result << 1 if (today.sunday? || today.saturday?) && dt.monday?
     return result unless setting
     # puts setting.disabled_day?(dt) || setting.disabled_date?(dt)
     # puts setting.disabled_morning_day?(dt) || setting.disabled_morning_date?(dt)
