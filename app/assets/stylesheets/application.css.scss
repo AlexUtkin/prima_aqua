@@ -16,119 +16,167 @@
  *= require fonts
  *= require jquery-ui/datepicker
  */
-
 @import 'config';
 
-html,body,div,span,u,i,s,em,form,fieldset,label,legend,input,button,textarea,a,caption{margin:0;padding:0;outline:none;}
-table {border-collapse:collapse;border-spacing:0; font-size:inherit;}
-fieldset,img {border:0;}
-caption,th,td{text-align:left; padding: 0 10px; }
+html, body, div, span, u, i, s, em, form, fieldset, label, legend, input, button, textarea, a, caption {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: inherit;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  padding: 0 10px;
+}
+
 /* global styles */
-html, body {height:100%; color: #58595b;}
-a, .jslink{color: blue}
-a:hover, .jslink:hover{color: #F15A2A}
-.jslink{text-decoration: underline; cursor: pointer}
-.jslink:hover{text-decoration: none}
-body{background: #fff}
-a{cursor: pointer}
-.clearfix{
+html, body {
+  height: 100%;
+  color: #58595b;
+}
+
+a, .jslink {
+  color: blue
+}
+
+a:hover, .jslink:hover {
+  color: #F15A2A
+}
+
+.jslink {
+  text-decoration: underline;
+  cursor: pointer
+}
+
+.jslink:hover {
+  text-decoration: none
+}
+
+body {
+  background: #fff
+}
+
+a {
+  cursor: pointer
+}
+
+.clearfix {
   clear: both;
 }
-.hidden_block{
+
+.hidden_block {
   display: none;
 }
-.showen_block{
+
+.showen_block {
   display: block;
 }
-.center_text_align{
+
+.center_text_align {
   text-align: center;
 }
 
-.slides_circles{
+.slides_circles {
   width: 20px;
   position: fixed;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   top: 50%;
   right: 10px;
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 2px;
 
-  @include media(xs){
+  @include media(xs) {
     display: none;
   }
 
-  .circle{
+  .circle {
     width: 100%;
     height: 20px;
     text-align: center;
   }
-  .circle__block{
+  .circle__block {
     border-radius: 50%;
     width: 10px;
     height: 10px;
     display: inline-block;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(255, 255, 255, 0.4);
   }
-  .active__circle{
+  .active__circle {
     background-color: white;
   }
 }
-.aqua_posts__circles{
+
+.aqua_posts__circles {
   right: 290px;
 }
+
 /*---------------------HEADER---------------------------*/
-.header{
+.header {
   width: 100%;
   max-width: 1300px;
   height: 115px;
   margin: 0 auto;
   position: relative;
 }
-.header__top_line{
+
+.header__top_line {
   height: 40px;
-  @include media(xs){
+  @include media(xs) {
     display: none;
   }
 }
-.header__top_line__menu{
+
+.header__top_line__menu {
   text-align: right;
   margin: 0 auto;
-  a{
+  a {
     margin: 0 0 0 20px;
     font-family: 'MuseoSansCyrl-300', sans-serif;
-    color:  #a4a4a4;
+    color: #a4a4a4;
     font-size: 14px;
     line-height: 40px;
     text-align: left;
     width: 79px;
     height: 10px;
     text-decoration: none;
-    &:hover{
+    &:hover {
       color: #0080bb;
     }
   }
 }
-.header__main_line{
+
+.header__main_line {
   height: 50px;
   text-align: center;
 
-  @include media(xs){
+  @include media(xs) {
     display: none;
   }
 }
-.header__main_line__menu{
-  .current{
+
+.header__main_line__menu {
+  .current {
     background: image_url('underline1.png') repeat-x 100% 100%;
     padding-bottom: 4px;
     white-space: nowrap;
   }
-  a.with_underline{
+  a.with_underline {
     line-height: 50px;
     font-family: 'MuseoSansCyrl-700';
-    color:  #0080bb;
+    color: #0080bb;
     font-size: 16px;
     text-decoration: none;
-    &:hover{
+    &:hover {
       background: image_url('underline1.png') repeat-x 100% 100%;
       padding-bottom: 4px;
       white-space: nowrap;
@@ -137,54 +185,55 @@ a{cursor: pointer}
 
   /*Обнуляем отступы*/
   ul, li {
-    margin:0;
-    padding:0;
-    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
   }
 
   /*Задаём параметры блока, содержащего основное меню*/
   #menu {
-    display:block;
+    display: block;
   }
 
   /*Задаём стили для разделов нашего меню*/
   #menu > li {
     margin: 0 1%;
-    display:inline-block;
-    height:20px;
-    position:relative;
+    display: inline-block;
+    height: 20px;
+    position: relative;
   }
 
   /*Стили для скрытого выпадающего меню*/
   #menu > li > ul {
-    position:absolute;
-    top:30px;
+    position: absolute;
+    top: 30px;
     left: -10px;
-    display:none;
+    display: none;
   }
 
   /*Делаем скрытую часть видимой*/
   #menu > li:hover > ul {
     margin-top: 2px;
-    display:block;
+    display: block;
     z-index: 2;
     padding: 10px;
     background-color: white;
     border-radius: 3px;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    li{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    li {
       height: 30px;
       white-space: nowrap;
     }
-    li:first-child{
+    li:first-child {
       margin-top: -10px;
     }
 
   }
 
 }
-.main_header{
-  .header__logo{
+
+.main_header {
+  .header__logo {
     float: left;
     margin-top: 20px;
     width: 0;
@@ -193,14 +242,15 @@ a{cursor: pointer}
       margin-top: 24px;
       width: 100%;
 
-      img{
+      img {
         margin: 0 auto;
         display: block;
       }
     }
   }
 }
-.header__contacts{
+
+.header__contacts {
   position: absolute;
   top: 50px;
   right: 0;
@@ -210,10 +260,10 @@ a{cursor: pointer}
   }
 }
 
-a.red_button{
+a.red_button {
   display: inline-block;
   border-radius: 3px;
-  background-color:  #eb0028;
+  background-color: #eb0028;
   width: 110px;
   height: 35px;
   line-height: 35px;
@@ -222,16 +272,17 @@ a.red_button{
   padding: 0 15px;
   color: white;
   text-decoration: none;
-  &:hover{
+  &:hover {
     text-decoration: none;
   }
 }
-.red_button{
+
+.red_button {
   cursor: pointer;
   display: inline-block;
   border: 0;
   border-radius: 3px;
-  background-color:  #eb0028;
+  background-color: #eb0028;
   width: 110px;
   height: 35px;
   line-height: 35px;
@@ -240,11 +291,12 @@ a.red_button{
   padding: 0 15px;
   color: white;
   text-decoration: none;
-  &:hover{
+  &:hover {
     text-decoration: none;
   }
 }
-a.blue_button{
+
+a.blue_button {
   display: inline-block;
   border-radius: 3px;
   background-color: #0080bb;
@@ -252,15 +304,16 @@ a.blue_button{
   height: 35px;
   line-height: 35px;
   font-family: 'MuseoSansCyrl-700';
-  color:  white;
+  color: white;
   font-size: 16px;
   padding: 0 15px;
   text-decoration: none;
-  &:hover{
+  &:hover {
     text-decoration: none;
   }
 }
-a.with_blue_button{
+
+a.with_blue_button {
   display: inline-block;
   border-radius: 3px;
   background-color: white;
@@ -274,15 +327,16 @@ a.with_blue_button{
   padding: 0 15px;
   text-decoration: none;
   opacity: 0.9;
-  &:hover{
+  &:hover {
     opacity: 1;
     text-decoration: none;
   }
 }
+
 /*---------------------END HEADER---------------------------*/
 
 /*---------------------FIXED HEADER---------------------------*/
-.fixed_header{
+.fixed_header {
   width: 100%;
   min-width: 770px;
   z-index: 5;
@@ -293,7 +347,7 @@ a.with_blue_button{
   background-position: 0 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 
-  @include media(xs){
+  @include media(xs) {
     height: 75px;
     min-width: 100%;
   }
@@ -305,8 +359,7 @@ a.with_blue_button{
     background: none;
     margin: 0 auto;
 
-
-    @include media(xs){
+    @include media(xs) {
       height: 100%;
     }
 
@@ -317,182 +370,188 @@ a.with_blue_button{
     }
     text-align: center;
   }
-  .header__logo{
+  .header__logo {
     margin-top: 5px;
     float: left;
 
-    @include media(xs){
+    @include media(xs) {
       margin: 5px auto 0;
       width: 100%;
     }
   }
-  .header__main_line{
+  .header__main_line {
     margin-top: 15px;
   }
 }
+
 /*---------------------END FIEXD HEADER---------------------------*/
 
-.main_container{
+.main_container {
   background: image_url('triangles.png') no-repeat;
   background-position: 0 0;
   width: 100%;
-  .main_content{
+  .main_content {
     max-width: 1300px;
   }
-  .invisible_block{
+  .invisible_block {
     display: none;
   }
 
-  @include media(xs){
+  @include media(xs) {
 
   }
 
-  @include media(md){
+  @include media(md) {
     min-width: 1000px;
   }
 }
 
-
 /*-----------------------footer ----------------------------*/
-.footer{
+.footer {
   float: left;
   width: 100%;
   height: 400px;
 }
-.footer__adv{
+
+.footer__adv {
   background-color: #007fba;
   height: 45px;
   font-family: 'MuseoSansCyrl-300';
   font-size: 14px;
   text-align: center;
-  a{
+  a {
     margin: 3px auto;
     display: block;
     line-height: 45px;
     color: white;
     text-decoration: none;
   }
-  img{
+  img {
     vertical-align: text-bottom;
   }
 }
-.footer__main{
+
+.footer__main {
   margin: 0 auto;
   width: 95%;
   min-width: 900px;
   max-width: 1100px;
 
-  @include media(xs){
+  @include media(xs) {
     min-width: 100%;
   }
 }
-.footer__main__links{
+
+.footer__main__links {
   margin: 30px 0 20px;
   padding-bottom: 30px;
   border-bottom: 1px solid #dddddd;
   width: 100%;
 
-  @include media(xs){
+  @include media(xs) {
     display: none;
   }
 
-  .links_column{
+  .links_column {
     width: 24%;
     display: inline-block;
     vertical-align: top;
   }
-  a{
+  a {
     display: block;
     line-height: 30px;
     font-family: 'MuseoSansCyrl-300';
     font-size: 16px;
     color: #a4a4a4;
     text-decoration: none;
-    &:hover{
+    &:hover {
       text-decoration: underline;
     }
   }
 }
-.footer__main__info{
+
+.footer__main__info {
   width: 100%;
-  .info_column{
+  .info_column {
     width: 30%;
     display: inline-block;
     vertical-align: top;
 
-    @include media(xs){
+    @include media(xs) {
       width: 100%;
       text-align: left !important;
       padding: 14px 10px;
       display: block;
       box-sizing: border-box;
-    };
+    }
+  ;
 
-    img{
+    img {
       margin-top: 3px;
       float: left;
     }
-    .info_column__content{
+    .info_column__content {
       text-align: left;
       margin-left: 23px;
 
-      @include media(xs){
+      @include media(xs) {
         margin-left: 60px;
       }
 
-      span{
+      span {
         display: block;
         line-height: 25px;
         font-family: 'MuseoSansCyrl';
         font-size: 16px;
       }
-      .bold_footer_info{
+      .bold_footer_info {
         margin-bottom: 2px;
         font-family: 'MuseoSansCyrl-700';
         font-size: 19px;
       }
     }
-    .lft_mrgn{
+    .lft_mrgn {
       margin-left: 60px;
     }
   }
-  .info_column__right{
+  .info_column__right {
     width: 39%;
     display: inline-block;
     vertical-align: top;
     text-align: right;
 
-    @include media(xs){
+    @include media(xs) {
       text-align: center;
       width: 100%;
       padding: 14px 10px;
       box-sizing: border-box;
     }
   }
-  .contacts{
-    a{
+  .contacts {
+    a {
       margin-left: 1px;
       text-decoration: none;
     }
-    .contacts__phone{
+    .contacts__phone {
       margin-left: 7px;
       font-size: 26px;
       font-family: 'MuseoSansCyrl-700';
     }
     margin-bottom: 10px;
   }
-  .copyright{
+  .copyright {
     font-family: 'MuseoSansCyrl-300';
     font-size: 16px;
     color: #a4a4a4;
   }
 }
+
 /*----------------------- end footer ----------------------------*/
 
 /*------------------------- modal ----------------------------------*/
-.modal_area{
+.modal_area {
   display: block;
-  .modal__back{
+  .modal__back {
     position: fixed;
     top: 0;
     left: 0;
@@ -503,13 +562,13 @@ a.with_blue_button{
     z-index: 6;
     display: none;
   }
-  .modal__view{
+  .modal__view {
     position: absolute;
     top: 10%;
     z-index: 7;
     width: 100%;
   }
-  .modal__view__phone{
+  .modal__view__phone {
     z-index: 7;
     width: 100%;
     position: fixed;
@@ -517,13 +576,13 @@ a.with_blue_button{
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .modal_window{
+  .modal_window {
     border-radius: 3px;
     display: none;
     margin: 0 auto;
     background-color: white;
     position: relative;
-    .spinner-block{
+    .spinner-block {
       position: absolute;
       width: 100%;
       height: calc(52% + 80px);
@@ -532,32 +591,32 @@ a.with_blue_button{
       background-color: white;
       opacity: 0.5;
       z-index: 30;
-      span{
+      span {
         font-size: 35px;
         color: black;
         font-family: 'MuseoSansCyrl-700';
       }
     }
   }
-  .modal__notice{
+  .modal__notice {
     width: 560px;
     z-index: 6;
-    .modal__title{
+    .modal__title {
       padding: 30px 0;
     }
   }
-  .modal__phone_call{
+  .modal__phone_call {
     width: 560px;
     height: 285px;
   }
-  .modal__login{
+  .modal__login {
     width: 560px;
     height: 285px;
   }
   .modal__registration {
     width: 600px;
     min-height: 285px;
-    .custome_selector{
+    .custome_selector {
       margin-bottom: 10px;
     }
     form {
@@ -593,10 +652,10 @@ a.with_blue_button{
     width: 560px;
     height: 330px;
   }
-  .modal__header{
+  .modal__header {
     height: 25px;
     text-align: right;
-    .close_button{
+    .close_button {
       display: inline-block;
       text-align: right;
       margin: 12px 15px 0;
@@ -606,30 +665,30 @@ a.with_blue_button{
       color: #0080bb;
     }
   }
-  .modal__title{
+  .modal__title {
     font-family: 'MuseoSansCyrl-700';
     font-size: 36px;
     text-align: center;
     margin-bottom: 20px;
   }
-  .modal__undertitle{
+  .modal__undertitle {
     font-family: 'MuseoSansCyrl-300';
     font-size: 16px;
     text-align: center;
     float: left;
     line-height: 22px;
-    margin: 0px 50px 24px;
+    margin: 0 50px 24px;
   }
-  .input_set{
+  .input_set {
     margin: 10px 50px;
-    label{
+    label {
       font-family: 'MuseoSansCyrl-300';
       font-size: 16px;
       width: 130px;
       float: left;
       line-height: 22px;
     }
-    input{
+    input {
       border: 1px solid #989899;
       width: 305px;
       line-height: 22px;
@@ -637,13 +696,13 @@ a.with_blue_button{
       padding: 0 10px;
     }
   }
-  .actions{
+  .actions {
     text-align: center;
-    input{
+    input {
       cursor: pointer;
     }
   }
-  .help_links{
+  .help_links {
     width: 82%;
     margin: 35px auto 15px;
     font-family: 'MuseoSansCyrl';
@@ -651,40 +710,42 @@ a.with_blue_button{
     line-height: 30px;
     padding-top: 10px;
     border-top: 1px solid lightgray;
-    a{
+    a {
       font-family: 'MuseoSansCyrl';
       color: #0080bb;
     }
-    .left_floated_link{
+    .left_floated_link {
       float: left;
       text-decoration: none;
     }
-    .right_floated_link{
+    .right_floated_link {
       float: right;
       text-decoration: none;
     }
   }
-  .modal__button{
+  .modal__button {
     margin: 30px 0 30px;
     text-align: center;
-    .red_button{
+    .red_button {
       width: 200px;
     }
   }
-  .modal_error{
-    label{
+  .modal_error {
+    label {
       color: red;
     }
-    input{
+    input {
       border-color: red;
     }
   }
 }
+
 /*------------------------- end modal ----------------------------------*/
 
 /*------------------------- gem devise ---------------------------------*/
-.error-devise{
+.error-devise {
   width: 600px;
   margin: 50px auto;
 }
+
 /*------------------------- end gem devise -----------------------------*/

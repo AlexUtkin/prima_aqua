@@ -1,8 +1,7 @@
 @import '../config';
 
-.cooler{
-
-  @include media(xs){
+.cooler {
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
     padding: 14px 10px;
@@ -10,25 +9,25 @@
     margin: 0;
   }
 }
-.cooler-top_link{
-  text-align: center;
 
-  @include media(xs){
+.cooler-top_link {
+  text-align: center;
+  @include media(xs) {
     margin: 0 0 14px;
     text-align: center;
   }
-
   a {
     font-family: 'MuseoSansCyrl';
-  color:  #0080bb;
-  font-size: 15px;
-  line-height: 30px;
-  text-align: center;
-  margin-bottom: 11px;
+    color: #0080bb;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom: 11px;
     text-decoration: none;
   }
 }
-.cooler-title{
+
+.cooler-title {
   font-family: 'MuseoSansCyrl';
   color: #333333;
   font-size: 36px;
@@ -36,110 +35,111 @@
   text-align: center;
   margin-bottom: 13px;
 }
-.cooler-line{
-  border-color:  #dddddd;
+
+.cooler-line {
+  border-color: #dddddd;
   width: 1180px;
   height: 1px;
   margin: 0 auto 48px;
   background: #DDD;
-
-  @include media(xs){
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
     box-sizing: border-box;
     margin-bottom: 29px;
   }
 }
-.cooler-left_right{
+
+.cooler-left_right {
   margin: 0 auto;
   width: 1180px;
-
-  @include media(xs){
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
     box-sizing: border-box;
   }
 }
-.cooler-left{
+
+.cooler-left {
   width: 400px;
   float: left;
   margin-right: 20px;
-
-  @include media(xs){
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
     box-sizing: border-box;
   }
 }
-.cooler-left-main_img{
+
+.cooler-left-main_img {
   width: 400px;
   height: 400px;
   margin-bottom: 10px;
   text-align: center;
-
-  @include media(xs){
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
     box-sizing: border-box;
     height: auto;
   }
 }
-.cooler-left-list_imgs{
+
+.cooler-left-list_imgs {
   height: 125px;
   text-align: center;
   img {
-    //display: inline-block;
     cursor: pointer;
   }
-
-  @include media(xs){
+  @include media(xs) {
     height: auto;
   }
 }
-.cooler-left-list_imgs-item{
+
+.cooler-left-list_imgs-item {
   height: 125px;
   vertical-align: top;
   display: inline-block;
   width: 100px;
-
-  @include media(xs){
+  @include media(xs) {
     height: auto;
   }
   img {
-    //display: inline-block;
     cursor: pointer;
   }
 }
-.cooler-right{
+
+.cooler-right {
   width: 760px;
   float: left;
-
-  @include media(xs){
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
     box-sizing: border-box;
     float: none;
   }
 }
-.cooler-right-price_button{
+
+.cooler-right-price_button {
   line-height: 30px;
   overflow: hidden;
   margin-bottom: 25px;
 }
-.cooler-right-price{
+
+.cooler-right-price {
   float: left;
   margin-right: 15px;
 }
-.cooler-right-price-count{
+
+.cooler-right-price-count {
   font-family: 'MuseoSansCyrl';
-  color:  #3b3a3c;
+  color: #3b3a3c;
   font-size: 30px;
   line-height: 30px;
   text-align: left;
   float: left;
-  span{
+  span {
     font-family: 'MuseoSansCyrl';
-    color:  #acacac;
+    color: #acacac;
     font-size: 30px;
     line-height: 30px;
     text-align: left;
@@ -150,9 +150,10 @@
     box-sizing: border-box;
   }
 }
-.cooler-right-button{
+
+.cooler-right-button {
   font-family: 'MuseoSansCyrl';
-  color:  #ffffff;
+  color: #ffffff;
   font-size: 16px;
   border-radius: 3px;
   background-color: #EB0028;
@@ -160,19 +161,22 @@
   height: 35px;
   float: left;
   text-align: center;
-  margin-top: 0px;
+  margin-top: 0;
   line-height: 33px;
 }
-.cooler-right-button-wrapper{
-  a{
+
+.cooler-right-button-wrapper {
+  a {
     text-decoration: none;
     color: white;
   }
 }
-.coolers-right-options{
+
+.coolers-right-options {
   margin-bottom: 15px;
 }
-.coolers-right-options-tag{
+
+.coolers-right-options-tag {
   font-family: 'MuseoSansCyrl';
   color: #A5A5A5;
   font-size: 14px;
@@ -181,14 +185,16 @@
   float: left;
   margin-right: 11px;
 }
-.coolers-right-options-item{
+
+.coolers-right-options-item {
   font-family: 'MuseoSansCyrl';
   color: #A5A5A5;
   font-size: 14px;
   line-height: 20px;
   text-align: left;
 }
-.coolers-right-desc{
+
+.coolers-right-desc {
   font-family: 'MuseoSansCyrl';
   color: #383838;
   font-size: 16px;
@@ -197,7 +203,8 @@
   width: 489px;
   margin-bottom: 28px;
 }
-.coolers-right-params_title{
+
+.coolers-right-params_title {
   font-family: 'MuseoSansCyrl';
   color: #333333;
   font-size: 18px;
@@ -205,11 +212,13 @@
   text-align: left;
   margin-bottom: 16px;
 }
-.coolers-right-params_table{
+
+.coolers-right-params_table {
   margin-bottom: 44px;
   overflow: hidden;
 }
-.coolers-right-params_table-left{
+
+.coolers-right-params_table-left {
   font-family: 'MuseoSansCyrl';
   color: #999999;
   font-size: 14px;
@@ -218,10 +227,12 @@
   float: left;
   margin-right: 20px;
 }
-.coolers-right-params_table-left-item{
+
+.coolers-right-params_table-left-item {
   margin-bottom: 10px;
 }
-.coolers-right-params_table-right{
+
+.coolers-right-params_table-right {
   font-family: 'MuseoSansCyrl';
   color: #333333;
   font-size: 14px;
@@ -229,20 +240,23 @@
   text-align: left;
   float: left;
 }
-.coolers-right-params_table-right-item{
+
+.coolers-right-params_table-right-item {
   margin-bottom: 10px;
 }
-.coolers-right-service_title{
+
+.coolers-right-service_title {
   font-family: 'MuseoSansCyrl';
-  color:  #333333;
+  color: #333333;
   font-size: 18px;
   line-height: 30px;
   text-align: left;
   margin-bottom: 13px;
 }
-.coolers-right-service_desc{
+
+.coolers-right-service_desc {
   font-family: 'MuseoSansCyrl';
-  color:  #000000;
+  color: #000000;
   font-size: 16px;
   line-height: 24px;
   text-align: left;

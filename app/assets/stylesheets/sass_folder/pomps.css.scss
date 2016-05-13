@@ -1,26 +1,24 @@
 @import '../config';
 
-.pomps{
+.pomps {
   min-width: 1000px;
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
   background-color: #F5F5F5;
-
-  @include media(xs){
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
   }
 }
 
-.pomps-links{
-  margin: 0px auto 15px;
+.pomps-links {
+  margin: 0 auto 15px;
   width: 679px;
   overflow: hidden;
   text-align: center;
   padding-top: 54px;
-
-  @include media(xs){
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
     padding: 14px 10px;
@@ -28,21 +26,20 @@
     margin: 0;
   }
 }
-.pomps-links-item{
+
+.pomps-links-item {
   font-family: 'MuseoSansCyrl';
-  color:  #0080bb;
+  color: #0080bb;
   font-size: 24px;
   line-height: 30px;
   margin-right: 29px;
   margin-left: 29px;
   display: inline-block;
-
-  @include media(xs){
+  @include media(xs) {
     font-size: 16px;
     margin: 0 3px;
   }
-
-  a{
+  a {
     text-decoration: none;
   }
   a:link {
@@ -56,25 +53,24 @@
   }
 }
 
-.pomps-line{
-  border-color:  #dddddd;
+.pomps-line {
+  border-color: #dddddd;
   width: 1180px;
   height: 1px;
   margin: 0 auto 18px;
   background: #DDD;
-
-  @include media(xs){
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
     margin: 0;
   }
 }
-.pomps-filters{
+
+.pomps-filters {
   overflow: hidden;
   width: 1180px;
   margin: 0 auto 40px;
-
-  @include media(xs){
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
     padding: 14px 10px;
@@ -82,28 +78,27 @@
     margin: 0;
   }
 }
-.pomps-filters-left{
-  float: left;
 
-  @include media(xs){
+.pomps-filters-left {
+  float: left;
+  @include media(xs) {
     padding-left: 7px;
   }
 }
-.pomps-filters-left-item{
+
+.pomps-filters-left-item {
   float: left;
   font-family: 'MuseoSansCyrl';
-  color:  #747474;
+  color: #747474;
   font-size: 15px;
   line-height: 30px;
   text-align: left;
   margin-right: 29px;
-
-  @include media(xs){
+  @include media(xs) {
     font-size: 14px;
     margin-right: 12px;
   }
-
-  a{
+  a {
     text-decoration: none;
   }
   a:link {
@@ -113,35 +108,35 @@
     color: #747474;
   }
 }
-.active{
-  a{
-    color:  #3b3a3c !important;
+
+.active {
+  a {
+    color: #3b3a3c !important;
   }
 }
-.pomps-filters-right{
+
+.pomps-filters-right {
   font-family: 'MuseoSansCyrl';
-  color:  #3b3a3c;
+  color: #3b3a3c;
   font-size: 15px;
   line-height: 30px;
   text-align: right;
   float: right;
-
-  @include media(xs){
+  @include media(xs) {
     font-size: 14px;
     margin-left: 7px;
     float: left;
   }
-
-  a{
+  a {
     text-decoration: none;
-    color:  #3b3a3c;
+    color: #3b3a3c;
   }
 }
-.pomps-list{
+
+.pomps-list {
   width: 1180px;
   margin: 0 auto;
-
-  @include media(xs){
+  @include media(xs) {
     width: 100%;
     min-width: 100%;
     text-align: center;
@@ -149,38 +144,42 @@
     box-sizing: border-box;
   }
 }
-.pomps-list-item{
-  border-radius: 3px;
-  height: 320px;
-  display: inline-block;
-  vertical-align:bottom;
-  position: relative;
-  margin-bottom: 40px;
-  width: 280px;
-}
-.pomps-list-item-zero{
-  border-radius: 3px;
-  background-color:  #3498db;
-  height: 320px;
-  display: inline-block;
-  vertical-align:bottom;
-  position: relative;
-  margin-bottom: 40px;
-  width: 280px;
-}
-.for_padding{
-  margin-left: 15px;
 
-  @include media(xs){
+.pomps-list-item {
+  border-radius: 3px;
+  height: 320px;
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  margin-bottom: 40px;
+  width: 280px;
+}
+
+.pomps-list-item-zero {
+  border-radius: 3px;
+  background-color: #3498db;
+  height: 320px;
+  display: inline-block;
+  vertical-align: bottom;
+  position: relative;
+  margin-bottom: 40px;
+  width: 280px;
+}
+
+.for_padding {
+  margin-left: 15px;
+  @include media(xs) {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
 }
-.pomps-list-item-zero-title{
+
+.pomps-list-item-zero-title {
   margin: 26px 25px 27px 26px;
   overflow: hidden;
 }
-.pomps-list-item-zero-title-text{
+
+.pomps-list-item-zero-title-text {
   font-family: 'MuseoSansCyrl';
   color: #ffffff;
   font-size: 24px;
@@ -190,17 +189,21 @@
   float: left;
   width: 157px;
 }
-.pomps-list-item-zero-title-img{
+
+.pomps-list-item-zero-title-img {
   float: right;
   margin-top: 8px;
 }
-.pomps-list-item-zero-list{
+
+.pomps-list-item-zero-list {
   margin: 0 10% 34px 26px;
 }
-.pomps-list-item-zero-list-item{
+
+.pomps-list-item-zero-list-item {
   margin-bottom: 26px;
 }
-.pomps-list-item-zero-list-item-text{
+
+.pomps-list-item-zero-list-item-text {
   font-family: 'MuseoSansCyrl';
   color: #ffffff;
   font-size: 16px;
@@ -216,8 +219,9 @@
     text-align: left;
   }
 }
-.pomps-list-item{
-  .pomps-list-item-button-wrapper{
+
+.pomps-list-item {
+  .pomps-list-item-button-wrapper {
     display: none;
   }
   &:hover {
@@ -229,30 +233,34 @@
     }
   }
 }
-.pomps-list-item-img{
+
+.pomps-list-item-img {
   position: relative;
 }
-.pomps-list-item-img-tag{
+
+.pomps-list-item-img-tag {
   z-index: 2;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   padding: 4px;
   background-color: #38B448;
   font-weight: bold;
   color: #FFF;
   font-size: 12px;
 }
-.pomps-list-item-title{
+
+.pomps-list-item-title {
   font-family: 'MuseoSansCyrl';
   font-size: 18px;
   line-height: 30px;
   text-align: left;
   color: black;
 }
-.pomps-list-item-options{
 
+.pomps-list-item-options {
 }
-.pomps-list-item-options-tag{
+
+.pomps-list-item-options-tag {
   font-family: 'MuseoSansCyrl';
   color: #a5a5a5;
   font-size: 14px;
@@ -261,23 +269,27 @@
   float: left;
   margin-right: 11px;
 }
-.pomps-list-item-options-item{
+
+.pomps-list-item-options-item {
   font-family: 'MuseoSansCyrl';
   color: #a5a5a5;
   font-size: 14px;
   line-height: 20px;
   text-align: left;
 }
-.pomps-list-item-price_button{
+
+.pomps-list-item-price_button {
   font-family: 'MuseoSansCyrl';
   font-size: 18px;
   line-height: 25px;
 }
-.pomps-list-item-price{
+
+.pomps-list-item-price {
   float: left;
   margin-right: 13px;
 }
-.pomps-list-item-price-count{
+
+.pomps-list-item-price-count {
   color: #3b3a3c;
   float: left;
   margin-right: 3px;
@@ -292,16 +304,19 @@
     box-sizing: border-box;
   }
 }
-.pomps-list-item-price-currency{
+
+.pomps-list-item-price-currency {
   color: #acacac;
 }
-.pomps-list-item-button-wrapper{
-  a{
+
+.pomps-list-item-button-wrapper {
+  a {
     text-decoration: none;
     color: white;
   }
 }
-.pomps-list-item-button{
+
+.pomps-list-item-button {
   font-family: 'MuseoSansCyrl';
   color: #FFF;
   font-size: 13px;
@@ -311,53 +326,60 @@
   height: 25px;
   float: left;
   text-align: center;
-  margin-top: 0px;
+  margin-top: 0;
   line-height: 25px;
 }
-.hidden{
+
+.hidden {
   visibility: hidden;
 }
-.color{
+
+.color {
   color: #0080bb;
 }
 
-.pomps-list-item-service{
+.pomps-list-item-service {
   border-radius: 3px;
-  background-color:  #ffffff;
+  background-color: #ffffff;
   height: 320px;
   display: inline-block;
-  vertical-align:bottom;
+  vertical-align: bottom;
   position: relative;
   margin-bottom: 40px;
   width: 280px;
 }
-.pomps-list-item-service-img{
+
+.pomps-list-item-service-img {
   width: 107px;
   height: 99px;
   margin: 34px auto 32px;
 }
-.pomps-list-item-service-title{
+
+.pomps-list-item-service-title {
   font-family: 'MuseoSansCyrl';
-  color:  #0080bb;
+  color: #0080bb;
   font-size: 24px;
   line-height: 30px;
   text-align: center;
 }
-.pomps-list-item-service-text{
+
+.pomps-list-item-service-text {
   font-family: 'MuseoSansCyrl';
-  color:  #333333;
+  color: #333333;
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-  margin: 18px 26px 0px;
+  margin: 18px 26px 0;
 }
-.pomps-list-item-service-link-wrapper{
+
+.pomps-list-item-service-link-wrapper {
   margin: 0 auto 23px;
   text-align: center;
 }
-.pomps-list-item-service-link{
+
+.pomps-list-item-service-link {
   font-family: 'MuseoSansCyrl';
-  color:  #0080bb;
+  color: #0080bb;
   font-size: 16px;
   line-height: 24px;
   text-decoration: underline;
