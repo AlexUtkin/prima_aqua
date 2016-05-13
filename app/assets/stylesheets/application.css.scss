@@ -17,6 +17,7 @@
  *= require jquery-ui/datepicker
  */
 
+@import 'config';
 
 html,body,div,span,u,i,s,em,form,fieldset,label,legend,input,button,textarea,a,caption{margin:0;padding:0;outline:none;}
 table {border-collapse:collapse;border-spacing:0; font-size:inherit;}
@@ -33,8 +34,6 @@ a{cursor: pointer}
 .clearfix{
   clear: both;
 }
-
-
 .hidden_block{
   display: none;
 }
@@ -53,6 +52,11 @@ a{cursor: pointer}
   right: 10px;
   background-color: rgba(0,0,0,0.1);
   border-radius: 2px;
+
+  @include media(xs){
+    display: none;
+  }
+
   .circle{
     width: 100%;
     height: 20px;
@@ -82,7 +86,9 @@ a{cursor: pointer}
 }
 .header__top_line{
   height: 40px;
-
+  @include media(xs){
+    display: none;
+  }
 }
 .header__top_line__menu{
   text-align: right;
@@ -105,6 +111,10 @@ a{cursor: pointer}
 .header__main_line{
   height: 50px;
   text-align: center;
+
+  @include media(xs){
+    display: none;
+  }
 }
 .header__main_line__menu{
   .current{
@@ -178,12 +188,26 @@ a{cursor: pointer}
     float: left;
     margin-top: 20px;
     width: 0;
+    @include media(xs) {
+      margin: 0 auto;
+      margin-top: 24px;
+      width: 100%;
+
+      img{
+        margin: 0 auto;
+        display: block;
+      }
+    }
   }
 }
 .header__contacts{
   position: absolute;
   top: 50px;
   right: 0;
+
+  @include media(xs) {
+    display: none;
+  }
 }
 
 a.red_button{
@@ -268,12 +292,24 @@ a.with_blue_button{
   background: #fff image_url('triangles.png') no-repeat;
   background-position: 0 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+
+  @include media(xs){
+    height: 75px;
+    min-width: 100%;
+  }
+
   .header {
     width: 100%;
     max-width: 1300px;
     height: 85px;
     background: none;
     margin: 0 auto;
+
+
+    @include media(xs){
+      height: 100%;
+    }
+
     .header__contacts {
       float: right;
       position: relative;
@@ -284,6 +320,11 @@ a.with_blue_button{
   .header__logo{
     margin-top: 5px;
     float: left;
+
+    @include media(xs){
+      margin: 5px auto 0;
+      width: 100%;
+    }
   }
   .header__main_line{
     margin-top: 15px;
@@ -295,12 +336,19 @@ a.with_blue_button{
   background: image_url('triangles.png') no-repeat;
   background-position: 0 0;
   width: 100%;
-  min-width: 1000px;
   .main_content{
     max-width: 1300px;
   }
   .invisible_block{
     display: none;
+  }
+
+  @include media(xs){
+
+  }
+
+  @include media(md){
+    min-width: 1000px;
   }
 }
 
@@ -333,12 +381,21 @@ a.with_blue_button{
   width: 95%;
   min-width: 900px;
   max-width: 1100px;
+
+  @include media(xs){
+    min-width: 100%;
+  }
 }
 .footer__main__links{
   margin: 30px 0 20px;
   padding-bottom: 30px;
   border-bottom: 1px solid #dddddd;
   width: 100%;
+
+  @include media(xs){
+    display: none;
+  }
+
   .links_column{
     width: 24%;
     display: inline-block;
@@ -362,6 +419,15 @@ a.with_blue_button{
     width: 30%;
     display: inline-block;
     vertical-align: top;
+
+    @include media(xs){
+      width: 100%;
+      text-align: left !important;
+      padding: 14px 10px;
+      display: block;
+      box-sizing: border-box;
+    };
+
     img{
       margin-top: 3px;
       float: left;
@@ -369,6 +435,11 @@ a.with_blue_button{
     .info_column__content{
       text-align: left;
       margin-left: 23px;
+
+      @include media(xs){
+        margin-left: 60px;
+      }
+
       span{
         display: block;
         line-height: 25px;
@@ -390,6 +461,13 @@ a.with_blue_button{
     display: inline-block;
     vertical-align: top;
     text-align: right;
+
+    @include media(xs){
+      text-align: center;
+      width: 100%;
+      padding: 14px 10px;
+      box-sizing: border-box;
+    }
   }
   .contacts{
     a{

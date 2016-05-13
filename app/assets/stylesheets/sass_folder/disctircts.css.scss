@@ -1,6 +1,14 @@
+@import '../config';
+
 .district{
   width: 1180px;
   margin: 0 auto 50px;
+
+  @include media(xs){
+    width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+  }
 }
 .district-title{
   font-family: 'MuseoSansCyrl';
@@ -9,4 +17,8 @@
   line-height: 30px;
   text-align: center;
   margin: 45px;
+
+  @include media(xs) {
+    margin: 35px;
+  }
 }

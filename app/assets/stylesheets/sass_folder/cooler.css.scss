@@ -1,7 +1,25 @@
-.cooler{}
+@import '../config';
+
+.cooler{
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+}
 .cooler-top_link{
   text-align: center;
-  a {font-family: 'MuseoSansCyrl';
+
+  @include media(xs){
+    margin: 0 0 14px;
+    text-align: center;
+  }
+
+  a {
+    font-family: 'MuseoSansCyrl';
   color:  #0080bb;
   font-size: 15px;
   line-height: 30px;
@@ -24,21 +42,47 @@
   height: 1px;
   margin: 0 auto 48px;
   background: #DDD;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 29px;
+  }
 }
 .cooler-left_right{
   margin: 0 auto;
   width: 1180px;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
 }
 .cooler-left{
   width: 400px;
   float: left;
   margin-right: 20px;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
 }
 .cooler-left-main_img{
   width: 400px;
   height: 400px;
   margin-bottom: 10px;
   text-align: center;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    height: auto;
+  }
 }
 .cooler-left-list_imgs{
   height: 125px;
@@ -47,14 +91,20 @@
     //display: inline-block;
     cursor: pointer;
   }
+
+  @include media(xs){
+    height: auto;
+  }
 }
 .cooler-left-list_imgs-item{
   height: 125px;
   vertical-align: top;
   display: inline-block;
-
-
   width: 100px;
+
+  @include media(xs){
+    height: auto;
+  }
   img {
     //display: inline-block;
     cursor: pointer;
@@ -63,6 +113,13 @@
 .cooler-right{
   width: 760px;
   float: left;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    float: none;
+  }
 }
 .cooler-right-price_button{
   line-height: 30px;

@@ -1,12 +1,28 @@
+@import '../config';
+
 .event_body{
   margin: 0 auto;
   max-width: 1600px;
   min-width: 1000px;
   width: 1000px;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
 }
 .event_body-back{
   margin: 19px 0 14px;
   text-align: center;
+
+  @include media(xs){
+    margin-top: 0;
+
+  }
+
   a{
     text-decoration: none;
     font-family: 'MuseoSansCyrl';
@@ -23,6 +39,12 @@
   text-align: center;
   width: 677px;
   margin: 0 auto 15px;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
 }
 .event_body-line{
   border-color: #DDD;
@@ -30,9 +52,19 @@
   height: 1px;
   margin: 0 auto 29px;
   background: #DDD;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
 }
 .event_body-image{
   margin-bottom: 28px;
+
+  img{
+    width: 100%;
+  }
 }
 .event_body-text{
   font-family: 'MuseoSansCyrl';

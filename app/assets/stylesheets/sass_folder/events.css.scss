@@ -1,3 +1,5 @@
+@import '../config';
+
 .events-title{
   font-family: 'MuseoSansCyrl';
   color: #333333;
@@ -11,6 +13,14 @@
   width: 340px;
   overflow: hidden;
   text-align: center;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
 }
 .events-filters-item{
   font-family: 'MuseoSansCyrl';
@@ -21,6 +31,12 @@
   display: inline-block;
   margin-right: 14px;
   margin-left: 14px;
+
+  @include media(xs){
+    font-size: 16px;
+    margin: 0 3px;
+  }
+
   a{
     text-decoration: none;
   }
@@ -36,6 +52,14 @@
 }
 .events-items{
   margin: 0 auto;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
 }
 /*START Events article*/
 .article{
@@ -94,6 +118,14 @@
   margin-bottom: 37px;
   min-width: 1000px;
   max-width: 1600px;
+
+  @include media(xs){
+    width: 100%;
+    min-width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
 }
 .news-info{
   font-family: 'MuseoSansCyrl';
@@ -109,6 +141,10 @@
   text-align: left;
   width: 686px;
   margin-bottom: 23px;
+
+  @include media(xs){
+    width: 100%;
+  }
 }
 .news-desc{
   width: 816px;
@@ -121,6 +157,10 @@
 }
 .news-image{
   margin: 0px 0px -2px 0px;
+
+  img{
+    width: 100%;
+  }
 }
 
 .news-link_show{
@@ -137,6 +177,10 @@
     text-align: center;
     text-decoration: none;
     margin-left: 25px;
+
+    @include media(xs){
+      margin: 0;
+    }
   }
 }
 /*FINISH Events news*/

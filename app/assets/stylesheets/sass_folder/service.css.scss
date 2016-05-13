@@ -1,8 +1,16 @@
+@import '../config';
+
 .service{
   width: 940px;
   margin: 0 auto;
   font-family: 'MuseoSansCyrl';
   color:  #333333;
+
+  @include media(xs){
+    width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+  }
 }
 .service-title{
   line-height: 30px;
@@ -20,6 +28,11 @@
   width: 636px;
   float: left;
   margin-right: 64px;
+
+  @include media(xs){
+    width: 100%;
+    margin: 0;
+  }
 }
 .service-body_imgs-img{
   width: 240px;
@@ -65,4 +78,9 @@
   font-size: 16px;
   line-height: 24px;
   text-align: left;
+
+  @include media(xs){
+    width: 100%;
+    margin: 0;
+  }
 }

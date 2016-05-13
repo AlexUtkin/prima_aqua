@@ -1,3 +1,5 @@
+@import '../config';
+
 .main_page{
   .water__block{
     position: relative;
@@ -22,6 +24,11 @@
         bottom: 189px;
         right: 5%;
         text-align: center;
+
+        @include media(xs){
+          right: 10px;
+          top: 190px;
+        }
       }
       .infograf_bottles{
         position: absolute;
@@ -30,6 +37,12 @@
         height: 370px;
         top: -161px;
         overflow: hidden;
+
+        @include media(xs){
+          top: -100px;
+          right: 190px;
+        }
+
         img{
           width: initial;
           height: 100%;
@@ -96,6 +109,11 @@
       bottom: 20px;
       width: 100%;
       height: 120px;
+
+      @include media(xs){
+        display: none;
+      }
+
       .carousel{
         width: 100%;
         margin: 3px auto;
@@ -164,6 +182,14 @@
       top: 15%;
       left: 3%;
       height: 100%;
+
+      @include media(xs){
+        top: 10px;
+        left: 0;
+        text-align: center;
+        width: 100%;
+      }
+
       .main_image__text__header{
         font-family: 'MuseoSansCyrl-700';
         color:  #ffffff;
@@ -171,12 +197,20 @@
         line-height: 44px;
         text-align: left;
         margin-bottom: 15px;
+
+        @include media(xs){
+          text-align: center;
+          margin-bottom: 8px;
+        }
       }
       .main_image__text__title{
         font-family: 'RFRegalDisplayPro-Italic';
         color:  #ffffff;
         font-size: 30px;
         line-height: 30px;
+        @include media(xs){
+          font-size: 24px;
+        }
       }
       .main_image__text__text{
         font-family: 'MuseoSansCyrl';
@@ -187,6 +221,9 @@
         transform: scaleX(1.0022);
         text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
         margin: 20px 0;
+        @include media(xs){
+          display: none;
+        }
       }
     }
   }
@@ -207,7 +244,22 @@
     &:hover{
       opacity: 1;
     }
+
+    @include media(xs){
+      margin-top: 10px;
+    }
   }
+
+  .aquas__block__background > a{
+    @include media(xs){
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
   .aquas__block{
     position: relative;
     //max-width: 1600px;
@@ -220,6 +272,13 @@
     width: 100%;
     height: 100vh;
     text-align: justify;
+
+    @include media(xs){
+      width: 100%;
+      height: 100vh;
+      overflow-x: scroll;
+    }
+
     .aquas__block__background{
       height: 100%;
     }
@@ -230,10 +289,23 @@
       height: 100%;
       text-align: center;
       text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+
+      @include media(xs){
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
       .aqua_block__info{
         position: absolute;
         bottom: 17%;
         width: 100%;
+
+        @include media(xs){
+          bottom: 10%;
+        }
       }
       .aqua_block__title{
         font-family: MuseoSansCyrl;
@@ -246,19 +318,41 @@
         font-family: MuseoSansCyrl;
         color:  #ffffff;
         font-size: 14px;
+
+        @include media(xs){
+          width: 90%;
+        }
       }
     }
     .aquas__block__legend{
       background: image_url('legend_main.jpg') no-repeat left center fixed;
-      background-size: 34%
+      background-size: 34%;
+
+      @include media(xs) {
+        background: image_url('legend_main.jpg') no-repeat;
+        background-size: cover;
+        left: 0;
+      }
     }
     .aquas__block__yodis{
       background: image_url('yodis_main.jpg') no-repeat center center fixed;
-      background-size: 34%
+      background-size: 34%;
+
+      @include media(xs) {
+        background: image_url('yodis_main.jpg') no-repeat;
+        background-size: cover;
+        left: 100%;
+      }
     }
     .aquas__block__arhyz{
       background: image_url('arhyz_main.jpg') no-repeat right center fixed;
-      background-size: 34%
+      background-size: 34%;
+
+      @include media(xs) {
+        background: image_url('arhyz_main.jpg') no-repeat;
+        background-size: cover;
+        left: 200%;
+      }
     }
   }
   .about_company__block{
@@ -272,6 +366,16 @@
     background-size: cover;
     width: 100%;
     height: 100vh;
+
+    @include media(xs){
+      margin: 0;
+      height: 114vh;
+      width: 100%;
+      box-sizing: border-box;
+      left: 0;
+      top: 0;
+    }
+
     img{
       width: 100%;
     }
@@ -280,6 +384,15 @@
       position: absolute;
       top: 6%;
       left: 3%;
+
+      @include media(xs){
+        padding: 14px 10px;
+        width: 100%;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+      }
+
       color:  #ffffff;
       .about_company__text__header{
         font-family: 'MuseoSansCyrl-700';
@@ -294,6 +407,11 @@
         padding: 10px 0;
         border-top: 2px solid white;
         border-bottom: 2px solid white;
+
+        @include media(xs){
+          font-size: 18px;
+          line-height: 18px;
+        }
       }
       .about_company__text__quote_author{
         font-family: 'MuseoSansCyrl-300';
@@ -306,6 +424,11 @@
         font-size: 16px;
         line-height: 24px;
         margin: 10px 0 15px;
+
+        @include media(xs){
+          font-size: 14px;
+          line-height: 14px;
+        }
       }
     }
   }
@@ -329,6 +452,14 @@
       position: absolute;
       top: 15%;
       right: 4%;
+
+      @include media(xs) {
+        padding: 14px 10px;
+        width: 100%;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+      }
     }
     .equipment__block__text__header{
       font-family: 'MuseoSansCyrl-700';
@@ -351,19 +482,37 @@
     color:  #383838;
     width: 100%;
     height: 100vh;
+
+    @include media(xs){
+      height: 92vh;
+    }
+
     #delivery__block_map{
       height: 100%;
       width: 100%;
+
+      @include media(xs){
+        height: 200px;
+        display: none;
+      }
     }
     .delivery__block_map__text{
-      position: absolute;
+      background-color:  rgba(255, 255, 255, 0.9);
       top: 15%;
       left: 5%;
       border-radius: 3px;
-      background-color:  rgba(255, 255, 255, 0.9);
+      position: absolute;
       width: 380px;
-      height: 418px;
       padding: 50px;
+      height: 418px;
+
+      @include media(xs){
+        padding: 14px 10px;
+        width: 100%;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+      }
     }
     .delivery__block_map__text__header{
       font-family: 'MuseoSansCyrl-700';
@@ -376,6 +525,11 @@
       font-size: 16px;
       line-height: 24px;
       margin: 20px 0;
+
+      @include media(xs){
+        font-size: 16px;
+        line-height: 18px;
+      }
     }
   }
 }

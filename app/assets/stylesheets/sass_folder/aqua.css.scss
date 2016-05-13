@@ -1,3 +1,5 @@
+@import '../config';
+
 .aqua_posts{
   margin-top: 17px;
   position: relative;
@@ -189,4 +191,8 @@
   text-align: center;
   font-size: 40px;
   width: 637px;
+
+  @include media(xs){
+    width: 100%;
+  }
 }
