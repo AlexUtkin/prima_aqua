@@ -567,6 +567,13 @@ a.with_blue_button {
     top: 10%;
     z-index: 7;
     width: 100%;
+
+    @include media(xs){
+      padding-left: 20px;
+      padding-right: 20px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+    }
   }
   .modal__view__phone {
     z-index: 7;
@@ -749,3 +756,9 @@ a.with_blue_button {
 }
 
 /*------------------------- end gem devise -----------------------------*/
+
+.ui-datepicker{
+  @include media(xs){
+    margin-left: -6px;
+  }
+}
