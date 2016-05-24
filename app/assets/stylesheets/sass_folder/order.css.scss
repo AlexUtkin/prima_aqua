@@ -93,6 +93,9 @@
   .price {
     padding: 0 10px;
     float: right;
+    @include media(xs){
+      margin-top: 7px;
+    }
   }
   .remove_button {
     padding: 0 10px;
@@ -102,10 +105,19 @@
     line-height: 27px;
     font-size: 20px;
     font-family: monospace;
+
+    @include media(xs){
+      margin-top: 6px;
+    }
   }
   .submit_modal__button {
     margin: 30px 50px;
     text-align: right;
+
+    @include media(xs){
+      text-align: center;
+    }
+
     .red_button {
       text-align: center;
       width: 160px;
@@ -113,6 +125,11 @@
   }
   .modal__empty_bottles {
     margin: -10px 50px 15px;
+
+    @include media(xs){
+      margin: 0 20px;
+    }
+
     input[type=checkbox] {
       height: 20px;
       width: 16px;
@@ -308,6 +325,11 @@
     position: relative;
     top: -4px;
     font-family: 'MuseoSansCyrl';
+
+    @include media(xs){
+      top: 6px;
+      float: none;
+    }
   }
 }
 
@@ -409,7 +431,7 @@
     float: right;
 
     @include media(xs){
-      float: left;
+      float: none;
       margin: 10px 0;
     }
   }

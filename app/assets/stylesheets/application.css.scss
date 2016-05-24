@@ -429,6 +429,12 @@ a.with_blue_button {
   img {
     vertical-align: text-bottom;
   }
+  span{
+    @include media(xs){
+      font-size: 10px;
+      padding-right: 6px;
+    }
+  }
 }
 
 .footer__main {
@@ -619,10 +625,32 @@ a.with_blue_button {
   .modal__login {
     width: 560px;
     height: 285px;
+
+    @include media(xs){
+      width: 100%;
+      min-width: 100%;
+      height: auto;
+      padding-bottom: 1px;
+    }
+
+    .input_set {
+      input {
+        @include media(xs){
+          line-height: 35px;
+        }
+      }
+    }
   }
   .modal__registration {
     width: 600px;
     min-height: 285px;
+
+
+    @include media(xs){
+      width: 100%;
+      min-width: 100%;
+    }
+
     .custome_selector {
       margin-bottom: 10px;
     }
@@ -658,6 +686,12 @@ a.with_blue_button {
   .modal__service {
     width: 560px;
     height: 330px;
+
+
+    @include media(xs){
+      width: 100%;
+      min-width: 100%;
+    }
   }
   .modal__header {
     height: 25px;
@@ -677,6 +711,10 @@ a.with_blue_button {
     font-size: 36px;
     text-align: center;
     margin-bottom: 20px;
+
+    @include media(xs){
+      font-size: 28px;
+    }
   }
   .modal__undertitle {
     font-family: 'MuseoSansCyrl-300';
@@ -688,6 +726,11 @@ a.with_blue_button {
   }
   .input_set {
     margin: 10px 50px;
+
+    @include media(xs){
+      margin: 10px 20px;
+    }
+
     label {
       font-family: 'MuseoSansCyrl-300';
       font-size: 16px;
@@ -701,6 +744,12 @@ a.with_blue_button {
       line-height: 22px;
       float: right;
       padding: 0 10px;
+
+      @include media(xs){
+        width: 100%;
+        min-width: 100%;
+        box-sizing: border-box;
+      }
     }
   }
   .actions {
@@ -717,6 +766,11 @@ a.with_blue_button {
     line-height: 30px;
     padding-top: 10px;
     border-top: 1px solid lightgray;
+
+    @include media(xs) {
+      overflow: hidden;
+    }
+
     a {
       font-family: 'MuseoSansCyrl';
       color: #0080bb;

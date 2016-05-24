@@ -1,3 +1,5 @@
+@import '../config';
+
 .prices_page {
   text-align: center;
   h1 {
@@ -11,6 +13,12 @@
     width: 645px;
     margin: -10px auto -54px;
     text-align: right;
+
+    @include media(xs){
+      width: 100%;
+      min-width: 100%;
+      text-align: center;
+    }
   }
   .price_filter {
     vertical-align: top;
@@ -42,16 +50,33 @@
     background-color: #f7f7f7;
     width: 940px;
     margin: 10px auto;
+
+    @include media(xs){
+      width: 100%;
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
     .aqua__image {
       width: 300px;
       display: block;
       float: left;
+
+      @include media(xs){
+        width: 100%;
+        min-width: 100%;
+      }
     }
     .aqua__info {
       text-align: left;
       width: 300px;
       display: block;
       float: left;
+
+      @include media(xs){
+        width: 100%;
+        min-width: 100%;
+      }
     }
     .aqua__info_title {
       font-family: 'MuseoSansCyrl-700';
@@ -76,8 +101,18 @@
       color: #333333;
       font-size: 14px;
       line-height: 30px;
+
+      @include media(xs){
+        width: 100%;
+        margin-top: 10px;
+      }
+
       table {
         width: 220px;
+
+        @include media(xs){
+          width: 100%;
+        }
       }
       th {
         color: #999999;
