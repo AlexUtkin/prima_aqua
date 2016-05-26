@@ -233,11 +233,18 @@ $menu_width: 240px;
         box-sizing: border-box;
         margin-top: -26px;
     }
+    @include media(sm){
+        display: block;
+
+        padding: 40px 32px;
+        box-sizing: border-box;
+        margin-top: -26px;
+    }
 }
 
 .fixed_header{
     .menu-btn {
         padding: 16px 32px;
-        margin-top: 0px;
+        margin-top: 0;
     }
 }

@@ -10,6 +10,10 @@
     width: 100%;
     min-width: 100%;
   }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+  }
 }
 
 .accessories-links {
@@ -19,6 +23,13 @@
   text-align: center;
   padding-top: 54px;
   @include media(xs) {
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  @include media(sm) {
     width: 100%;
     min-width: 100%;
     padding: 14px 10px;
@@ -37,6 +48,10 @@
   display: inline-block;
   @include media(xs) {
     font-size: 16px;
+    margin: 0 3px;
+  }
+  @include media(sm) {
+    font-size: 20px;
     margin: 0 3px;
   }
   a {
@@ -64,6 +79,11 @@
     min-width: 100%;
     margin: 0;
   }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    margin: 0;
+  }
 }
 
 .accessories-filters {
@@ -77,11 +97,21 @@
     box-sizing: border-box;
     margin: 0;
   }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
 }
 
 .accessories-filters-left {
   float: left;
   @include media(xs) {
+    padding-left: 7px;
+  }
+  @include media(sm) {
     padding-left: 7px;
   }
 }
@@ -95,6 +125,10 @@
   text-align: left;
   margin-right: 29px;
   @include media(xs) {
+    font-size: 14px;
+    margin-right: 12px;
+  }
+  @include media(sm) {
     font-size: 14px;
     margin-right: 12px;
   }
@@ -127,6 +161,11 @@
     margin-left: 7px;
     float: left;
   }
+  @include media(sm) {
+    font-size: 14px;
+    margin-left: 7px;
+    float: left;
+  }
   a {
     color: #3b3a3c;
     text-decoration: none;
@@ -143,6 +182,13 @@
     padding: 0 10px;
     box-sizing: border-box;
   }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
 }
 
 .accessories-list-item {
@@ -153,6 +199,13 @@
   position: relative;
   margin-bottom: 40px;
   width: 280px;
+
+  @include media(sm){
+    min-height: 380px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 210px;
+  }
 }
 
 .accessories-list-item-zero {
@@ -164,6 +217,13 @@
   position: relative;
   margin-bottom: 40px;
   width: 280px;
+
+  @include media(sm){
+    min-height: 380px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 210px;
+  }
 }
 
 .for_padding {
@@ -188,6 +248,10 @@
   margin-right: 25px;
   float: left;
   width: 157px;
+
+  @include media(sm){
+    font-size: 22px;
+  }
 }
 
 .accessories-list-item-zero-title-img {
@@ -347,12 +411,28 @@
   position: relative;
   margin-bottom: 40px;
   width: 280px;
+
+  @include media(sm){
+    min-height: 380px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 210px;
+  }
 }
 
 .accessories-list-item-service-img {
   width: 107px;
   height: 99px;
   margin: 34px auto 32px;
+
+  @include media(sm){
+    width: 64px;
+    height: 64px;
+
+    img{
+      width: 100%;
+    }
+  }
 }
 
 .accessories-list-item-service-title {

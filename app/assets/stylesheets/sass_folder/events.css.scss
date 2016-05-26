@@ -21,6 +21,13 @@
     box-sizing: border-box;
     margin: 0;
   }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
 }
 
 .events-filters-item {
@@ -33,6 +40,10 @@
   margin-right: 14px;
   margin-left: 14px;
   @include media(xs) {
+    font-size: 16px;
+    margin: 0 3px;
+  }
+  @include media(sm) {
     font-size: 16px;
     margin: 0 3px;
   }
@@ -58,6 +69,13 @@
     text-align: center;
     padding: 0 10px;
     box-sizing: border-box;
+  }
+  @include media(sm) {
+     width: 100%;
+     min-width: 100%;
+     text-align: center;
+     padding: 0 10px;
+     box-sizing: border-box;
   }
 }
 
@@ -128,6 +146,13 @@
     padding: 0 10px;
     box-sizing: border-box;
   }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
 }
 
 .news-info {
@@ -146,6 +171,9 @@
   width: 686px;
   margin-bottom: 23px;
   @include media(xs) {
+    width: 100%;
+  }
+  @include media(sm) {
     width: 100%;
   }
 }
@@ -181,6 +209,9 @@
     text-decoration: none;
     margin-left: 25px;
     @include media(xs) {
+      margin: 0;
+    }
+    @include media(sm) {
       margin: 0;
     }
   }

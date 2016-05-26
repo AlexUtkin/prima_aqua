@@ -19,6 +19,11 @@
       min-width: 100%;
       text-align: center;
     }
+    @include media(sm){
+      width: 100%;
+      min-width: 100%;
+      text-align: center;
+    }
   }
   .price_filter {
     vertical-align: top;
@@ -56,6 +61,11 @@
       min-width: 100%;
       box-sizing: border-box;
     }
+    @include media(sm){
+      width: 100%;
+      min-width: 100%;
+      box-sizing: border-box;
+    }
 
     .aqua__image {
       width: 300px;
@@ -63,6 +73,10 @@
       float: left;
 
       @include media(xs){
+        width: 100%;
+        min-width: 100%;
+      }
+      @include media(sm){
         width: 100%;
         min-width: 100%;
       }
@@ -74,6 +88,10 @@
       float: left;
 
       @include media(xs){
+        width: 100%;
+        min-width: 100%;
+      }
+      @include media(sm){
         width: 100%;
         min-width: 100%;
       }
@@ -106,11 +124,18 @@
         width: 100%;
         margin-top: 10px;
       }
+      @include media(sm){
+        width: 100%;
+        margin-top: 10px;
+      }
 
       table {
         width: 220px;
 
         @include media(xs){
+          width: 100%;
+        }
+        @include media(sm){
           width: 100%;
         }
       }

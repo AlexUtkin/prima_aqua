@@ -12,12 +12,22 @@
     box-sizing: border-box;
     margin: 0;
   }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
 }
 
 .event_body-back {
   margin: 19px 0 14px;
   text-align: center;
   @include media(xs) {
+    margin-top: 0;
+  }
+  @include media(sm) {
     margin-top: 0;
   }
   a {
@@ -42,6 +52,11 @@
     min-width: 100%;
     box-sizing: border-box;
   }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 .event_body-line {
@@ -51,6 +66,11 @@
   margin: 0 auto 29px;
   background: #DDD;
   @include media(xs) {
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+  @include media(sm) {
     width: 100%;
     min-width: 100%;
     box-sizing: border-box;

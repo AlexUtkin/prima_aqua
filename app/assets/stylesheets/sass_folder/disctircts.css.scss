@@ -8,6 +8,11 @@
     padding: 14px 10px;
     box-sizing: border-box;
   }
+  @include media(sm) {
+    width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+  }
 }
 
 .district-title {
@@ -18,6 +23,9 @@
   text-align: center;
   margin: 45px;
   @include media(xs) {
+    margin: 35px;
+  }
+  @include media(sm) {
     margin: 35px;
   }
 }

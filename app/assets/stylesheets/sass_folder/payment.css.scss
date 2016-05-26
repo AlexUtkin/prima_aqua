@@ -12,6 +12,13 @@
     margin-top: 0;
     padding-top: 0;
   }
+  @include media(sm) {
+    width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin-top: 0;
+    padding-top: 0;
+  }
   .payment_page__header {
     h1 {
       font-family: 'MuseoSansCyrl-700';
@@ -19,6 +26,9 @@
       line-height: 30px;
       text-align: center;
       @include media(xs) {
+        font-size: 30px;
+      }
+      @include media(sm) {
         font-size: 30px;
       }
     }
