@@ -16,6 +16,10 @@
       height: 635px;
     }
 
+    @include media(sm){
+      height: 800px;
+    }
+
     .water__block__main_image {
       height: 100%;
       position: relative;
@@ -31,6 +35,9 @@
         @include media(xs) {
           right: 10px;
           bottom: 135px;
+        }
+        @include media(sm){
+          bottom: 74px;
         }
       }
       .infograf_bottles {
@@ -122,6 +129,9 @@
       @include media(xs) {
         display: none;
       }
+      @include media(sm) {
+        display: none;
+      }
       .carousel {
         width: 100%;
         margin: 3px auto;
@@ -195,6 +205,10 @@
         left: 0;
         text-align: center;
         width: 100%;
+      }
+
+      @include media(sm) {
+        top: 5%;
       }
       .main_image__text__header {
         font-family: 'MuseoSansCyrl-700';
@@ -291,7 +305,7 @@
     .aqua_block {
       position: relative;
       display: inline-block;
-      width: 33%;
+      width: ( 100% / 3 );
       height: 100%;
       text-align: center;
       text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
@@ -301,6 +315,9 @@
         position: absolute;
         top: 0;
         left: 0;
+      }
+      @include media(sm) {
+        position: absolute;
       }
       .aqua_block__info {
         position: absolute;
@@ -314,6 +331,9 @@
         font-family: MuseoSansCyrl;
         color: #ffffff;
         font-size: 48px;
+        @include media(sm){
+          font-size: 40px;
+        }
       }
       .aqua_block__text {
         margin: 23px auto;
@@ -324,12 +344,20 @@
         @include media(xs) {
           width: 90%;
         }
+        @include media(sm){
+          font-size: 18px;
+        }
       }
     }
     .aquas__block__legend {
       background: image_url('legend_main.jpg') no-repeat left center fixed;
       background-size: 34%;
       @include media(xs) {
+         background: image_url('legend_main.jpg') no-repeat;
+         background-size: cover;
+         left: 0;
+       }
+      @include media(sm) {
         background: image_url('legend_main.jpg') no-repeat;
         background-size: cover;
         left: 0;
@@ -343,6 +371,11 @@
         background-size: cover;
         left: 100%;
       }
+      @include media(sm) {
+        background: image_url('yodis_main.jpg') no-repeat;
+        background-size: cover;
+        left: ( 100% / 3 );
+      }
     }
     .aquas__block__arhyz {
       background: image_url('arhyz_main.jpg') no-repeat right center fixed;
@@ -351,6 +384,11 @@
         background: image_url('arhyz_main.jpg') no-repeat;
         background-size: cover;
         left: 200%;
+      }
+      @include media(sm) {
+        background: image_url('arhyz_main.jpg') no-repeat;
+        background-size: cover;
+        left: ( 100% / 3 ) * 2;
       }
     }
   }
@@ -421,6 +459,10 @@
           font-size: 14px;
           line-height: 14px;
         }
+        @include media(sm) {
+          font-size: 20px;
+          line-height: 20px;
+        }
       }
     }
   }
@@ -463,6 +505,10 @@
       font-size: 16px;
       line-height: 24px;
       margin-bottom: 15px;
+
+      @include media(sm){
+        font-size: 20px;
+      }
     }
   }
   .delivery__block {

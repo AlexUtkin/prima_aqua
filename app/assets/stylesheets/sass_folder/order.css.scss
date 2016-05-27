@@ -157,6 +157,12 @@
     background-color: #F5F5F5;
     position: relative;
     top: 20px;
+    display: block;
+
+    @include media(xs){
+      display: none;
+    }
+
     .additional__title {
       font-family: 'MuseoSansCyrl';
       font-weight: bold;
