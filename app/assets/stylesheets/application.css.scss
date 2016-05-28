@@ -131,6 +131,9 @@ a {
   height: 115px;
   margin: 0 auto;
   position: relative;
+
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .header__top_line {
@@ -273,7 +276,7 @@ a {
 .header__contacts {
   position: absolute;
   top: 50px;
-  right: 0;
+  right: 20px;
 
   @include media(xs) {
     display: none;
