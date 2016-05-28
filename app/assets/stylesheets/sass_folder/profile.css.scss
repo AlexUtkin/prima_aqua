@@ -1,7 +1,16 @@
+@import '../config';
+
 .profile {
   margin: 30px auto;
   width: 90%;
   text-align: center;
+
+  @include media(xs){
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+
   .profile_menu {
     text-align: center;
     font-family: 'MuseoSansCyrl';
@@ -21,6 +30,11 @@
     font-size: 16px;
     font-family: 'MuseoSansCyrl';
     margin: 20px;
+
+    @include media(xs){
+      margin: 0;
+    }
+
     .field {
       margin: 5px 0;
     }
@@ -29,15 +43,42 @@
       display: inline-block;
       text-align: left;
       line-height: 35px;
+
+      @include media(xs){
+        width: auto;
+        text-align: right;
+        margin-right: 20px;
+      }
+      @include media(sm){
+        width: auto;
+        text-align: right;
+        margin-right: 20px;
+      }
     }
     input {
       width: 300px;
       line-height: 35px;
       padding: 0 10px;
+
+      @include media(xs){
+        width: 100%;
+        box-sizing: border-box;
+        border: solid 1px rgba(0, 0, 0, 0.4);
+      }
+      @include media(sm){
+        box-sizing: border-box;
+        border: solid 1px rgba(0, 0, 0, 0.4);
+      }
     }
     input.red_button {
       margin-top: 15px;
       width: inherit;
+
+      @include media(xs){
+        width: 100%;
+        font-size: 11px;
+        padding: 0 10px;
+      }
     }
   }
 }

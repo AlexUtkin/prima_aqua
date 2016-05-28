@@ -21,6 +21,11 @@
     width: 100%;
     height: 200px;
   }
+  @include media(sm) {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
 }
 
 .contacts-body-blocks {
@@ -29,6 +34,11 @@
   @include media(xs) {
     width: 100%;
     text-align: center;
+  }
+  @include media(sm) {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
   }
 }
 
@@ -40,6 +50,13 @@
   width: 400px;
   height: 200px;
   @include media(xs) {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+  @include media(sm) {
     width: 100%;
     box-sizing: border-box;
     margin: 0;
@@ -61,7 +78,11 @@
     box-sizing: border-box;
     margin: 0;
     height: auto;
-    padding-bottom: 10px;
+    padding: 10px;
+  }
+  @include media(sm){
+    width: 100%;
+    margin-top: 0;
   }
   .contacts-body-blocks-item-title-text {
     padding: 17px 35px 0;
