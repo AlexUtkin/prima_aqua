@@ -3,6 +3,12 @@
 .aqua_posts {
   margin-top: 17px;
   position: relative;
+  @include media(xs){
+    min-height: 100vh;
+  }@include media(sm){
+     min-height: 100vh;
+   }
+
   .post {
     position: relative;
     max-width: 1600px;
@@ -101,6 +107,10 @@
 
     @include media(xs){
       width: 220px;
+      height: 100%;
+    }
+    @include media(sm){
+      height: 100%;
     }
   }
   .aqua_prices_content {
