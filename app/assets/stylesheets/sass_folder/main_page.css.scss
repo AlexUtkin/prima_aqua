@@ -1,7 +1,8 @@
-.main_page{
-  .water__block{
+@import '../config';
+
+.main_page {
+  .water__block {
     position: relative;
-    //max-width: 1600px;
     margin: 1px auto 0;
     background: image_url('back_without_bottle.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -10,39 +11,67 @@
     background-size: cover;
     width: 100%;
     height: 100vh;
-    .water__block__main_image{
+
+    @include media(xs){
+      height: 635px;
+    }
+
+    @include media(sm){
+      height: 800px;
+    }
+
+    .water__block__main_image {
       height: 100%;
       position: relative;
       color: white;
-      img{
+      img {
         width: 100%;
       }
-      .infografika{
+      .infografika {
         position: absolute;
         bottom: 189px;
         right: 5%;
         text-align: center;
+        @include media(xs) {
+          right: 10px;
+          bottom: 135px;
+        }
+        @include media(sm){
+          bottom: 74px;
+        }
       }
-      .infograf_bottles{
+      .infograf_bottles {
         position: absolute;
         right: 250px;
         width: 250px;
         height: 370px;
         top: -161px;
         overflow: hidden;
-        img{
+        @include media(xs) {
+          top: -100px;
+          right: 190px;
+        }
+        img {
           width: initial;
           height: 100%;
           position: relative;
           min-width: 80px;
           min-height: 66px;
         }
-        .l19{right: 0;}
-        .l8{right: 250px;}
-        .l6{right: 500px;}
-        .l1{right: 750px;}
+        .l19 {
+          right: 0;
+        }
+        .l8 {
+          right: 250px;
+        }
+        .l6 {
+          right: 500px;
+        }
+        .l1 {
+          right: 750px;
+        }
       }
-      .infogr{
+      .infogr {
         font-family: 'MuseoSansCyrl';
         color: #ffffff;
         font-size: 45px;
@@ -50,12 +79,12 @@
         text-align: center;
         width: 190px;
       }
-      .infogr_price{
-        span{
+      .infogr_price {
+        span {
           margin: 0 8px;
           font-size: 30px;
         }
-        .rubles{
+        .rubles {
           color: #FFF;
           display: inline-block;
           border-bottom: 2px solid;
@@ -66,61 +95,68 @@
           box-sizing: border-box;
         }
       }
-      .infogr_line{
-        border-color:  #dddddd;
+      .infogr_line {
+        border-color: #dddddd;
         width: 115px;
         height: 1px;
         margin: 0 auto 6px;
         background: white;
       }
-      .infogr_volume{}
-      .infogr_volume_count{
+      .infogr_volume {
+      }
+      .infogr_volume_count {
         font-size: 17px;
       }
-      .infogr_base{
+      .infogr_base {
         margin-left: -3px;
         overflow: hidden;
         display: inline-block;
         width: 37px;
-        img{
+        img {
           position: relative;
           min-width: 80px;
           min-height: 66px;
         }
       }
     }
-    .little_images{
+    .little_images {
       background-color: white;
       text-align: justify;
       position: absolute;
       bottom: 20px;
       width: 100%;
       height: 120px;
-      .carousel{
+      @include media(xs) {
+        display: none;
+      }
+      @include media(sm) {
+        display: none;
+      }
+      .carousel {
         width: 100%;
         margin: 3px auto;
         height: 94%;
         display: inline-block;
         color: white;
-        .slick-list{
+        .slick-list {
           height: 100%;
         }
-        .slick-track{
+        .slick-track {
           height: 100%;
         }
-        .slick-dots{
+        .slick-dots {
           width: 98%;
           text-align: right;
           bottom: -5px;
-          button:before{
+          button:before {
             color: white;
           }
         }
-        .action__line{
+        .action__line {
           text-align: center;
           font-size: 30px;
           height: 100%;
-          .action_banner{
+          .action_banner {
             background-size: cover;
             background-position: 50% 50%;
             background-color: #0eb6f5;
@@ -128,12 +164,12 @@
             width: 99%;
             margin: 0 auto;
           }
-          span{
+          span {
             display: inline-block;
             margin-top: 12px;
             line-height: 30px;
           }
-          a{
+          a {
             color: white;
             text-decoration: none;
           }
@@ -145,36 +181,50 @@
         font-size: 0;
         line-height: 0
       }
-      & > div{
+      & > div {
         position: relative;
       }
     }
-    .block_to_inline{
-      img{
+    .block_to_inline {
+      img {
         width: 100%;
       }
       width: 33%;
       display: inline-block;
       *display: inline;
     }
-    .water__block__main_image__text{
+    .water__block__main_image__text {
       text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
       width: 440px;
       position: absolute;
       top: 15%;
       left: 3%;
       height: 100%;
-      .main_image__text__header{
+      @include media(xs) {
+        top: 10px;
+        left: 0;
+        text-align: center;
+        width: 100%;
+      }
+
+      @include media(sm) {
+        top: 5%;
+      }
+      .main_image__text__header {
         font-family: 'MuseoSansCyrl-700';
-        color:  #ffffff;
+        color: #ffffff;
         font-size: 40px;
         line-height: 44px;
         text-align: left;
         margin-bottom: 15px;
+        @include media(xs) {
+          text-align: center;
+          margin-bottom: 8px;
+        }
       }
-      .main_image__text__title{
+      .main_image__text__title {
         font-family: 'RFRegalDisplayPro-Italic';
-        color:  #ffffff;
+        color: #ffffff;
         font-size: 30px;
         line-height: 30px;
         h1{
@@ -184,40 +234,57 @@
           line-height: 30px;
           font-weight: normal;
         }
+        @include media(xs) {
+          font-size: 24px;
+          padding: 0 10px;
+        }
       }
-      .main_image__text__text{
+      .main_image__text__text {
         font-family: 'MuseoSansCyrl';
-        color:  #ffffff;
+        color: #ffffff;
         font-size: 16px;
         line-height: 24px;
         text-align: left;
         transform: scaleX(1.0022);
         text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
         margin: 20px 0;
+        @include media(xs) {
+          display: none;
+        }
       }
     }
   }
-  .main_page__button{
+  .main_page__button {
     font-family: 'MuseoSansCyrl-300';
-    color:  #ffffff;
+    color: #ffffff;
     font-size: 16px;
     display: inline-block;
-
     border-radius: 3px;
-    background-color:  #0080bb;
+    background-color: #0080bb;
     padding: 0 20px;
     height: 40px;
     text-align: center;
     line-height: 40px;
     text-decoration: none;
     opacity: 0.8;
-    &:hover{
+    &:hover {
       opacity: 1;
     }
+    @include media(xs) {
+      margin-top: 10px;
+    }
   }
-  .aquas__block{
+  .aquas__block__background > a {
+    @include media(xs) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .aquas__block {
     position: relative;
-    //max-width: 1600px;
     margin: -21px auto 0;
     background: white no-repeat center top fixed;
     -webkit-background-size: cover;
@@ -227,50 +294,106 @@
     width: 100%;
     height: 100vh;
     text-align: justify;
-    .aquas__block__background{
+    @include media(xs) {
+      width: 100%;
+      height: 100vh;
+      overflow-x: scroll;
+    }
+    .aquas__block__background {
       height: 100%;
     }
-    .aqua_block{
+    .aqua_block {
       position: relative;
       display: inline-block;
       width: 33%;
       height: 100%;
       text-align: center;
       text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
-      .aqua_block__info{
+      @include media(xs) {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      @include media(sm) {
+        position: absolute;
+      }
+      .aqua_block__info {
         position: absolute;
         bottom: 17%;
         width: 100%;
+        @include media(xs) {
+          bottom: 10%;
+        }
       }
-      .aqua_block__title{
+      .aqua_block__title {
         font-family: MuseoSansCyrl;
-        color:  #ffffff;
+        color: #ffffff;
         font-size: 48px;
+        @include media(sm){
+          font-size: 40px;
+        }
       }
-      .aqua_block__text{
+      .aqua_block__text {
         margin: 23px auto;
         width: 80%;
         font-family: MuseoSansCyrl;
-        color:  #ffffff;
+        color: #ffffff;
         font-size: 14px;
+        @include media(xs) {
+          width: 90%;
+        }
+        @include media(sm){
+          font-size: 18px;
+        }
       }
     }
-    .aquas__block__legend{
+    .aquas__block__legend {
       background: image_url('legend_main.jpg') no-repeat left center fixed;
-      background-size: 34%
+      background-size: 34%;
+      @include media(xs) {
+         background: image_url('legend_main.jpg') no-repeat;
+         background-size: cover;
+         left: 0;
+       }
+      @include media(sm) {
+        background: image_url('legend_main.jpg') no-repeat;
+        background-size: cover;
+        left: 0;
+      }
     }
-    .aquas__block__yodis{
+    .aquas__block__yodis {
       background: image_url('yodis_main.jpg') no-repeat center center fixed;
-      background-size: 34%
+      background-size: 34%;
+      @include media(xs) {
+        background: image_url('yodis_main.jpg') no-repeat;
+        background-size: cover;
+        left: 100%;
+      }
+      @include media(sm) {
+        background: image_url('yodis_main.jpg') no-repeat;
+        background-size: cover;
+        left: ( 100% / 3 );
+      }
     }
-    .aquas__block__arhyz{
+    .aquas__block__arhyz {
       background: image_url('arhyz_main.jpg') no-repeat right center fixed;
-      background-size: 34%
+      background-size: 34%;
+      @include media(xs) {
+        background: image_url('arhyz_main.jpg') no-repeat;
+        background-size: cover;
+        left: 200%;
+      }
+      @include media(sm) {
+        background: image_url('arhyz_main.jpg') no-repeat;
+        background-size: cover;
+        left: ( 100% / 3 ) * 2;
+      }
     }
   }
-  .about_company__block{
+  .about_company__block {
     position: relative;
-    //max-width: 1600px;
     margin: -21px auto 0;
     background: image_url('about.jpg') no-repeat center top fixed;
     -webkit-background-size: cover;
@@ -279,46 +402,72 @@
     background-size: cover;
     width: 100%;
     height: 100vh;
-    img{
+    @include media(xs) {
+      margin: 0;
+      height: 114vh;
+      width: 100%;
+      box-sizing: border-box;
+      left: 0;
+      top: 0;
+    }
+    img {
       width: 100%;
     }
-    .about_company__text{
+    .about_company__text {
       width: 685px;
       position: absolute;
       top: 6%;
       left: 3%;
-      color:  #ffffff;
-      .about_company__text__header{
+      @include media(xs) {
+        padding: 14px 10px;
+        width: 100%;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+      }
+      color: #ffffff;
+      .about_company__text__header {
         font-family: 'MuseoSansCyrl-700';
         font-size: 36px;
         line-height: 24px;
         margin-bottom: 10px;
       }
-      .about_company__text__quote{
+      .about_company__text__quote {
         font-family: 'PFRegalDisplayPro-Italic';
         font-size: 26px;
         line-height: 32px;
         padding: 10px 0;
         border-top: 2px solid white;
         border-bottom: 2px solid white;
+        @include media(xs) {
+          font-size: 18px;
+          line-height: 18px;
+        }
       }
-      .about_company__text__quote_author{
+      .about_company__text__quote_author {
         font-family: 'MuseoSansCyrl-300';
-        color:  rgba(254, 254, 254, 0.5);
+        color: rgba(254, 254, 254, 0.5);
         font-size: 16px;
         line-height: 24px;
       }
-      .about_company__text__text{
+      .about_company__text__text {
         font-family: 'MuseoSansCyrl-300';
         font-size: 16px;
         line-height: 24px;
         margin: 10px 0 15px;
+        @include media(xs) {
+          font-size: 14px;
+          line-height: 14px;
+        }
+        @include media(sm) {
+          font-size: 20px;
+          line-height: 20px;
+        }
       }
     }
   }
-  .equipment__block{
+  .equipment__block {
     position: relative;
-    //max-width: 1600px;
     margin: -3px auto 0;
     background: image_url('equipment.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -327,62 +476,89 @@
     background-size: cover;
     width: 100%;
     height: 100vh;
-    img{
+    img {
       width: 100%;
     }
-    .equipment__block__text{
-      color:  #333333;
+    .equipment__block__text {
+      color: #333333;
       width: 456px;
       position: absolute;
       top: 15%;
       right: 4%;
+      @include media(xs) {
+        padding: 14px 10px;
+        width: 100%;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+      }
     }
-    .equipment__block__text__header{
+    .equipment__block__text__header {
       font-family: 'MuseoSansCyrl-700';
       font-size: 36px;
       line-height: 24px;
       margin-bottom: 15px;
     }
-    .equipment__block__text__text{
+    .equipment__block__text__text {
       font-family: 'MuseoSansCyrl-300';
-      color:  #333333;
+      color: #333333;
       font-size: 16px;
       line-height: 24px;
       margin-bottom: 15px;
+
+      @include media(sm){
+        font-size: 20px;
+      }
     }
   }
-  .delivery__block{
+  .delivery__block {
     position: relative;
-    //max-width: 1600px;
     margin: -3px auto -6px;
-    color:  #383838;
+    color: #383838;
     width: 100%;
     height: 100vh;
-    #delivery__block_map{
+    @include media(xs) {
+      height: 92vh;
+    }
+    #delivery__block_map {
       height: 100%;
       width: 100%;
+      @include media(xs) {
+        height: 200px;
+        display: none;
+      }
     }
-    .delivery__block_map__text{
-      position: absolute;
+    .delivery__block_map__text {
+      background-color: rgba(255, 255, 255, 0.9);
       top: 15%;
       left: 5%;
       border-radius: 3px;
-      background-color:  rgba(255, 255, 255, 0.9);
+      position: absolute;
       width: 380px;
-      height: 418px;
       padding: 50px;
+      height: 418px;
+      @include media(xs) {
+        padding: 14px 10px;
+        width: 100%;
+        box-sizing: border-box;
+        left: 0;
+        top: 0;
+      }
     }
-    .delivery__block_map__text__header{
+    .delivery__block_map__text__header {
       font-family: 'MuseoSansCyrl-700';
       font-size: 36px;
       line-height: 24px;
-
     }
-    .delivery__block_map__text__text{
+    .delivery__block_map__text__text {
       font-family: 'MuseoSansCyrl-300';
       font-size: 16px;
       line-height: 24px;
       margin: 20px 0;
+      @include media(xs) {
+        font-size: 16px;
+        line-height: 18px;
+      }
     }
   }
 }

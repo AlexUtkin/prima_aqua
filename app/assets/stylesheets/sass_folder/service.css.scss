@@ -1,39 +1,55 @@
-.service{
+@import '../config';
+
+.service {
   width: 940px;
   margin: 0 auto;
   font-family: 'MuseoSansCyrl';
-  color:  #333333;
+  color: #333333;
+  @include media(xs) {
+    width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+  }
 }
-.service-title{
+
+.service-title {
   line-height: 30px;
   text-align: center;
   margin: 43px 0 31px;
-  h1{
+  h1 {
     font-size: 36px;
   }
 }
-.service-body_imgs{
+
+.service-body_imgs {
   overflow: hidden;
   margin-bottom: 25px;
 }
-.service-body_imgs-body{
+
+.service-body_imgs-body {
   width: 636px;
   float: left;
   margin-right: 64px;
+  @include media(xs) {
+    width: 100%;
+    margin: 0;
+  }
 }
-.service-body_imgs-img{
+
+.service-body_imgs-img {
   width: 240px;
   float: right;
-  img{
+  img {
     margin: 0 0 30px 38px;
   }
 }
-.service-body_img-button{
+
+.service-body_img-button {
   border-radius: 3px;
   background-color: #eb0028;
   width: 240px;
   height: 35px;
-  a{
+  a {
     text-decoration: none;
     margin: 15px;
     color: #FFF;
@@ -42,27 +58,36 @@
     text-align: left;
   }
 }
-.service-body{
+
+.service-body {
   width: 817px;
 }
-.service-body-title{
+
+.service-body-title {
   font-size: 24px;
   line-height: 24px;
   text-align: left;
   margin-bottom: 24px;
 }
-.service-body-text{
+
+.service-body-text {
   font-size: 16px;
   line-height: 24px;
   text-align: left;
   margin-bottom: 27px;
 }
-.service-body-img{
+
+.service-body-img {
   margin-bottom: 28px;
 }
-.service-body-text{
+
+.service-body-text {
   width: 817px;
   font-size: 16px;
   line-height: 24px;
   text-align: left;
+  @include media(xs) {
+    width: 100%;
+    margin: 0;
+  }
 }

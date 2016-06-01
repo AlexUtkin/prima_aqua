@@ -1,12 +1,31 @@
-.district{
+@import '../config';
+
+.district {
   width: 1180px;
   margin: 0 auto 50px;
+  @include media(xs) {
+    width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+  }
+  @include media(sm) {
+    width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+  }
 }
-.district-title{
+
+.district-title {
   font-family: 'MuseoSansCyrl';
   color: #333333;
   font-size: 20px;
   line-height: 30px;
   text-align: center;
   margin: 45px;
+  @include media(xs) {
+    margin: 35px;
+  }
+  @include media(sm) {
+    margin: 35px;
+  }
 }

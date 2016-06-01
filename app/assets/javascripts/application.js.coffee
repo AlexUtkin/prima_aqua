@@ -17,6 +17,7 @@
 #= require order
 #= require jquery-ui/datepicker
 #= require lib/maskedinput
+#= require lib/pushy
 
 showPhoneModal = ->
   window.hideSpinner()

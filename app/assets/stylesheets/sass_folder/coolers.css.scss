@@ -1,26 +1,60 @@
-.coolers{
+@import '../config';
+
+.coolers {
   min-width: 1000px;
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
   background-color: #F5F5F5;
+  @include media(xs) {
+    width: 100%;
+    min-width: 100%;
+  }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+  }
 }
-.coolers-links{
-  margin: 0px auto 15px;
+
+.coolers-links {
+  margin: 0 auto 15px;
   width: 679px;
   overflow: hidden;
   text-align: center;
   padding-top: 54px;
+  @include media(xs) {
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
 }
-.coolers-links-item{
+
+.coolers-links-item {
   font-family: 'MuseoSansCyrl';
-  color:  #0080bb;
+  color: #0080bb;
   font-size: 24px;
   line-height: 30px;
   margin-right: 29px;
   margin-left: 29px;
   display: inline-block;
-  a{
+  @include media(xs) {
+    font-size: 16px;
+    margin: 0 3px;
+  }
+  @include media(sm) {
+    font-size: 20px;
+    margin: 0 3px;
+  }
+  a {
     text-decoration: none;
   }
   a:link {
@@ -33,30 +67,72 @@
     color: #3b3a3c;
   }
 }
-.coolers-line{
-  border-color:  #dddddd;
+
+.coolers-line {
+  border-color: #dddddd;
   width: 1180px;
   height: 1px;
   margin: 0 auto 18px;
   background: #DDD;
+  @include media(xs) {
+    width: 100%;
+    min-width: 100%;
+    margin: 0;
+  }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    margin: 0;
+  }
 }
-.coolers-filters{
+
+.coolers-filters {
   overflow: hidden;
   width: 1180px;
   margin: 0 auto 40px;
+  @include media(xs) {
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin: 0;
+  }
 }
-.coolers-filters-left{
+
+.coolers-filters-left {
   float: left;
+  @include media(xs) {
+    padding-left: 7px;
+  }
+  @include media(sm) {
+    padding-left: 7px;
+  }
 }
-.coolers-filters-left-item{
+
+.coolers-filters-left-item {
   float: left;
   font-family: 'MuseoSansCyrl';
-  color:  #747474;
+  color: #747474;
   font-size: 15px;
   line-height: 30px;
   text-align: left;
   margin-right: 29px;
-  a{
+  @include media(xs) {
+    font-size: 14px;
+    margin-right: 12px;
+  }
+  @include media(sm) {
+    font-size: 14px;
+    margin-right: 12px;
+  }
+  a {
     text-decoration: none;
   }
   a:link {
@@ -66,54 +142,104 @@
     color: #747474;
   }
 }
-.active{
-  a{
-    color:  #3b3a3c !important;
+
+.active {
+  a {
+    color: #3b3a3c !important;
   }
 }
-.coolers-filters-right{
+
+.coolers-filters-right {
   font-family: 'MuseoSansCyrl';
-  color:  #3b3a3c;
+  color: #3b3a3c;
   font-size: 15px;
   line-height: 30px;
   text-align: right;
   float: right;
-  a{
+  @include media(xs) {
+    font-size: 14px;
+    margin-left: 7px;
+    float: left;
+  }
+  @include media(sm) {
+    font-size: 14px;
+    margin-left: 7px;
+    float: left;
+  }
+  a {
     text-decoration: none;
-    color:  #3b3a3c;
+    color: #3b3a3c;
   }
 }
-.coolers-list{
+
+.coolers-list {
   width: 1180px;
   margin: 0 auto;
+  @include media(xs) {
+    width: 100%;
+    min-width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  @include media(sm) {
+    width: 100%;
+    min-width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
 }
-.coolers-list-item{
+
+.coolers-list-item {
   border-radius: 3px;
   height: 320px;
   display: inline-block;
-  vertical-align:bottom;
+  vertical-align: bottom;
   position: relative;
   margin-bottom: 40px;
   width: 280px;
+
+  @include media(sm){
+    min-height: 380px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 210px;
+  }
 }
-.coolers-list-item-zero{
+
+.coolers-list-item-zero {
   border-radius: 3px;
-  background-color:  #3498db;
+  background-color: #3498db;
   height: 320px;
   display: inline-block;
-  vertical-align:bottom;
+  vertical-align: bottom;
   position: relative;
   margin-bottom: 40px;
   width: 280px;
+
+  @include media(sm){
+    min-height: 380px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 210px;
+  }
 }
-.for_padding{
+
+.for_padding {
   margin-left: 15px;
+  @include media(xs) {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
 }
-.coolers-list-item-zero-title{
+
+.coolers-list-item-zero-title {
   margin: 26px 15px 27px 15px;
   overflow: hidden;
 }
-.coolers-list-item-zero-title-text{
+
+.coolers-list-item-zero-title-text {
   font-family: 'MuseoSansCyrl';
   color: #ffffff;
   font-size: 24px;
@@ -122,19 +248,27 @@
   margin-right: 25px;
   float: left;
   width: 157px;
+
+  @include media(sm){
+    font-size: 22px;
+  }
 }
-.coolers-list-item-zero-title-img{
+
+.coolers-list-item-zero-title-img {
   float: right;
   margin-top: 8px;
 }
-.coolers-list-item-zero-list{
+
+.coolers-list-item-zero-list {
   margin: 0 10% 34px 26px;
 }
-.coolers-list-item-zero-list-item{
+
+.coolers-list-item-zero-list-item {
   margin-bottom: 26px;
   margin-right: 10px;
 }
-.coolers-list-item-zero-list-item-text{
+
+.coolers-list-item-zero-list-item-text {
   font-family: 'MuseoSansCyrl';
   color: #ffffff;
   font-size: 16px;
@@ -149,13 +283,14 @@
     line-height: 22px;
     text-align: left;
   }
-  a{
+  a {
     color: #ffffff;
     text-decoration: none;
   }
 }
-.coolers-list-item{
-  .coolers-list-item-button-wrapper{
+
+.coolers-list-item {
+  .coolers-list-item-button-wrapper {
     display: none;
   }
   &:hover {
@@ -163,15 +298,19 @@
       display: block;
     }
     .coolers-list-item-title {
-      a {color: #0080bb;}
+      a {
+        color: #0080bb;
+      }
     }
   }
 }
-.coolers-list-item-img{
+
+.coolers-list-item-img {
   position: relative;
   text-align: center;
 }
-.coolers-list-item-img-tag{
+
+.coolers-list-item-img-tag {
   z-index: 2;
   position: absolute;
   bottom: 5px;
@@ -181,49 +320,57 @@
   color: #FFF;
   font-size: 12px;
 }
-.coolers-list-item-title{
-  a {font-family: 'MuseoSansCyrl';
-  font-size: 18px;
-  line-height: 30px;
-  text-align: left;
-  color: black;
-  text-decoration: none;}
-}
-.coolers-list-item-options{
 
+.coolers-list-item-title {
+  a {
+    font-family: 'MuseoSansCyrl';
+    font-size: 18px;
+    line-height: 30px;
+    text-align: left;
+    color: black;
+    text-decoration: none;
+  }
 }
-.coolers-list-item-options-tag{
+
+.coolers-list-item-options {
+}
+
+.coolers-list-item-options-tag {
   font-family: 'MuseoSansCyrl';
   font-size: 14px;
   line-height: 20px;
   text-align: left;
   float: left;
   margin-right: 11px;
-  a{
+  a {
     color: #a5a5a5;
     text-decoration: none;
   }
 }
-.coolers-list-item-options-item{
+
+.coolers-list-item-options-item {
   font-family: 'MuseoSansCyrl';
   font-size: 14px;
   line-height: 20px;
   text-align: left;
-  a{
+  a {
     color: #a5a5a5;
     text-decoration: none;
   }
 }
-.coolers-list-item-price_button{
+
+.coolers-list-item-price_button {
   font-family: 'MuseoSansCyrl';
   font-size: 18px;
   line-height: 25px;
 }
-.coolers-list-item-price{
+
+.coolers-list-item-price {
   float: left;
   margin-right: 13px;
 }
-.coolers-list-item-price-count{
+
+.coolers-list-item-price-count {
   color: #3b3a3c;
   float: left;
   span {
@@ -237,13 +384,15 @@
     box-sizing: border-box;
   }
 }
-.coolers-list-item-button-wrapper{
-  a{
+
+.coolers-list-item-button-wrapper {
+  a {
     text-decoration: none;
     color: white;
   }
 }
-.coolers-list-item-button{
+
+.coolers-list-item-button {
   font-family: 'MuseoSansCyrl';
   color: #FFF;
   font-size: 13px;
@@ -253,53 +402,76 @@
   height: 25px;
   float: left;
   text-align: center;
-  margin-top: 0px;
+  margin-top: 0;
   line-height: 25px;
 }
-.hidden{
+
+.hidden {
   visibility: hidden;
 }
-.color{
+
+.color {
   color: #0080bb;
 }
 
-.coolers-list-item-service{
+.coolers-list-item-service {
   border-radius: 3px;
-  background-color:  #ffffff;
+  background-color: #ffffff;
   height: 320px;
   display: inline-block;
-  vertical-align:bottom;
+  vertical-align: bottom;
   position: relative;
   margin-bottom: 40px;
   width: 280px;
+
+  @include media(sm){
+    min-height: 380px;
+    margin-left: 15px;
+    margin-right: 15px;
+    width: 210px;
+  }
 }
-.coolers-list-item-service-img{
+
+.coolers-list-item-service-img {
   width: 107px;
   height: 99px;
   margin: 34px auto 32px;
+
+  @include media(sm){
+    width: 64px;
+    height: 64px;
+
+    img{
+      width: 100%;
+    }
+  }
 }
-.coolers-list-item-service-title{
+
+.coolers-list-item-service-title {
   font-family: 'MuseoSansCyrl';
-  color:  #0080bb;
+  color: #0080bb;
   font-size: 24px;
   line-height: 30px;
   text-align: center;
 }
-.coolers-list-item-service-text{
+
+.coolers-list-item-service-text {
   font-family: 'MuseoSansCyrl';
-  color:  #333333;
+  color: #333333;
   font-size: 18px;
   line-height: 24px;
   text-align: center;
-  margin: 18px 26px 0px;
+  margin: 18px 26px 0;
 }
-.coolers-list-item-service-link-wrapper{
+
+.coolers-list-item-service-link-wrapper {
   margin: 0 auto 23px;
   text-align: center;
 }
-.coolers-list-item-service-link{
+
+.coolers-list-item-service-link {
   font-family: 'MuseoSansCyrl';
-  color:  #0080bb;
+  color: #0080bb;
   font-size: 16px;
   line-height: 24px;
   text-decoration: underline;

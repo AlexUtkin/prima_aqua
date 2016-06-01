@@ -78,25 +78,32 @@
 
   function enable_scrolling(){
     // scrolling
+    enableWheelKinetic = false;
     enableScroll = true;
     flag = false;
     direction = 0;
 
-    el = $(window)[0];
-    if (el.addEventListener) {
-      if ('onwheel' in document) {
-        // IE9+, FF17+, Ch31+
-        el.addEventListener("wheel", onWheel);
-      } else if ('onmousewheel' in document) {
-        // устаревший вариант события
-        el.addEventListener("mousewheel", onWheel);
-      } else {
-        // Firefox < 17
-        el.addEventListener("MozMousePixelScroll", onWheel);
-      }
-    } else { // IE8-
-      el.attachEvent("onmousewheel", onWheel);
-    };
+    if ( document.documentElement && document.documentElement.clientWidth >= 1000 ){
+      enableWheelKinetic = true;
+    }
+
+    if (enableWheelKinetic){
+      el = $(window)[0];
+      if (el.addEventListener) {
+        if ('onwheel' in document) {
+          // IE9+, FF17+, Ch31+
+          el.addEventListener("wheel", onWheel);
+        } else if ('onmousewheel' in document) {
+          // устаревший вариант события
+          el.addEventListener("mousewheel", onWheel);
+        } else {
+          // Firefox < 17
+          el.addEventListener("MozMousePixelScroll", onWheel);
+        }
+      } else { // IE8-
+        el.attachEvent("onmousewheel", onWheel);
+      };
+    }
 
     posts = $('.aqua_posts .post')
     posts_count = posts.length;

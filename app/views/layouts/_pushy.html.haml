@@ -1,0 +1,37 @@
+%nav.pushy.pushy-left
+  %ul
+    %li.pushy-submenu
+      %a.with_underline{class: "#{'current' if params[:controller] == 'aquas'}"} О воде
+      %ul
+        - @all_aquas.each do |aqua|
+          %li
+            = link_to aqua.name, aqua, class: "with_underline"
+    %li.pushy-link
+      %a.with_underline{href: coolers_path, class: "#{'current' if current_page?(coolers_path)}"} Кулеры и помпы
+    %li.pushy-link
+      %a.with_underline{href: products_path(type: 'cup'), class: "#{'current' if current_page?(products_path(type: 'cup'))}"} Сопутствующие товары
+    %li.pushy-link
+      %a.with_underline{href: prices_path, class: "#{'current' if current_page?(prices_path)}"} Цены
+    %li.pushy-link
+      %a.with_underline{href: "/events?type=promotion", class: "#{'current' if current_page?('/events?type=promotion')}"} Акции
+    %li.pushy-link
+      %a.red_button.js_order_button{href: '#'} Заказать
+
+    %li.pushy-link
+      = link_to 'О компании', '/about'
+    %li.pushy-link
+      = link_to 'События', '/events'
+    %li.pushy-link
+      = link_to 'Контакты', '/contacts'
+    %li.pushy-link
+      = link_to 'Оплата', page_content_path(:payment)
+    %li.pushy-link
+      = link_to 'Доставка', '/delivery'
+    %li.pushy-link
+      - if current_user
+        = link_to 'Профиль', '/profile'
+        = link_to 'Выход', destroy_user_session_path, method: :delete
+      - else
+        = link_to '→ Вход', '#', class: 'js_sign_in'
+
+.site-overlay

@@ -1,46 +1,98 @@
-.contacts-body{
+@import '../config';
+
+.contacts-body {
   text-align: center;
 }
-.contacts-body-title{
+
+.contacts-body-title {
   font-family: 'MuseoSansCyrl';
-  color:  #333333;
+  color: #333333;
   font-size: 36px;
   line-height: 30px;
   text-align: center;
   margin: 45px;
 }
-#contacts-body-map{
+
+#contacts-body-map {
   height: 400px;
   width: 1180px;
   margin: 0 auto;
+  @include media(xs) {
+    width: 100%;
+    height: 200px;
+  }
+  @include media(sm) {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
 }
-.contacts-body-blocks{
+
+.contacts-body-blocks {
   display: inline-block;
   margin: 20px auto 40px;
+  @include media(xs) {
+    width: 100%;
+    text-align: center;
+  }
+  @include media(sm) {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
 }
-.contacts-body-blocks-item{
+
+.contacts-body-blocks-item {
   display: inline-block;
   margin: 0 10px;
   border-radius: 3px;
-  background-color:  #f7f7f7;
+  background-color: #f7f7f7;
   width: 400px;
   height: 200px;
+  @include media(xs) {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+  @include media(sm) {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 20px;
+  }
 }
-.contacts-body-blocks-wide-item{
+
+.contacts-body-blocks-wide-item {
   clear: both;
   margin: 20px auto;
   border-radius: 3px;
-  background-color:  #f7f7f7;
+  background-color: #f7f7f7;
   min-width: 400px;
   width: 80%;
   height: 200px;
-  .contacts-body-blocks-item-title-text{
+  @include media(xs) {
+    width: 100%;
+    min-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    height: auto;
+    padding: 10px;
+  }
+  @include media(sm){
+    width: 100%;
+    margin-top: 0;
+  }
+  .contacts-body-blocks-item-title-text {
     padding: 17px 35px 0;
   }
 }
 
-.contacts-body-blocks-item-title{}
-.contacts-body-blocks-item-title-img{
+.contacts-body-blocks-item-title {
+}
+
+.contacts-body-blocks-item-title-img {
   width: 18px;
   height: 19px;
   float: left;
@@ -48,7 +100,8 @@
   margin-right: 14px;
   margin-top: 24px;
 }
-.contacts-body-blocks-item-title-text{
+
+.contacts-body-blocks-item-title-text {
   font-family: 'MuseoSansCyrl';
   color: #333;
   font-size: 24px;
@@ -56,20 +109,24 @@
   text-align: left;
   padding-top: 17px;
 }
-.contacts-body-blocks-item-body{
+
+.contacts-body-blocks-item-body {
   float: left;
   margin-left: 38px;
   margin-top: 23px;
+  @include media(xs) {
+    float: none;
+  }
 }
-.contacts-body-blocks-item-body-text{
+
+.contacts-body-blocks-item-body-text {
   font-family: 'MuseoSansCyrl-300';
-  color:  #333333;
+  color: #333333;
   font-size: 16px;
   line-height: 24px;
   text-align: left;
-
-  span{
-    color:  #0080bb;
+  span {
+    color: #0080bb;
     font-size: 16px;
     line-height: 24px;
     text-align: left;

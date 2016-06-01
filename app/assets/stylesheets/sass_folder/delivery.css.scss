@@ -1,90 +1,141 @@
-.delivery-body{
+@import '../config';
+
+.delivery-body {
 }
-.delivery-body-title{
+
+.delivery-body-title {
   font-family: 'MuseoSansCyrl';
-  color:  #333333;
+  color: #333333;
   font-size: 36px;
   line-height: 30px;
   text-align: center;
   margin: 45px;
 }
-#delivery-body-map{
+
+#delivery-body-map {
   height: 400px;
   width: 1180px;
   margin: 0 auto;
+  @include media(xs) {
+    width: 100%;
+    height: 200px;
+  }
+  @include media(sm) {
+    width: 100%;
+    height: 200px;
+  }
 }
-.delivery-body-text{
+
+.delivery-body-text {
   margin: 65px auto 65px;
   width: 62%;
   overflow: hidden;
+  @include media(xs) {
+    width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  @include media(sm) {
+    width: 100%;
+    padding: 14px 10px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
   input[type=text] {
     border-radius: 3px;
     border: 1px solid #d1d1d1;
-    background-color:  #ffffff;
+    background-color: #ffffff;
     width: 97%;
     height: 33px;
     margin: 22px auto;
     background: transparent image_url('magnifier.png') no-repeat scroll 97% center;
-    padding-left:16px;
+    padding-left: 16px;
+    @include media(xs) {
+      width: 100%;
+      box-sizing: border-box;
+    }
+    @include media(sm) {
+      width: 100%;
+      box-sizing: border-box;
+    }
   }
 }
-.delivery-body-text-delivery{
+
+.delivery-body-text-delivery {
   font-family: 'MuseoSansCyrl';
-  color:  #333333;
+  color: #333333;
   font-size: 16px;
   line-height: 24px;
   text-align: left;
   width: 61%;
   float: left;
+  @include media(xs) {
+    width: 100%;
+  }
+  @include media(sm) {
+    width: 100%;
+  }
   span {
-    color:  #333333;
+    color: #333333;
     font-size: 24px;
     line-height: 30px;
     text-align: left;
   }
-  .delivery-body-text-delivery-spb{}
-  .delivery-body-text-delivery-district{
+  .delivery-body-text-delivery-spb {
+  }
+  .delivery-body-text-delivery-district {
     margin-top: 42px;
   }
-  .delivery-body-text-search{
+  .delivery-body-text-search {
     width: 99%;
   }
 }
-.delivery-body-text-delivery-info{
+
+.delivery-body-text-delivery-info {
   border-radius: 3px;
-  background-color:  #f7f7f7;
+  background-color: #f7f7f7;
   width: 280px;
   height: 200px;
   float: right;
+  @include media(xs) {
+    width: 100%;
+    margin: 20px 0;
+  }
+  @include media(sm) {
+    width: 100%;
+    margin: 20px 0;
+  }
 }
-.delivery-body-text-delivery-info-text{
+
+.delivery-body-text-delivery-info-text {
   padding: 27px 69px 20px 27px;
   big {
     font-family: 'MuseoSansCyrl';
-    color:  #333333;
+    color: #333333;
     font-size: 18px;
     line-height: 24px;
     text-align: left;
   }
-
   span {
     font-family: 'MuseoSansCyrl';
-    color:  #eb0028;
+    color: #eb0028;
     font-size: 18px;
     line-height: 24px;
     text-align: left;
   }
-
   body {
     font-family: 'MuseoSansCyrl';
-    color:  #333333;
+    color: #333333;
     font-size: 16px;
     line-height: 24px;
     text-align: left;
   }
 }
 
-.delivery-body-text-list{
+.delivery-body-text-list {
   font-family: 'MuseoSansCyrl';
   color: #0080bb;
   font-size: 16px;
@@ -95,20 +146,26 @@
   -webkit-column-count: 3;
   -moz-column-count: 3;
   column-count: 3;
-  a{
+  @include media(xs) {
+    height: auto;
+  }
+  @include media(sm) {
+    height: auto;
+  }
+  a {
     color: #0080bb;
-    &:hover{
+    &:hover {
       color: #d1d1d1;
     }
   }
 }
 
-.delivery-list-group{
+.delivery-list-group {
   margin-bottom: 10px;
 }
 
-.delivery-list-group-item{
-  a{
+.delivery-list-group-item {
+  a {
     text-decoration: none;
   }
 }
@@ -117,27 +174,27 @@
   display: none;
   position: absolute;
   margin-left: 15px;
-  -moz-box-shadow: 0px 0px 8px -1px black;
-
+  -moz-box-shadow: 0 0 8px -1px black;
   border-width: 1px;
-  border-color:  #d1d1d1;
+  border-color: #d1d1d1;
   border-style: solid;
-  background-color:  #f7f7f7;
+  background-color: #f7f7f7;
   width: 320px;
   font-family: 'MuseoSansCyrl';
-  color:  #333333;
+  color: #333333;
   font-size: 16px;
   line-height: 24px;
   text-align: left;
 }
 
-.dialog-text{
+.dialog-text {
   padding: 15px 52px 15px 27px;
-  a{
+  a {
     text-decoration: none;
   }
 }
-.dialog-text-link{
+
+.dialog-text-link {
   padding: 6px 0 0 27px;
 }
 
@@ -149,9 +206,9 @@
   top: 16px;
   left: -8px;
   z-index: -10;
-  box-shadow: 0px 0px 8px 1px black;
-  -moz-box-shadow: 0px 0px 8px 1px black;
-  -webkit-box-shadow: 0px 0px 8px 1px black;
+  box-shadow: 0 0 8px 1px black;
+  -moz-box-shadow: 0 0 8px 1px black;
+  -webkit-box-shadow: 0 0 8px 1px black;
 }
 
 #tail1 {
@@ -170,7 +227,7 @@
   top: 8px;
 }
 
-.close-modal{
+.close-modal {
   position: absolute;
   top: 7px;
   left: 297px;
