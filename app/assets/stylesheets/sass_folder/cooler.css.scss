@@ -247,6 +247,13 @@
   text-align: left;
   width: 489px;
   margin-bottom: 28px;
+
+  @include media(xs){
+    width: 100%;
+  }
+  @include media(sm){
+    width: 100%;
+  }
 }
 
 .coolers-right-params_title {
@@ -307,4 +314,11 @@
   text-align: left;
   width: 514px;
   margin-bottom: 83px;
+
+  @include media(xs){
+    width: 100%;
+  }
+  @include media(sm){
+    width: 100%;
+  }
 }
