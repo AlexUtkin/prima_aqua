@@ -400,6 +400,7 @@ a.with_blue_button {
       float: right;
       position: relative;
       top: 28px;
+      margin-top: -12px;
     }
     text-align: center;
   }
@@ -434,6 +435,10 @@ a.with_blue_button {
     display: none;
   }
 
+  @include media(xs){
+    overflow: hidden;
+    position: relative;
+  }
   @include media(md) {
     min-width: 1000px;
   }
