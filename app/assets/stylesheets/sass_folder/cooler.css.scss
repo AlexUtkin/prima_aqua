@@ -90,11 +90,13 @@
     width: 100%;
     min-width: 100%;
     box-sizing: border-box;
+    float: none;
   }
   @include media(sm) {
     width: 100%;
     min-width: 100%;
     box-sizing: border-box;
+    float: none;
   }
 }
 
@@ -168,6 +170,13 @@
   line-height: 30px;
   overflow: hidden;
   margin-bottom: 25px;
+
+  @include media(xs){
+    margin: 10px 0;
+  }
+  @include media(sm){
+    margin: 10px 0;
+  }
 }
 
 .cooler-right-price {
