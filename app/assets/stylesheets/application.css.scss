@@ -797,11 +797,16 @@ a.with_blue_button {
     .close_button {
       display: inline-block;
       text-align: right;
-      margin: 12px 15px 0;
+      //margin: 12px 15px 0;
       font-family: monospace;
       font-size: 15px;
       cursor: pointer;
       color: #0080bb;
+
+      padding-top: 12px;
+      padding-right: 15px;
+      padding-left: 20px;
+      padding-bottom: 20px;
     }
   }
   .modal__title {
