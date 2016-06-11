@@ -11,7 +11,8 @@ $screen-lg-min: 1150px;
       @content;
     }
   } @else if $media == sm {
-    @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    // верно max-width: $screen-md-max
+    @media only screen and (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
       @content;
     }
   } @else if $media == md {
