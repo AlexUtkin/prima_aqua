@@ -217,7 +217,7 @@ a {
 
     a{
       @include media(md){
-        font-size: 13px;
+        font-size: 11px;
       }
     }
   }
@@ -289,6 +289,9 @@ a {
   }
   @include media(sm) {
     display: none;
+  }
+  @include media(md){
+    margin-left: 20px;
   }
 }
 

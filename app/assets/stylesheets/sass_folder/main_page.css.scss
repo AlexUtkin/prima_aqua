@@ -351,44 +351,44 @@
     }
     .aquas__block__legend {
       background: image_url('legend_main.jpg') no-repeat left center fixed;
-      background-size: 34%;
       @include media(xs) {
-         background: image_url('legend_main.jpg') no-repeat;
-         background-size: cover;
-         left: 0;
-       }
-      @include media(sm) {
-        background: image_url('legend_main.jpg') no-repeat;
+        background: image_url('legend_main.jpg') no-repeat left center fixed;
         background-size: cover;
         left: 0;
+       }
+      @include media(sm) {
+        background: image_url('legend_main.jpg') no-repeat left center fixed;
+        background-size: cover;
+        left: 0;
+        background-size: 80%;
       }
     }
     .aquas__block__yodis {
       background: image_url('yodis_main.jpg') no-repeat center center fixed;
-      background-size: 34%;
       @include media(xs) {
         background: image_url('yodis_main.jpg') no-repeat;
         background-size: cover;
         left: 100%;
       }
       @include media(sm) {
-        background: image_url('yodis_main.jpg') no-repeat;
+        background: image_url('yodis_main.jpg') no-repeat left center fixed;
         background-size: cover;
         left: ( 100% / 3 );
+        background-size: 80%;
       }
     }
     .aquas__block__arhyz {
       background: image_url('arhyz_main.jpg') no-repeat right center fixed;
-      background-size: 34%;
       @include media(xs) {
         background: image_url('arhyz_main.jpg') no-repeat;
         background-size: cover;
         left: 200%;
       }
       @include media(sm) {
-        background: image_url('arhyz_main.jpg') no-repeat;
+        background: image_url('arhyz_main.jpg') no-repeat left center fixed;
         background-size: cover;
         left: ( 100% / 3 ) * 2;
+        background-size: 100%;
       }
     }
   }
