@@ -57,23 +57,26 @@
 
 :javascript
   function setClassToPrices(){
-    var aqua_prices = $('.aqua_prices');
-    if ($(document).scrollTop() > 100){
-      aqua_prices.addClass('middle');
-      aqua_prices.removeClass('start');
-      aqua_prices.removeClass('end');
-    };
-    if ($(document).scrollTop() < 100){
-      aqua_prices.addClass('start');
-      aqua_prices.removeClass('middle');
-      aqua_prices.removeClass('end');
-    };
-    if (($(document).scrollTop() + $(window).height()) > ($(document).height() - $('.footer').height() - 10)){
-      aqua_prices.addClass('end');
-      aqua_prices.removeClass('start');
-      aqua_prices.removeClass('middle');
-    };
-    aqua_prices.height($('.aqua_posts').height()/#{@screens_size} - 10);
+    if ( document.documentElement && document.documentElement.clientWidth >= 768 ){
+      var aqua_prices = $('.aqua_prices');
+      if ($(document).scrollTop() > 100){
+        aqua_prices.addClass('middle');
+        aqua_prices.removeClass('start');
+        aqua_prices.removeClass('end');
+      };
+
+      if ($(document).scrollTop() < 100){
+        aqua_prices.addClass('start');
+        aqua_prices.removeClass('middle');
+        aqua_prices.removeClass('end');
+      };
+      if (($(document).scrollTop() + $(window).height()) > ($(document).height() - $('.footer').height() - 10)){
+        aqua_prices.addClass('end');
+        aqua_prices.removeClass('start');
+        aqua_prices.removeClass('middle');
+      };
+      aqua_prices.height($('.aqua_posts').height()/#{@screens_size} - 10);
+    }
   };
 
   function enable_scrolling(){

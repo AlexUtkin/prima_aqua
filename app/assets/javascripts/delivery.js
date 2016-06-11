@@ -11,8 +11,28 @@ $(document).ready(function(){
     $('.dialog-text').html($($(this).attr('popup')).text());
     var linkToDistrict = "/districts/"+$(this).attr('district_id');
     $('.dialog-text').append($("<div><a href="+linkToDistrict+">Подробнее</a></div>"));
-    $('#dialog').css('left', $(this).position().left + $(this).width() + 10);
-    $('#dialog').css('top', $(this).position().top - 7);
+
+    // код выбирает как разместить окно диалога на экране относительно выбранного элемента
+    if ( document.documentElement && document.documentElement.clientWidth >= 992 ){
+      $('#dialog').css('left', $(this).position().left + $(this).width() + 10);
+      $('#dialog').css('top', $(this).position().top - 7);
+      $('#tail1').show();
+      $('#tail2').show();
+    }else{
+      var padding = 20;
+      var clientWidth = document.documentElement.clientWidth;
+      var left = $(this).position().left + $(this).width() + 10 - 210;
+      var top = $(this).position().top - 7 + 30;
+
+      left = left <= padding ? padding : left > clientWidth - padding - $('#dialog').width() ? 'auto' : left;
+
+      $('#dialog').css('right', padding );
+      $('#dialog').css('left', left );
+      $('#dialog').css('top', top );
+      $('#tail1').hide();
+      $('#tail2').hide();
+    }
+
   });
 });
 
