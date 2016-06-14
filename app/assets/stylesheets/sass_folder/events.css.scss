@@ -97,6 +97,15 @@
 
 .article-image {
   margin: 0 0 -2px 0;
+
+  img {
+    @include media(xs) {
+      width: 100%;
+    }
+    @include media(sm) {
+      width: 100%;
+    }
+  }
 }
 
 .article-body {

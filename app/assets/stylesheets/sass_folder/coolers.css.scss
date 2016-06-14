@@ -308,6 +308,10 @@
 .coolers-list-item-img {
   position: relative;
   text-align: center;
+
+  img{
+    width: 100%;
+  }
 }
 
 .coolers-list-item-img-tag {
