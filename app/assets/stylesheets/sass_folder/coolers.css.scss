@@ -193,15 +193,16 @@
 
 .coolers-list-item {
   border-radius: 3px;
-  height: 320px;
+  height: 380px;
   display: inline-block;
   vertical-align: bottom;
   position: relative;
   margin-bottom: 40px;
   width: 280px;
+  padding: 0 4px;
 
   @include media(sm){
-    min-height: 380px;
+    max-height: 320px;
     margin-left: 15px;
     margin-right: 15px;
     width: 210px;
@@ -211,28 +212,30 @@
 .coolers-list-item-zero {
   border-radius: 3px;
   background-color: #3498db;
-  height: 320px;
+  height: 380px;
   display: inline-block;
   vertical-align: bottom;
   position: relative;
-  margin-bottom: 40px;
   width: 280px;
+  margin: 0 4px;
+  margin-bottom: 40px;
 
   @include media(sm){
-    min-height: 380px;
+    max-height: 320px;
     margin-left: 15px;
     margin-right: 15px;
     width: 210px;
   }
 }
 
-.for_padding {
-  margin-left: 15px;
+/*.for_padding {
+  margin-left: 0;
+
   @include media(xs) {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
-}
+}*/
 
 .coolers-list-item-zero-title {
   margin: 26px 15px 27px 15px;
@@ -276,6 +279,11 @@
   text-align: left;
   float: left;
   margin-bottom: 27px;
+
+  @include media(sm){
+    margin-bottom: 7px;
+  }
+
   span {
     font-family: 'MuseoSansCyrl';
     color: #90bedc;
@@ -421,15 +429,17 @@
 .coolers-list-item-service {
   border-radius: 3px;
   background-color: #ffffff;
-  height: 320px;
+  height: 380px;
   display: inline-block;
   vertical-align: bottom;
   position: relative;
+  margin: 0 4px;
   margin-bottom: 40px;
   width: 280px;
+  padding: 0;
 
   @include media(sm){
-    min-height: 380px;
+    max-height: 320px;
     margin-left: 15px;
     margin-right: 15px;
     width: 210px;
@@ -466,6 +476,10 @@
   line-height: 24px;
   text-align: center;
   margin: 18px 26px 0;
+
+  @include media(sm){
+    font-size: 15px;
+  }
 }
 
 .coolers-list-item-service-link-wrapper {
