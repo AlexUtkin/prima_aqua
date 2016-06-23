@@ -18,15 +18,15 @@
           ФИО
           %br
           %span.hint или № договора
-        = text_field_tag :name, (current_user.try(:name) if current_user.try(:individual?))
+        = text_field_tag :name, (current_user.try(:name) unless current_user.try(:company?))
         .clearfix
       .order_input.phone.js_phone
         %label Телефон
-        = phone_field_tag :phone, (current_user.try(:phone) if current_user.try(:individual?))
+        = phone_field_tag :phone, (current_user.try(:phone) unless current_user.try(:company?))
         .clearfix
       .order_input.address.js_address
         %label Адрес
-        = text_field_tag :address, (current_user.try(:address) if current_user.try(:individual?))
+        = text_field_tag :address, (current_user.try(:address) unless current_user.try(:company?))
         .clearfix
     .order__customer_form.js_company{ class: ('hidden_block' unless current_user.try(:company?)) }
       .order_input.name.js_name
