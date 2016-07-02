@@ -21,6 +21,12 @@
         = link_to 'Выход', destroy_user_session_path, method: :delete
       - else
         = link_to '→ Вход', '#', class: 'js_sign_in'
+      .social_links
+        = link_with_tab 'https://vk.com/prima_aqua' do
+          - image_tag image_url('vk.png')
+        = link_with_tab 'https://instagram.com/prima_aqua/' do
+          - image_tag image_url('in.png')
+
   .header__main_line
     .header__main_line__menu
       %ul#menu

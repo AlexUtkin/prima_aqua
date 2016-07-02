@@ -163,6 +163,16 @@ a {
       color: #0080bb;
     }
   }
+  .social_links{
+    float: right;
+    margin-left: 20px;
+    a{
+      margin: 0;
+    }
+    img{
+      height: 15px;
+    }
+  }
 }
 
 .header__main_line {
