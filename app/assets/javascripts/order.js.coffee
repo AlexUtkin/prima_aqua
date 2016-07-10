@@ -270,6 +270,7 @@ class Order
     @checkAvailableTime(time)
 
   changeOrderStep: ->
+    $('#address').val($('#address').attr('value'))
     $('.order_step').toggleClass('hidden_block')
 
   isShoudProcessed: (elem)->
