@@ -25,6 +25,8 @@
         = phone_field_tag :phone, (current_user.try(:phone) unless current_user.try(:company?))
         .clearfix
       .order_input.address.js_address
+        .hidden{style: 'display: none;'}
+          = text_field_tag :address, nil, value: (current_user.try(:address) unless current_user.try(:company?))
         %label Адрес
         = text_field_tag :address, (current_user.try(:address) unless current_user.try(:company?))
         .clearfix
