@@ -1,0 +1,46 @@
+.devise_form
+  .form
+    .modal_area
+      %h2 Регистрация
+      .modal__registration
+        = form_for(:user, url: registration_path(:user)) do |f|
+
+          .input_set
+            .custome_selector.js_reg_customer_type_selector{ data: { val: :individual }}
+              .variant.first_variant.active.js_customer_type{ data: { val: :individual } }
+                Я частное лицо
+              .variant.second_variant.js_customer_type{ data: { val: :company } }
+                Компания
+            .clearfix
+            .hidden_block
+              = f.text_field :customer_type, value: :individual
+            %label.with_hint
+              Как вас зовут
+              %br
+              %span.hint или № договора
+            = f.text_field :name
+            .clearfix
+          .input_set
+            = f.label 'Телефон'
+            = f.phone_field :phone
+            .clearfix
+          .input_set
+            = f.label 'Адрес'
+            = f.text_field :address
+            .clearfix
+          .input_set
+            = f.label 'E-mail'
+            = f.email_field :email
+            .clearfix
+          .input_set
+            = f.label 'Пароль'
+            = f.password_field :password, autocomplete: 'off'
+            .clearfix
+          .input_set
+            = f.label 'Повторите пароль'
+            = f.password_field :password_confirmation, autocomplete: 'off'
+            .clearfix
+          .actions
+            = f.submit 'Зарегистрироваться', class: 'red_button'
+            .clearfix
+

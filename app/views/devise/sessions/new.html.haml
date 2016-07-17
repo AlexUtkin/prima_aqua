@@ -1,0 +1,21 @@
+.devise_form
+  .form
+    %h2 Вход
+    .modal_area
+      = form_for(:user, url: session_path(:user)) do |f|
+        .input_set
+          = f.label 'E-mail'
+          = f.email_field :email, autofocus: true
+          .clearfix
+        .input_set
+          = f.label 'Пароль'
+          = f.password_field :password, autocomplete: 'off'
+          .clearfix
+        .actions
+          = f.submit 'Войти', class: 'red_button'
+          .clearfix
+      .help_links
+        = link_to 'Регистрация', new_registration_path(:user), class: 'left_floated_link'
+        = link_to 'Забыли пароль?', new_password_path(:user), class: 'right_floated_link'
+
+
