@@ -936,6 +936,18 @@ a.with_blue_button {
   margin: 50px auto;
 }
 
+.devise_form{
+  .form {
+    width: 300px;
+    margin: 0 auto 20px;
+    text-align: center;
+  }
+  .login__text_input label{
+    width: 60px;
+    display: inline-block;
+  }
+
+}
 /*------------------------- end gem devise -----------------------------*/
 
 .ui-datepicker{
