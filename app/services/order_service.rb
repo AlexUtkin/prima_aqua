@@ -11,24 +11,31 @@ class OrderService
   end
 
   def self.check_date(date)
+    # 1 - morning
+    # 2 - evening
     today = Time.zone.today
-    dt = date.present? ? Date.parse(date) : today
+    delivery_date = date.present? ? Date.parse(date) : today
     setting = OrderSetting.first
-    result = []
-    result << 1 if dt == today || dt == Time.zone.tomorrow && Time.zone.now.localtime.hour >= 16
-    result << 1 if (today.sunday? || today.saturday?) && dt.monday?
-    return result unless setting
+    disabled = []
+    if delivery_date == today || delivery_date == Time.zone.tomorrow && Time.zone.now.localtime.hour >= 16
+      disabled << 1
+    end
+    if delivery_date == today && Time.zone.now.localtime.hour >= 11
+      disabled << 2
+    end
+    disabled << 1 if (today.sunday? || today.saturday?) && delivery_date.monday?
+    return disabled unless setting
     # puts setting.disabled_day?(dt) || setting.disabled_date?(dt)
     # puts setting.disabled_morning_day?(dt) || setting.disabled_morning_date?(dt)
     # puts setting.disabled_evening_day?(dt) || setting.disabled_evening_date?(dt)
-    if setting.disabled_day?(dt) || setting.disabled_date?(dt)
-      result = [1, 2]
-    elsif setting.disabled_morning_day?(dt) || setting.disabled_morning_date?(dt)
-      result << 1
-    elsif setting.disabled_evening_day?(dt) || setting.disabled_evening_date?(dt)
-      result << 2
+    if setting.disabled_day?(delivery_date) || setting.disabled_date?(delivery_date)
+      disabled = [1, 2]
+    elsif setting.disabled_morning_day?(delivery_date) || setting.disabled_morning_date?(delivery_date)
+      disabled << 1
+    elsif setting.disabled_evening_day?(delivery_date) || setting.disabled_evening_date?(delivery_date)
+      disabled << 2
     end
-    result.uniq
+    disabled.uniq
   end
 
   def self.get_order_json(params)

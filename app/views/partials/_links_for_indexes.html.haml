@@ -7,3 +7,5 @@
     = link_to 'Стойки', stands_path
   .coolers-links-item{class: ('active' if params[:controller] == 'accessories')}
     = link_to 'Аксессуары', accessories_path
+  .coolers-links-item{class: ('active' if params[:controller] == 'page_contents')}
+    = link_to 'Сервис', page_content_path(:service)
