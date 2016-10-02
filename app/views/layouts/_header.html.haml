@@ -8,7 +8,11 @@
       = image_tag image_url('logo.png')
   .header__contacts
     %a
-      = image_tag 'contacts.png'
+      -#= image_tag 'contacts.png'
+      -#%br
+      %span.phone +7 (812) 335-40-80
+      %br
+      %span.action Перезвоните мне
   .header__top_line
     .header__top_line__menu
       = link_to 'О компании', '/about'

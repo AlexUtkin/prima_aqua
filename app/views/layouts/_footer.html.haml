@@ -13,6 +13,7 @@
         = link_to 'Кулеры и помпы', coolers_path
         = link_to 'Сопутствующие товары', products_path(type: 'cup')
         = link_to 'Обслуживание', page_content_path(:service)
+        = link_to 'Сертификаты', page_content_path(:certificates)
         -#= link_to 'Вопросы и ответы', '#'
       .links_column
         -@all_delivery_pages.each do |page|
@@ -60,5 +61,10 @@
 
         .copyright
           %span
-            &copy; ООО "Лидер-Аква" 2003 -
+            Copyright &copy; 2003 -
             #{Time.zone.now.year}
+            ООО "Лидер-Аква"
+          %br
+          %a{href: 'http://prima-aqua.ru/'}
+            Доставка воды на дом и в офис
+          , г. Санкт-Петербург.

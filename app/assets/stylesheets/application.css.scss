@@ -124,6 +124,10 @@ a {
   right: 290px;
 }
 
+.copyright a{
+  color: #0080bb;
+}
+
 /*---------------------HEADER---------------------------*/
 .header {
   width: 100%;
@@ -293,6 +297,7 @@ a {
   position: absolute;
   top: 50px;
   right: 20px;
+  text-align: right;
 
   @include media(xs) {
     display: none;
@@ -302,6 +307,18 @@ a {
   }
   @include media(md){
     margin-left: 20px;
+  }
+
+  .phone{
+    color: #eb0028;
+    font-size: 21px;
+    font-weight: bold;
+    font-family: 'MuseoSansCyrl-700';
+  }
+  .action{
+    color: #0080bb;
+    font-size: 12px;
+    font-family: 'MuseoSansCyrl-300';
   }
 }
 

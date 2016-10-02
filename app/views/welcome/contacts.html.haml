@@ -6,23 +6,42 @@
   .contacts-body-title
     Контакты
   #contacts-body-map
-  .contacts-body-blocks
+  .contacts-body-blocks.vcard
     .contacts-body-blocks-item
       .contacts-body-blocks-item-title
         .contacts-body-blocks-item-title-img
           = image_tag 'item_office.png'
         .contacts-body-blocks-item-title-text
-          Офис
+          %span.categoryОфис
       .contacts-body-blocks-item-body
         .contacts-body-blocks-item-body-text
-          Тел.: (812) 335-40-80
+          Тел.:
+          %span.tel +7 (812) 335-40-80
           %br
           Горячая линия.: 93-110-93
           %br
-          195248, г. Санкт-Петербург, ул. Партизанская, д.25
+          %br
+
+          Режим работы:
+          %br
+          %span.workhours
+            Понедельник - Пятница с 08:00 до 20:00
+            %br
+            Суббота с 08:00 до 16:00
+            %br
+            Воскресенье - выходной
+          %br
+
+          %br
+          %span.adr
+            %span.postal-code 195248
+            ,
+            %span.locality г. Санкт-Петербург
+            ,
+            %span.street-address ул. Партизанская, д.25
           %br
           Эл. почта:
-          %span info@prima-aqua.ru
+          %a.email{ href: 'mailto:info@prima-aqua.ru'} info@prima-aqua.ru
     .contacts-body-blocks-item
       .contacts-body-blocks-item-title
         .contacts-body-blocks-item-title-img
@@ -37,7 +56,7 @@
     .contacts-body-blocks-wide-item
       .contacts-body-blocks-item-title
         .contacts-body-blocks-item-title-text
-          Общество с ограниченной ответственностью "Лидер-Аква"
+          %span.fn.org Общество с ограниченной ответственностью "Лидер-Аква"
       .contacts-body-blocks-item-body
         .contacts-body-blocks-item-body-text
           ИНН 7806353068 КПП 780601001 ОГРН 1079847046696

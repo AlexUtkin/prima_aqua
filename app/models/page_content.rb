@@ -1,5 +1,5 @@
 class PageContent < ActiveRecord::Base
-  NAMES = [:service, :partners, :collaboration, :payment, :delivery]
+  NAMES = [:service, :partners, :collaboration, :payment, :delivery, :certificates]
 
   mount_uploader :image, ImageUploader
 
