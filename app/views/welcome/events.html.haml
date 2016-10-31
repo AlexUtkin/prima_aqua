@@ -1,17 +1,38 @@
-- title 'Новости, события и акции. Группа компаний Мир Воды - доставка воды на дом и в офис'
-- meta_description 'События Prima-Aqua'
-- meta_keywords 'события, новости'
-.events-title
-  События
+- if params[:type] == 'promotion'
+  - title 'Следите за последними акциями компании по доставке воды Прима Аква'
+  - meta_description 'Следите за последними акциями компании по доставке воды Прима Аква'
+  - meta_keywords 'акции Прима Аква'
+  %h1.events-title
+    Акции
+- elsif params[:type] == 'news'
+  - title 'Следите за последними новостями компании по доставке воды Прима Аква'
+  - meta_description 'Следите за последними новостями компании по доставке воды Прима Аква'
+  - meta_keywords 'новости Прима Аква'
+  %h1.events-title
+    Новости
+- elsif params[:type] == 'article'
+  - title 'Читайте интерсеные статьи из мира воды | Прима Аква'
+  - meta_description 'Читайте интерсеные статьи из мира воды | Прима Аква'
+  - meta_keywords 'статьи вода Прима Аква'
+  %h1.events-title
+    Статьи
+- else
+  - title 'Все события, новости и акции компании по доставке воды Прима Аква'
+  - meta_description 'Читайте последние новости и события компании Прима Аква'
+  - meta_keywords 'новости акции события Прима Аква'
+  %h1.events-title
+    События
+
 .events-filters
   .events-filters-item
-    = link_to 'Все', events_path
+    = params[:type].blank? ? 'Все' : link_to('Все', events_path)
   .events-filters-item
-    = link_to 'Акции', events_path(type: 'promotion')
+    = params[:type] == 'promotion' ? 'Акции' : link_to('Акции', events_path(type: 'promotion'))
   .events-filters-item
-    = link_to 'Новости', events_path(type: 'news')
+    = params[:type] == 'news' ? 'Новости' : link_to('Новости', events_path(type: 'news'))
   .events-filters-item
-    = link_to 'Статьи', events_path(type: 'article')
+    = params[:type] == 'article' ? 'Статьи' : link_to('Статьи', events_path(type: 'article'))
+
 .events-items
   - @articles.each do |item|
     - if item.type == 'promotion'

@@ -1,6 +1,25 @@
-- title 'Prima aqua - доставка воды Санкт-Петербург и Ленинградская область. Товары'
-- meta_description 'У нас Вы можете купить дополнительные товары'
-- meta_keywords 'кулеры для воды, купить кулер, заказать кулер'
+- if params[:type] == 'coffee'
+  - title 'Купить растворимый, зерновой кофе с доставкой | Lavazza, Jardin, Жокей'
+  - meta_description 'У нас вы сможете купить растворимый и зерновой кофе Lavazza, Jardin, Жокей с доставкой на дом'
+  - meta_keywords 'растворимый зерновой кофе Lavazza, Jardin, Жокей'
+- elsif params[:type] == 'cup'
+  - title 'Купить, заказать одноразовые стаканчики'
+  - meta_description 'У нас вы сможете купить и заказать одноразовые стаканчики для воды и чая'
+  - meta_keywords 'одноразовые стаканчики'
+- elsif params[:type] == 'others'
+  - title 'Купить, заказать одноразовые вилки, ложки, ножи'
+  - meta_description 'У нас вы сможете купить и заказать одноразовые вилки, ложки, ножи'
+  - meta_keywords 'одноразовые вилки ложки ножи'
+- elsif params[:type] == 'plate'
+  - title 'Купить, заказать одноразовые тарелки'
+  - meta_description 'У нас вы сможете купить и заказать одноразовые тарелки'
+  - meta_keywords 'одноразовые тарелки'
+- elsif params[:type] == 'tea'
+  - title 'Купить пакетированный, листовой чай с доставкой | Althaus, Greenfield, Lipton'
+  - meta_description 'У нас вы сможете купить пакетированный и листовой чай Althaus, Greenfield, Lipton с доставкой на дом'
+  - meta_keywords 'пакетированный и листовой чай Althaus, Greenfield, Lipton'
+
+
 .products
   .products-links
     - @categories.each do |category|
