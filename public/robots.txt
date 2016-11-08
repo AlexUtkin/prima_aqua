@@ -1,3 +1,19 @@
-User-agent: *
+Host: prima-aqua.ru
+
+User-Agent: Googlebot
 Disallow: /admin
+Disallow: /uploads/
+Disallow: /users/
+
+User-Agent: Yandex
+Disallow: /admin
+Disallow: /uploads
+Disallow: /users/
+Crawl-delay: 3
+
+User-Agent: *
+Disallow: /admin
+Disallow: /uploads
+Disallow: /users/
+
 Sitemap: http://prima-aqua.ru/sitemap.xml.gz
