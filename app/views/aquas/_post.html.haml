@@ -2,8 +2,7 @@
   .post_image
     = image_tag post.image_url(:background)
     .post_text.js_to_hint{style: "color:#{post.text_color}", class: text_align_for_post(post)}
-      .post_text__header
-        = post.title.html_safe
+      = content_tag(tag, post.title.html_safe, class: 'post_text__header')
       .post_text__body
         = post.body.html_safe
       - if post.hint.present? && post.button_name.present?
